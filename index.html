@@ -9,24 +9,24 @@
         content="LAPTOP CENTRE — affordable and carefully selected laptops, technology services and gaming systems in Kenya.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="LAPTOP CENTRE">
-    <link rel="canonical" href="https://laptopcentre.co.ke/">
+    <link rel="canonical" href="/">
     <link rel="preload" as="image" href="images/Lenovo-ThinkPad-Yoga-X390.png" fetchpriority="high">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="LAPTOP CENTRE">
-    <meta property="og:url" content="https://laptopcentre.co.ke/">
+    <meta property="og:url" content="/">
     <meta property="og:title" content="LAPTOP CENTRE | Quality Laptops in Kenya">
     <meta property="og:description"
         content="Shop carefully selected laptops, gaming systems and technology services from LAPTOP CENTRE in Kenya.">
-    <meta property="og:image" content="https://laptopcentre.co.ke/images/laptops.png">
+    <meta property="og:image" content="/images/social-preview.png">
     <meta property="og:image:alt" content="A selection of laptops available from LAPTOP CENTRE">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="576">
-    <meta property="og:image:height" content="339">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="LAPTOP CENTRE | Quality Laptops in Kenya">
     <meta name="twitter:description"
         content="Shop carefully selected laptops, gaming systems and technology services from LAPTOP CENTRE in Kenya.">
-    <meta name="twitter:image" content="https://laptopcentre.co.ke/images/laptops.png">
+    <meta name="twitter:image" content="/images/social-preview.png">
     <meta name="twitter:image:alt" content="A selection of laptops available from LAPTOP CENTRE">
     <title>LAPTOP CENTRE</title>
     <script type="application/ld+json">
@@ -34,13 +34,32 @@
             "@context": "https://schema.org",
             "@type": "Store",
             "name": "LAPTOP CENTRE",
-            "url": "https://laptopcentre.co.ke/",
-            "logo": "https://laptopcentre.co.ke/images/logo.png",
-            "image": "https://laptopcentre.co.ke/images/laptops.png",
+            "url": "/",
+            "logo": "/images/logo.png",
+            "image": "/images/social-preview.png",
             "description": "Affordable and carefully selected laptops, technology services and gaming systems in Kenya.",
             "areaServed": "Kenya",
             "sameAs": ["https://wa.me/254707865597"]
         }
+    </script>
+    <script>
+        (() => {
+            const pageUrl = new URL(window.location.pathname, window.location.origin).href;
+            const imageUrl = new URL('images/social-preview.png', window.location.href).href;
+            const setMeta = (selector, attribute, value) => document.querySelector(selector)?.setAttribute(attribute, value);
+            document.querySelector('link[rel="canonical"]')?.setAttribute('href', pageUrl);
+            setMeta('meta[property="og:url"]', 'content', pageUrl);
+            setMeta('meta[property="og:image"]', 'content', imageUrl);
+            setMeta('meta[name="twitter:image"]', 'content', imageUrl);
+            const schema = document.querySelector('script[type="application/ld+json"]');
+            if (schema) {
+                const data = JSON.parse(schema.textContent);
+                data.url = pageUrl;
+                data.logo = new URL('images/logo.png', window.location.href).href;
+                data.image = imageUrl;
+                schema.textContent = JSON.stringify(data);
+            }
+        })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
