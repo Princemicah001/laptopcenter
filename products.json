@@ -1,0 +1,659 @@
+[
+  {
+    "id": "lenovo-x390-yoga-i5-8-256",
+    "brand": "Lenovo",
+    "name": "ThinkPad X390 Yoga",
+    "generation": "2019",
+    "description": "Premium 360° business convertible with Full HD multi-touch display and integrated ThinkPad Pen support.",
+    "features": [
+      "student",
+      "touch",
+      "360",
+      "convertible",
+      "business"
+    ],
+    "specs": [
+      "Core i5-8265U",
+      "8GB RAM",
+      "256GB SSD",
+      "13.3\" FHD Touch"
+    ],
+    "price": 29500,
+    "oldPrice": 39900,
+    "image": "https://laptopclinic.co.ke/cdn/shop/files/thinkpad-x390-hero-1.png?v=1721036783",
+    "badge": "30% OFF",
+    "condition": "Refurbished",
+    "campaigns": [
+      "up-to-30-off",
+      "touch-360"
+    ]
+  },
+  {
+    "id": "lenovo-x390-yoga-i5-16-512",
+    "brand": "Lenovo",
+    "name": "ThinkPad X390 Yoga 512GB",
+    "generation": "2019",
+    "description": "Premium compact convertible with touchscreen flexibility, generous memory and fast SSD storage.",
+    "features": [
+      "student",
+      "touch",
+      "360",
+      "convertible",
+      "business",
+      "portable"
+    ],
+    "specs": [
+      "Core i5 8th Gen",
+      "16GB RAM",
+      "512GB SSD",
+      "13.3\" FHD Touch"
+    ],
+    "price": 39999,
+    "oldPrice": 45900,
+    "image": "images/Lenovo-ThinkPad-Yoga-X390.png",
+    "badge": "Premium Yoga",
+    "condition": "Refurbished",
+    "campaigns": [
+      "up-to-30-off",
+      "touch-360"
+    ]
+  },
+  {
+    "id": "lenovo-x380-yoga-i5-8-256",
+    "brand": "Lenovo",
+    "name": "ThinkPad X380 Yoga",
+    "generation": "2018",
+    "description": "Compact 360° ThinkPad convertible with a 13.3-inch touchscreen, SSD storage and business-class construction.",
+    "features": [
+      "student",
+      "touch",
+      "360",
+      "convertible",
+      "business",
+      "portable"
+    ],
+    "specs": [
+      "Core i5 8th Gen",
+      "8GB RAM",
+      "256GB SSD",
+      "13.3\" Touch"
+    ],
+    "price": 28499,
+    "oldPrice": 39900,
+    "image": "images/Yoga 380.png",
+    "badge": "Great Value",
+    "condition": "Refurbished",
+    "campaigns": [
+      "up-to-30-off",
+      "touch-360"
+    ]
+  },
+  {
+    "id": "lenovo-yoga-370-i5",
+    "brand": "Lenovo",
+    "name": "ThinkPad Yoga 370",
+    "generation": "2017",
+    "description": "Portable 360° ThinkPad with touchscreen functionality and stylus support for notes, classes and productivity.",
+    "features": [
+      "student",
+      "touch",
+      "360",
+      "convertible",
+      "portable"
+    ],
+    "specs": [
+      "Core i5 7th Gen",
+      "8GB RAM",
+      "256GB SSD",
+      "13.3\" FHD Touch"
+    ],
+    "price": 25499,
+    "oldPrice": 29900,
+    "image": "images/Yoga 387.png",
+    "badge": "Deal",
+    "condition": "Refurbished",
+    "campaigns": [
+      "up-to-30-off",
+      "touch-360"
+    ]
+  },
+  {
+    "id": "lenovo-yoga-11e-x360",
+    "brand": "Lenovo",
+    "name": "ThinkPad Yoga 11e X360",
+    "generation": "2018",
+    "description": "Small touchscreen convertible designed for students, classrooms, note-taking and lightweight everyday computing.",
+    "features": [
+      "student",
+      "touch",
+      "360",
+      "convertible",
+      "portable"
+    ],
+    "specs": [
+      "Intel Celeron",
+      "4GB RAM",
+      "128GB SSD",
+      "11.6\" Touch"
+    ],
+    "price": 12699,
+    "oldPrice": 16900,
+    "image": "images/ThinkPad 11e Yoga.png",
+    "badge": "From KSh 12.7K",
+    "condition": "Refurbished",
+    "campaigns": [
+      "from-15k",
+      "touch-360"
+    ]
+  },
+  {
+    "id": "lenovo-yoga-11e-celeron",
+    "brand": "Lenovo",
+    "name": "ThinkPad Yoga 11e",
+    "generation": "2018",
+    "description": "Affordable compact Yoga with touchscreen flexibility for basic schoolwork and everyday browsing.",
+    "features": [
+      "student",
+      "touch",
+      "360",
+      "convertible"
+    ],
+    "specs": [
+      "Intel Celeron",
+      "4GB RAM",
+      "128GB SSD",
+      "11.6\" Touch"
+    ],
+    "price": 15500,
+    "oldPrice": 19900,
+    "image": "images/ThinkPad 11e Yoga.png",
+    "badge": "Budget 2-in-1",
+    "condition": "Refurbished",
+    "campaigns": [
+      "from-15k",
+      "touch-360"
+    ]
+  },
+  {
+    "id": "lenovo-yoga-260-i5",
+    "brand": "Lenovo",
+    "name": "ThinkPad Yoga 260",
+    "generation": "2016",
+    "description": "Compact business convertible with a durable ThinkPad chassis and touchscreen tablet mode.",
+    "features": [
+      "student",
+      "touch",
+      "360",
+      "convertible",
+      "business"
+    ],
+    "specs": [
+      "Core i5 6th Gen",
+      "8GB RAM",
+      "256GB SSD",
+      "12.5\" Touch"
+    ],
+    "price": 22999,
+    "oldPrice": 28900,
+    "image": "images/ThinkPad Yoga 260.png",
+    "badge": "Compact",
+    "condition": "Refurbished",
+    "campaigns": [
+      "up-to-30-off",
+      "touch-360"
+    ]
+  },
+  {
+    "id": "lenovo-x280-touch-i5",
+    "brand": "Lenovo",
+    "name": "ThinkPad X280 Touch",
+    "generation": "2018",
+    "description": "Compact 12.5-inch touchscreen ThinkPad with 8th Gen performance and fast SSD storage.",
+    "features": [
+      "student",
+      "touch",
+      "portable",
+      "business"
+    ],
+    "specs": [
+      "Core i5-8250U",
+      "16GB RAM",
+      "256GB SSD",
+      "12.5\" Multi-touch"
+    ],
+    "price": 30000,
+    "oldPrice": 39900,
+    "image": "https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/02_THINKPAD_X380_Hero_Stand_mode_IR_Camera_Black.jpg",
+    "badge": "Touch",
+    "condition": "Refurbished",
+    "campaigns": [
+      "up-to-30-off",
+      "touch-360"
+    ]
+  },
+  {
+    "id": "lenovo-t470s-touch",
+    "brand": "Lenovo",
+    "name": "ThinkPad T470s Touch",
+    "generation": "2017",
+    "description": "Slim business ThinkPad with a touch display, SSD storage and excellent everyday productivity.",
+    "features": [
+      "student",
+      "touch",
+      "business",
+      "portable"
+    ],
+    "specs": [
+      "Core i7 7th Gen",
+      "8GB RAM",
+      "256GB SSD",
+      "14\" Touch"
+    ],
+    "price": 19999,
+    "oldPrice": 24900,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV_pqRj1a3YnnQDVdL45fTxHvwidwas_jP6RBfr47CBA&s=10",
+    "badge": "Under 20K",
+    "condition": "Refurbished",
+    "campaigns": [
+      "from-15k",
+      "touch"
+    ]
+  },
+  {
+    "id": "lenovo-t470s-i5",
+    "brand": "Lenovo",
+    "name": "ThinkPad T470s",
+    "generation": "2017",
+    "description": "Durable business laptop offering excellent value for students and office users.",
+    "features": [
+      "student",
+      "business",
+      "portable"
+    ],
+    "specs": [
+      "Core i5 6th/7th Gen",
+      "8GB RAM",
+      "256GB SSD",
+      "14\" FHD"
+    ],
+    "price": 20500,
+    "oldPrice": 25900,
+    "image": "images/x1Carbon Lenovo.png",
+    "badge": "Value",
+    "condition": "Refurbished",
+    "campaigns": [
+      "from-15k"
+    ]
+  },
+  {
+    "id": "hp-elitebook-840-g5-i5",
+    "brand": "HP",
+    "name": "EliteBook 840 G5",
+    "generation": "2018",
+    "description": "Premium business laptop with an aluminium-style professional design, Full HD display and fast SSD.",
+    "features": [
+      "student",
+      "business",
+      "portable"
+    ],
+    "specs": [
+      "Core i5-8300U",
+      "8GB RAM",
+      "256GB SSD",
+      "14\" FHD"
+    ],
+    "price": 28999,
+    "oldPrice": 34900,
+    "image": "images/EliteBook 840 G5.png",
+    "badge": "HP Best Seller",
+    "condition": "Refurbished",
+    "campaigns": [
+      "up-to-30-off"
+    ]
+  },
+  {
+    "id": "hp-elitebook-830-g6-i5",
+    "brand": "HP",
+    "name": "EliteBook 830 G6",
+    "generation": "2019",
+    "description": "Compact premium business notebook ideal for students, office work and mobile productivity.",
+    "features": [
+      "student",
+      "business",
+      "portable"
+    ],
+    "specs": [
+      "Core i5 8th Gen",
+      "8GB RAM",
+      "256GB SSD",
+      "13.3\" FHD"
+    ],
+    "price": 35000,
+    "oldPrice": 39900,
+    "image": "images/HP-EliteBook-x360-830-G6-1-removebg-preview.png",
+    "badge": "Strong Value",
+    "condition": "Refurbished",
+    "campaigns": [
+      "up-to-30-off"
+    ]
+  },
+  {
+    "id": "hp-elitebook-830-g6-i7",
+    "brand": "HP",
+    "name": "EliteBook 830 G6",
+    "generation": "2019",
+    "description": "Higher-performance 8th Gen EliteBook configuration in a compact professional chassis.",
+    "features": [
+      "student",
+      "business",
+      "portable"
+    ],
+    "specs": [
+      "Core i7 8th Gen",
+      "8GB RAM",
+      "256GB SSD",
+      "13.3\" FHD"
+    ],
+    "price": 40000,
+    "oldPrice": 45900,
+    "image": "images/HP-EliteBook-x360-830-G6-1-removebg-preview.png",
+    "badge": "Top HP Pick",
+    "condition": "Refurbished",
+    "campaigns": [
+      "up-to-30-off"
+    ]
+  },
+  {
+    "id": "hp-elitebook-x360-1030-g3",
+    "brand": "HP",
+    "name": "EliteBook x360 1030 G3",
+    "generation": "2018",
+    "description": "Premium aluminium convertible with Full HD touchscreen, 360° hinge and business-class security.",
+    "features": [
+      "student",
+      "touch",
+      "360",
+      "convertible",
+      "business",
+      "portable"
+    ],
+    "specs": [
+      "Core i5 8th Gen",
+      "8GB RAM",
+      "256GB SSD",
+      "13.3\" FHD Touch"
+    ],
+    "price": 37000,
+    "oldPrice": 41900,
+    "image": "images/g3.png",
+    "badge": "HP x360",
+    "condition": "Refurbished",
+    "campaigns": [
+      "up-to-30-off",
+      "touch-360"
+    ]
+  },
+  {
+    "id": "hp-probook-x360-11-g4",
+    "brand": "HP",
+    "name": "ProBook x360 11 G4 EE",
+    "generation": "2019",
+    "description": "Compact touchscreen convertible designed for affordable student productivity and portable learning.",
+    "features": [
+      "student",
+      "touch",
+      "360",
+      "convertible",
+      "portable"
+    ],
+    "specs": [
+      "Core i5 8th Gen",
+      "8GB RAM",
+      "256GB SSD",
+      "11.6\" Touch"
+    ],
+    "price": 21290,
+    "oldPrice": 26900,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsKUGWhQPIWZVaDYF4BOIixIXic3Gatd87mGiTzC2RGjLWX3U_c85nq1M&s=10",
+    "badge": "Student Deal",
+    "condition": "Refurbished",
+    "campaigns": [
+      "up-to-30-off",
+      "touch-360"
+    ]
+  },
+  {
+    "id": "hp-probook-x360-11-g4-i3",
+    "brand": "HP",
+    "name": "ProBook x360 11 G4",
+    "generation": "2019",
+    "description": "Affordable 360° touchscreen laptop for schoolwork, online classes and basic office productivity.",
+    "features": [
+      "student",
+      "touch",
+      "360",
+      "convertible"
+    ],
+    "specs": [
+      "Core i3",
+      "8GB RAM",
+      "128GB SSD",
+      "11.6\" Touch"
+    ],
+    "price": 22499,
+    "oldPrice": 28900,
+    "image": "images/HP-ProBook-11-G4-x360-1-removebg-preview.png",
+    "badge": "Entry Flex",
+    "condition": "Refurbished",
+    "campaigns": [
+      "up-to-30-off",
+      "touch-360"
+    ]
+  },
+  {
+    "id": "hp-elitebook-840-g3",
+    "brand": "HP",
+    "name": "EliteBook 840 G3",
+    "generation": "2016",
+    "description": "Affordable professional HP notebook with Full HD display and SSD storage.",
+    "features": [
+      "student",
+      "business",
+      "portable"
+    ],
+    "specs": [
+      "Core i5 6th Gen",
+      "8GB RAM",
+      "256GB SSD",
+      "14\" FHD"
+    ],
+    "price": 23199,
+    "oldPrice": 28900,
+    "image": "images/g3.png",
+    "badge": "Budget HP",
+    "condition": "Refurbished",
+    "campaigns": [
+      "up-to-30-off"
+    ]
+  },
+  {
+    "id": "hp-elitebook-820-g1",
+    "brand": "HP",
+    "name": "EliteBook 820 G1",
+    "generation": "2014",
+    "description": "Compact business laptop for students and office users who need an inexpensive portable machine.",
+    "features": [
+      "student",
+      "business",
+      "portable"
+    ],
+    "specs": [
+      "Core i5",
+      "8GB RAM",
+      "256GB SSD",
+      "12.5\""
+    ],
+    "price": 19999,
+    "oldPrice": 24900,
+    "image": "images/Elitebook-G6.png",
+    "badge": "Under 20K",
+    "condition": "Refurbished",
+    "campaigns": [
+      "from-15k"
+    ]
+  },
+  {
+    "id": "hp-elitebook-840-g5-16-512",
+    "brand": "HP",
+    "name": "EliteBook 840 G5 16GB",
+    "generation": "2018",
+    "description": "Upgraded EliteBook configuration offering more memory and storage for multitasking and professional work.",
+    "features": [
+      "student",
+      "business",
+      "portable"
+    ],
+    "specs": [
+      "Core i5 8th Gen",
+      "16GB RAM",
+      "512GB SSD",
+      "14\" FHD"
+    ],
+    "price": 34999,
+    "oldPrice": 39900,
+    "image": "images/EliteBook 840 G5.png",
+    "badge": "16GB Upgrade",
+    "condition": "Refurbished",
+    "campaigns": [
+      "up-to-30-off"
+    ]
+  },
+  {
+    "id": "lenovo-x260-i5",
+    "brand": "Lenovo",
+    "name": "ThinkPad X260",
+    "generation": "2016",
+    "description": "Small, durable ThinkPad offering excellent value for students, browsing and office productivity.",
+    "features": [
+      "student",
+      "business",
+      "portable"
+    ],
+    "specs": [
+      "Core i5 6th Gen",
+      "8GB RAM",
+      "256GB SSD",
+      "12.5\""
+    ],
+    "price": 17500,
+    "oldPrice": 21900,
+    "image": "images/Yoga x360.png",
+    "badge": "From KSh 15K",
+    "condition": "Refurbished",
+    "campaigns": [
+      "from-15k"
+    ]
+  },
+  {
+    "id": "lenovo-x270-i5",
+    "brand": "Lenovo",
+    "name": "ThinkPad X270",
+    "generation": "2017",
+    "description": "Compact business ThinkPad with strong keyboard, SSD storage and excellent portability.",
+    "features": [
+      "student",
+      "business",
+      "portable"
+    ],
+    "specs": [
+      "Core i5 6th/7th Gen",
+      "8GB RAM",
+      "256GB SSD",
+      "12.5\""
+    ],
+    "price": 16999,
+    "oldPrice": 21900,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr93sEEUkaMiR1TSzYuheAzTWiOal7FMR--n3ZrTb0hvhknYJWhgUT7KU&s=10",
+    "badge": "Budget Pick",
+    "condition": "Refurbished",
+    "campaigns": [
+      "from-15k"
+    ]
+  },
+  {
+    "id": "lenovo-t440s-i5",
+    "brand": "Lenovo",
+    "name": "ThinkPad T440s",
+    "generation": "2014",
+    "description": "Classic business ThinkPad with durable construction and affordable entry-level pricing.",
+    "features": [
+      "student",
+      "business"
+    ],
+    "specs": [
+      "Core i5 4th Gen",
+      "8GB RAM",
+      "256GB SSD",
+      "14\""
+    ],
+    "price": 17500,
+    "oldPrice": 21900,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGqVnzpEHuFScwLE1JJ3M4yptnXiMekYsE_xW89Eb3Zw&s=10",
+    "badge": "From KSh 15K",
+    "condition": "Refurbished",
+    "campaigns": [
+      "from-15k"
+    ]
+  },
+  {
+    "id": "hp-elitebook-840-g1",
+    "brand": "HP",
+    "name": "EliteBook 840 G1",
+    "generation": "2014",
+    "description": "Low-cost business HP with a professional chassis and enough performance for everyday student work.",
+    "features": [
+      "student",
+      "business"
+    ],
+    "specs": [
+      "Core i5",
+      "8GB RAM",
+      "500GB HDD",
+      "14\""
+    ],
+    "price": 18500,
+    "oldPrice": 22900,
+    "image": "images/EliteBook 840 G5.png",
+    "badge": "Budget HP",
+    "condition": "Refurbished",
+    "campaigns": [
+      "from-15k"
+    ]
+  },
+  {
+    "id": "hp-elitebook-folio-9470m",
+    "brand": "HP",
+    "name": "EliteBook Folio 9470m",
+    "generation": "2013",
+    "description": "Slim business-class HP notebook for basic productivity, study and office work.",
+    "features": [
+      "student",
+      "business",
+      "portable"
+    ],
+    "specs": [
+      "Core i5 3rd Gen",
+      "8GB RAM",
+      "256GB SSD",
+      "14\""
+    ],
+    "price": 20000,
+    "oldPrice": 24900,
+    "image": "images/EliteBook Folio 9470m.png",
+    "badge": "Value",
+    "condition": "Refurbished",
+    "campaigns": [
+      "from-15k"
+    ]
+  }
+]
