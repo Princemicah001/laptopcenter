@@ -20,7 +20,7 @@
     ],
     "price": 29500,
     "oldPrice": 39900,
-    "image": "https://laptopclinic.co.ke/cdn/shop/files/thinkpad-x390-hero-1.png?v=1721036783",
+    "image": "images/Lenovo-ThinkPad-Yoga-X390.png",
     "badge": "30% OFF",
     "condition": "Refurbished",
     "campaigns": [
@@ -223,7 +223,7 @@
     ],
     "price": 30000,
     "oldPrice": 39900,
-    "image": "https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/02_THINKPAD_X380_Hero_Stand_mode_IR_Camera_Black.jpg",
+    "image": "images/Yoga 380.png",
     "badge": "Touch",
     "condition": "Refurbished",
     "campaigns": [
@@ -251,7 +251,7 @@
     ],
     "price": 19999,
     "oldPrice": 24900,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV_pqRj1a3YnnQDVdL45fTxHvwidwas_jP6RBfr47CBA&s=10",
+    "image": "images/x1Carbon Lenovo.png",
     "badge": "Under 20K",
     "condition": "Refurbished",
     "campaigns": [
@@ -414,7 +414,7 @@
     ],
     "price": 21290,
     "oldPrice": 26900,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsKUGWhQPIWZVaDYF4BOIixIXic3Gatd87mGiTzC2RGjLWX3U_c85nq1M&s=10",
+    "image": "images/HP-ProBook-11-G4-x360-1-removebg-preview.png",
     "badge": "Student Deal",
     "condition": "Refurbished",
     "campaigns": [
@@ -573,7 +573,7 @@
     ],
     "price": 16999,
     "oldPrice": 21900,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr93sEEUkaMiR1TSzYuheAzTWiOal7FMR--n3ZrTb0hvhknYJWhgUT7KU&s=10",
+    "image": "images/ThinkPad X270.png",
     "badge": "Budget Pick",
     "condition": "Refurbished",
     "campaigns": [
@@ -598,7 +598,7 @@
     ],
     "price": 17500,
     "oldPrice": 21900,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGqVnzpEHuFScwLE1JJ3M4yptnXiMekYsE_xW89Eb3Zw&s=10",
+    "image": "images/ThinkPad T440s.png",
     "badge": "From KSh 15K",
     "condition": "Refurbished",
     "campaigns": [
