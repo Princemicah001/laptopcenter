@@ -1,0 +1,36 @@
+{
+  "appName": "Course",
+  "receivingPhone": "0707865597",
+  "currency": "KES",
+  "prices": {
+    "past-paper": 200,
+    "cat": 25,
+    "special": 250
+  },
+  "payment": {
+    "provider": "payhero",
+    "receivingPhone": "0707865597",
+    "payhero": {
+      "apiKey": "QxiyuzgXc5n7zPPkRGrp",
+      "apiSecret": "dAivyvohFmItaW5qsXXcKp81XzmKZ0aVmHDAW44r",
+      "channelId": "11662",
+      "accountId": "11180",
+      "callbackUrl": ""
+    },
+    "tinypesa": {
+      "apiKey": ""
+    },
+    "intasend": {
+      "publicKey": "",
+      "secretKey": ""
+    },
+    "daraja": {
+      "shortcode": "174379",
+      "passkey": "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919",
+      "consumerKey": "",
+      "consumerSecret": "",
+      "environment": "sandbox",
+      "callbackUrl": ""
+    }
+  }
+}

@@ -1,2781 +1,2519 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#050505">
-    <meta name="description"
-        content="LAPTOP CENTRE — affordable and carefully selected laptops, technology services and gaming systems in Kenya.">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="LAPTOP CENTRE">
-    <link rel="canonical" href="/">
-    <link rel="preload" as="image" href="images/Lenovo-ThinkPad-Yoga-X390.png" fetchpriority="high">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="LAPTOP CENTRE">
-    <meta property="og:url" content="/">
-    <meta property="og:title" content="LAPTOP CENTRE | Quality Laptops in Kenya">
-    <meta property="og:description"
-        content="Shop carefully selected laptops, gaming systems and technology services from LAPTOP CENTRE in Kenya.">
-    <meta property="og:image" content="/images/social-preview.png">
-    <meta property="og:image:alt" content="A selection of laptops available from LAPTOP CENTRE">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="LAPTOP CENTRE | Quality Laptops in Kenya">
-    <meta name="twitter:description"
-        content="Shop carefully selected laptops, gaming systems and technology services from LAPTOP CENTRE in Kenya.">
-    <meta name="twitter:image" content="/images/social-preview.png">
-    <meta name="twitter:image:alt" content="A selection of laptops available from LAPTOP CENTRE">
-    <title>LAPTOP CENTRE</title>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Store",
-            "name": "LAPTOP CENTRE",
-            "url": "/",
-            "logo": "/images/logo.png",
-            "image": "/images/social-preview.png",
-            "description": "Affordable and carefully selected laptops, technology services and gaming systems in Kenya.",
-            "areaServed": "Kenya",
-            "sameAs": ["https://wa.me/254707865597"]
-        }
-    </script>
-    <script>
-        (() => {
-            const pageUrl = new URL(window.location.pathname, window.location.origin).href;
-            const imageUrl = new URL('images/social-preview.png', window.location.href).href;
-            const setMeta = (selector, attribute, value) => document.querySelector(selector)?.setAttribute(attribute, value);
-            document.querySelector('link[rel="canonical"]')?.setAttribute('href', pageUrl);
-            setMeta('meta[property="og:url"]', 'content', pageUrl);
-            setMeta('meta[property="og:image"]', 'content', imageUrl);
-            setMeta('meta[name="twitter:image"]', 'content', imageUrl);
-            const schema = document.querySelector('script[type="application/ld+json"]');
-            if (schema) {
-                const data = JSON.parse(schema.textContent);
-                data.url = pageUrl;
-                data.logo = new URL('images/logo.png', window.location.href).href;
-                data.image = imageUrl;
-                schema.textContent = JSON.stringify(data);
-            }
-        })();
-    </script>
+    <title>Course | Instant Kenyan University Past Papers, CATs & Special Exams</title>
+    <meta name="description" content="Course is Kenya's premier student exam resource portal. Get verified past papers (KES 200), CATs (KES 25), and Special exams (KES 250) delivered instantly via M-Pesa STK Push.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --blue: #0071e3;
-            --ink: #0a0a0b;
-            --muted: #707078;
-            --soft: #f5f5f7;
-            --line: #e8e8eb;
-            --radius: 28px;
-            --max: 1420px;
+            --primary: #00875a;
+            --primary-hover: #006644;
+            --primary-light: #e3fcef;
+            --mpesa: #00a859;
+            --mpesa-dark: #007a41;
+            --dark: #091e42;
+            --dark-surface: #172b4d;
+            --text-main: #172b4d;
+            --text-muted: #5e6c84;
+            --bg: #f4f5f7;
+            --card-bg: #ffffff;
+            --border: #dfe1e6;
+            --accent-cat: #0052cc;
+            --accent-cat-bg: #deebff;
+            --accent-special: #de350b;
+            --accent-special-bg: #ffebe6;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --shadow-subtle: 0 1px 3px rgba(9,30,66,0.08), 0 0 1px rgba(9,30,66,0.2);
+            --shadow-card: 0 4px 12px rgba(9,30,66,0.08), 0 0 1px rgba(9,30,66,0.15);
+            --shadow-hover: 0 12px 24px -4px rgba(9,30,66,0.14), 0 0 1px rgba(9,30,66,0.2);
+            --shadow-modal: 0 20px 48px rgba(9,30,66,0.25);
         }
 
         * {
-            box-sizing: border-box
-        }
-
-        html {
-            scroll-behavior: smooth
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            color: var(--ink);
-            font-family: Inter, Arial, sans-serif;
-            background: #fff;
-            overflow-x: hidden
-        }
-
-        body.lock {
-            overflow: hidden
-        }
-
-        img {
-            display: block;
-            max-width: 100%
-        }
-
-        button,
-        a,
-        input,
-        select,
-        textarea {
-            font: inherit
-        }
-
-        button {
-            cursor: pointer
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
         a {
+            color: inherit;
             text-decoration: none;
-            color: inherit
         }
 
-        p {
-            font-size: 70px;
+        button, input, select {
+            font-family: inherit;
         }
 
         .container {
-            width: min(var(--max), calc(100% - 48px));
-            margin: auto
+            max-width: 1340px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .eyebrow {
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: .18em;
-            text-transform: uppercase;
-            color: #8a8a91
-        }
-
-        .muted {
-            color: #7a7a81
-        }
-
-        .blue {
-            color: var(--blue)
-        }
-
-        .display {
-            font-size: clamp(46px, 6.4vw, 92px);
-            line-height: .91;
-            letter-spacing: -.075em;
-            margin: 0;
-            font-weight: 800
-        }
-
-        .section-title {
-            font-size: clamp(40px, 5.3vw, 70px);
-            line-height: .94;
-            letter-spacing: -.065em;
-            margin: 12px 0 0;
-            font-weight: 800
-        }
-
-        .announcement {
-            height: 38px;
-            background: #050505;
+        /* Top Notification Bar */
+        .top-banner {
+            background: linear-gradient(90deg, #091e42 0%, #0049b7 100%);
             color: #fff;
+            font-size: 13px;
+            padding: 8px 16px;
+            text-align: center;
+            font-weight: 500;
             display: flex;
             align-items: center;
-            overflow: hidden;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: .1em;
-            text-transform: uppercase
+            justify-content: center;
+            gap: 12px;
         }
 
-        .marquee {
-            white-space: nowrap;
-            animation: marquee 26s linear infinite
+        .top-banner .badge {
+            background: var(--mpesa);
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
-        @keyframes marquee {
-            to {
-                transform: translateX(-50%)
-            }
-        }
-
-        .nav {
-            height: 76px;
+        /* Header & Nav */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(255, 255, 255, .86);
-            backdrop-filter: blur(22px);
-            border-bottom: 1px solid rgba(0, 0, 0, .07)
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
         }
 
-        .nav-inner {
-            height: 100%;
+        .header-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 30px
+            height: 72px;
+            gap: 20px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -0.03em;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--mpesa) 0%, #006644 100%);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 168, 89, 0.25);
+        }
+
+        .logo-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .brand-logo span.accent {
+            color: var(--mpesa);
         }
 
         .nav-search {
             flex: 1;
-            max-width: 330px;
-            position: relative
-        }
-
-        .search-shell {
+            max-width: 480px;
             position: relative;
-            display: flex;
-            align-items: center
         }
 
-        .search-shell .search {
+        .nav-search input {
             width: 100%;
-            padding-right: 48px;
-            border: 2px solid #111;
-            box-shadow: 0 5px 18px rgba(0, 0, 0, .08)
+            height: 44px;
+            padding: 0 16px 0 42px;
+            border-radius: 22px;
+            border: 1.5px solid var(--border);
+            background: #fafbfc;
+            font-size: 14px;
+            color: var(--text-main);
+            transition: all 0.2s ease;
         }
 
-        .search-button {
+        .nav-search input:focus {
+            outline: none;
+            border-color: var(--mpesa);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(0, 168, 89, 0.15);
+        }
+
+        .nav-search .search-icon {
             position: absolute;
-            right: 5px;
-            width: 32px;
-            height: 32px;
-            border: 0;
-            border-radius: 50%;
-            background: #050505;
-            color: #fff;
-            display: grid;
-            place-items: center;
-            font-size: 16px;
-            line-height: 1;
-            z-index: 2
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
         }
 
-        .search-button:hover {
-            background: var(--blue)
-        }
-
-        .suggestions {
-            position: absolute;
-            top: calc(100% + 8px);
-            left: 0;
-            right: 0;
-            z-index: 120;
-            display: none;
-            overflow: hidden;
-            border: 1px solid #ddd;
-            border-radius: 15px;
-            background: #fff;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, .16)
-        }
-
-        .suggestions.show {
-            display: block
-        }
-
-        .suggestion {
-            width: 100%;
-            border: 0;
-            border-bottom: 1px solid #eee;
-            background: #fff;
-            padding: 12px 14px;
-            text-align: left;
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            font-size: 11px
-        }
-
-        .suggestion:last-child {
-            border-bottom: 0
-        }
-
-        .suggestion:hover,
-        .suggestion.active {
-            background: #f2f6fb
-        }
-
-        .suggestion small {
-            color: #888;
-            white-space: nowrap
-        }
-
-        .mobile-search {
-            display: none;
-            padding: 18px 0;
-            background: #f5f5f7;
-            border-bottom: 1px solid #e8e8eb
-        }
-
-        .mobile-search .search {
-            width: 100%;
-            border: 2px solid #111;
-            padding: 15px 18px;
-            font-size: 13px;
-            box-shadow: 0 7px 22px rgba(0, 0, 0, .1)
-        }
-
-        .mobile-search .suggestions {
-            top: calc(100% + 6px)
-        }
-
-        .logo {
+        .nav-actions {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-weight: 800;
-            letter-spacing: -.06em
+            gap: 12px;
         }
 
-        .logo-mark {
-            width: 64px;
-            height: 64px;
-            display: block
-        }
-
-        .logo-mark img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: inherit
-        }
-
-        .more-button {
-            display: none;
-            border: 1px solid #ddd;
-            border-radius: 999px;
-            background: #fff;
-            padding: 11px 15px;
-            font-size: 11px;
-            font-weight: 800
-        }
-
-        .logo-name {
-            font-size: 21px
-        }
-
-        .logo-sub {
-            font-size: 8px;
-            letter-spacing: .18em;
-            color: #8a8a8a;
-            margin-left: -5px;
-            margin-top: 14px
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 29px;
-            color: #4e4e54;
-            font-size: 12px;
-            font-weight: 700
-        }
-
-        .nav-links a:hover {
-            color: #000
-        }
-
-        .nav-cta,
         .btn {
-            border: 0;
-            border-radius: 999px;
-            padding: 13px 19px;
-            font-size: 11px;
-            font-weight: 800;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            transition: .25s
+            gap: 8px;
+            height: 40px;
+            padding: 0 16px;
+            border-radius: var(--radius-sm);
+            font-size: 13.5px;
+            font-weight: 600;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.18s ease;
+            white-space: nowrap;
         }
 
-        .nav-cta,
-        .btn-dark {
-            background: #0a0a0b;
-            color: #fff
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-main);
+            border-color: var(--border);
         }
 
-        .btn-dark:hover {
-            background: var(--blue);
-            transform: translateY(-2px)
+        .btn-ghost:hover {
+            background: #f4f5f7;
+            border-color: #c1c7d0;
         }
 
-        .btn-light {
-            background: #fff;
-            border: 1px solid var(--line)
+        .btn-primary {
+            background: var(--mpesa);
+            color: #ffffff;
         }
 
-        .btn-light:hover {
-            transform: translateY(-2px);
-            border-color: #aaa
+        .btn-primary:hover {
+            background: var(--mpesa-dark);
+            box-shadow: 0 4px 10px rgba(0, 168, 89, 0.3);
         }
 
-        .menu {
-            display: none;
-            width: 42px;
-            height: 42px;
-            border: 1px solid #ddd;
-            background: #fff;
-            border-radius: 50%
+        .btn-cart {
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            color: var(--text-main);
+            position: relative;
         }
 
-        .hero {
-            background: var(--soft);
-            min-height: 680px;
-            overflow: hidden;
-            position: relative
+        .btn-cart:hover {
+            border-color: var(--mpesa);
+            color: var(--mpesa);
         }
 
-        .hero-slider {
-            min-height: 680px;
-            position: relative
-        }
-
-        .slide {
+        .cart-count {
             position: absolute;
-            inset: 0;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity .8s ease
+            top: -6px;
+            right: -6px;
+            background: #de350b;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            height: 18px;
+            min-width: 18px;
+            padding: 0 5px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .slide.active {
-            opacity: 1;
-            pointer-events: auto
+        /* Hero Section */
+        .hero {
+            background: radial-gradient(circle at 80% 20%, rgba(0, 168, 89, 0.08) 0%, transparent 60%), #ffffff;
+            border-bottom: 1px solid var(--border);
+            padding: 44px 0 36px;
         }
 
         .hero-grid {
-            min-height: 680px;
-            width: min(var(--max), calc(100% - 48px));
-            margin: auto;
             display: grid;
-            grid-template-columns: .82fr 1.18fr;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
             align-items: center;
-            gap: 25px
         }
 
-        .hero-copy {
-            max-width: 600px;
-            position: relative;
-            z-index: 4
-        }
-
-        .hero-copy h1 {
-            margin: 17px 0 24px
-        }
-
-        .hero-copy p {
-            max-width: 520px;
-            color: #68686f;
-            font-size: 14px;
-            line-height: 1.75
-        }
-
-        .price-row {
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-            margin-top: 26px
-        }
-
-        .price-row strong {
-            font-size: 30px;
-            letter-spacing: -.05em
-        }
-
-        .price-row del {
-            font-size: 13px;
-            color: #999
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 9px;
-            flex-wrap: wrap;
-            margin-top: 27px
-        }
-
-        .hero-visual {
-            height: 590px;
-            display: grid;
-            place-items: center;
-            position: relative
-        }
-
-        .hero-image {
-            width: min(760px, 100%);
-            height: 560px;
-            object-fit: contain;
-            filter: drop-shadow(0 35px 30px rgba(0, 0, 0, .16));
-            transform: scale(.94);
-            transition: 1s cubic-bezier(.2, .8, .2, 1)
-        }
-
-        .slide.active .hero-image {
-            transform: scale(1)
-        }
-
-        .hero-info {
-            position: absolute;
-            right: 2%;
-            bottom: 6%;
-            padding: 15px 17px;
-            border: 1px solid rgba(255, 255, 255, .8);
-            background: rgba(255, 255, 255, .62);
-            backdrop-filter: blur(18px);
-            border-radius: 18px;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, .08);
-            min-width: 205px
-        }
-
-        .hero-info small {
-            display: block;
-            color: #777;
-            font-size: 8px;
-            font-weight: 800;
-            letter-spacing: .12em;
-            text-transform: uppercase
-        }
-
-        .hero-info strong {
-            display: block;
-            margin-top: 4px;
-            font-size: 13px
-        }
-
-        .hero-info span {
-            display: block;
-            color: #777;
-            font-size: 9px;
-            margin-top: 4px
-        }
-
-        .hero-controls {
-            position: absolute;
-            left: max(24px, calc((100% - var(--max))/2));
-            bottom: 31px;
-            display: flex;
-            gap: 7px;
-            z-index: 10
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            border: 0;
-            border-radius: 99px;
-            background: #c6c6ca;
-            padding: 0
-        }
-
-        .dot.active {
-            width: 29px;
-            background: #111
-        }
-
-        .hero-arrows {
-            position: absolute;
-            right: max(24px, calc((100% - var(--max))/2));
-            bottom: 23px;
-            display: flex;
-            gap: 8px;
-            z-index: 10
-        }
-
-        .arrow {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            border: 1px solid #ddd;
-            background: rgba(255, 255, 255, .75)
-        }
-
-        .arrow:hover {
-            background: #111;
-            color: #fff
-        }
-
-        .brand-strip {
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-            background: #fff
-        }
-
-        .brands {
-            height: 88px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            overflow: auto
-        }
-
-        .brands::-webkit-scrollbar {
-            display: none
-        }
-
-        .brand-filter {
-            border: 0;
-            background: transparent;
-            color: #8a8a8e;
-            font-size: 11px;
-            font-weight: 800;
-            padding: 10px 14px;
-            white-space: nowrap
-        }
-
-        .brand-filter.active,
-        .brand-filter:hover {
-            color: #111
-        }
-
-        .promo-wrap {
-            padding: 58px 0 0
-        }
-
-        .promo-grid {
-            display: grid;
-            grid-template-columns: 1.5fr .75fr .75fr;
-            gap: 14px
-        }
-
-        .promo {
-            min-height: 255px;
-            border-radius: 27px;
-            overflow: hidden;
-            position: relative;
-            background: #111;
-            color: #fff
-        }
-
-        .promo img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: .72;
-            transition: .8s
-        }
-
-        .promo:hover img {
-            transform: scale(1.06)
-        }
-
-        .promo:after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, rgba(0, 0, 0, .78), rgba(0, 0, 0, .08))
-        }
-
-        .promo-copy {
-            position: relative;
-            z-index: 2;
-            height: 100%;
-            padding: 27px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end
-        }
-
-        .promo-copy h3 {
-            font-size: 32px;
-            line-height: .98;
-            letter-spacing: -.05em;
-            margin: 0 0 9px
-        }
-
-        .promo-copy p {
-            font-size: 12px;
-            line-height: 1.6;
-            color: #ccc;
-            max-width: 340px;
-            margin: 0
-        }
-
-        .promo-tag {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            border: 1px solid rgba(255, 255, 255, .25);
-            background: rgba(255, 255, 255, .13);
-            backdrop-filter: blur(12px);
-            padding: 7px 10px;
-            border-radius: 99px;
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: .12em
-        }
-
-        .promo.light {
-            background: var(--soft);
-            color: #111
-        }
-
-        .promo.light:after {
-            display: none
-        }
-
-        .promo.light img {
-            opacity: 1
-        }
-
-        .promo.light .promo-copy {
-            justify-content: flex-start
-        }
-
-        .promo.light .promo-tag {
-            color: #11111100;
-            border-color: #dddddd00;
-            background: rgba(255, 255, 255, 0);
-            display: none;
-        }
-
-        .promo.light p {
-            color: #666
-        }
-
-        .products {
-            padding: 110px 0
-        }
-
-        body.search-mode .announcement,
-        body.search-mode .hero,
-        body.search-mode .brand-strip,
-        body.search-mode .promo-wrap,
-        body.search-mode .campaign,
-        body.search-mode .services,
-        body.search-mode .games,
-        body.search-mode .why,
-        body.search-mode .contact,
-        body.search-mode footer {
-            display: none
-        }
-
-        body.search-mode .products {
-            padding-top: 42px
-        }
-
-        body.search-mode .products .head,
-        body.search-mode .products .chips,
-        body.search-mode .products .inline-campaign {
-            display: none
-        }
-
-        .head {
-            display: flex;
-            align-items: end;
-            justify-content: space-between;
-            gap: 30px;
-            margin-bottom: 38px
-        }
-
-        .head p {
-            max-width: 470px;
-            color: #777;
-            font-size: 13px;
-            line-height: 1.75;
-            margin: 0
-        }
-
-        .toolbar {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            align-items: center;
-            margin-bottom: 24px
-        }
-
-        .count {
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: .12em;
-            color: #888
-        }
-
-        .search {
-            width: 290px;
-            border: 1px solid #ddd;
-            border-radius: 999px;
-            padding: 12px 16px;
-            outline: 0;
-            font-size: 11px
-        }
-
-        .search:focus {
-            border-color: var(--blue);
-            box-shadow: 0 0 0 3px rgba(0, 113, 227, .14)
-        }
-
-        .chips {
-            display: flex;
-            gap: 7px;
-            overflow: auto;
-            margin-bottom: 25px
-        }
-
-        .chip {
-            border: 1px solid #ddd;
-            background: #fff;
-            border-radius: 99px;
-            padding: 9px 13px;
-            font-size: 9px;
-            font-weight: 800;
-            white-space: nowrap
-        }
-
-        .chip.active,
-        .chip:hover {
-            background: #111;
-            color: #fff;
-            border-color: #111
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 14px
-        }
-
-        .card {
-            border: 1px solid #e8e8ea;
-            border-radius: 25px;
-            overflow: hidden;
-            background: #fff;
-            transition: .4s cubic-bezier(.2, .8, .2, 1);
-            position: relative
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 25px 65px rgba(0, 0, 0, .1)
-        }
-
-        .product-image {
-            height: 265px;
-            background: #f6f6f7;
-            display: grid;
-            place-items: center;
-            position: relative;
-            padding: 19px;
-            overflow: hidden
-        }
-
-        .product-image:after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle, rgba(255, 255, 255, .65), transparent 68%)
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            position: relative;
-            z-index: 1;
-            transition: .5s;
-            filter: drop-shadow(0 18px 18px rgba(0, 0, 0, .13))
-        }
-
-        .card:hover .product-image img {
-            transform: scale(1.055)
-        }
-
-        .badge {
-            position: absolute;
-            z-index: 3;
-            top: 14px;
-            left: 14px;
-            background: rgba(255, 255, 255, .72);
-            backdrop-filter: blur(13px);
-            border: 1px solid rgba(255, 255, 255, .8);
-            border-radius: 99px;
-            padding: 7px 9px;
-            font-size: 9px;
-            font-weight: 900;
-            letter-spacing: .11em
-        }
-
-        .badge.sale {
-            color: #d40000
-        }
-
-        .badges {
-            position: absolute;
-            right: 14px;
-            top: 14px;
-            z-index: 3;
-            display: flex;
-            gap: 5px
-        }
-
-        .feature {
-            font-size: 9px;
-            border-radius: 99px;
-            padding: 6px 8px;
-            background: #111;
-            color: #fff;
-            font-weight: 800
-        }
-
-        .body {
-            padding: 19px
-        }
-
-        .brand {
-            font-size: 10px;
-            font-weight: 900;
-            letter-spacing: .15em;
-            color: #999
-        }
-
-        .name {
-            font-size: 21px;
-            line-height: 1.08;
-            letter-spacing: -.045em;
-            margin: 7px 0 8px
-        }
-
-        .desc {
-            font-size: 11px;
-            color: #777;
-            line-height: 1.5;
-            min-height: 28px
-        }
-
-        .specs {
-            display: flex;
-            gap: 5px;
-            flex-wrap: wrap;
-            margin: 13px 0 17px
-        }
-
-        .spec {
-            font-size: 9px;
-            color: #666;
-            background: #fafafa;
-            border: 1px solid #e6e6e7;
-            border-radius: 99px;
-            padding: 6px 7px
-        }
-
-        .bottom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px
-        }
-
-        .money strong {
-            display: block;
-            font-size: 18px;
-            letter-spacing: -.04em
-        }
-
-        .money del {
-            font-size: 10px;
-            color: #aaa
-        }
-
-        .get {
-            border: 0;
-            border-radius: 99px;
-            background: #111;
-            color: #fff;
-            padding: 10px 14px;
-            font-size: 11px;
-            font-weight: 800
-        }
-
-        .get:hover {
-            background: var(--blue)
-        }
-
-        .quick {
-            position: absolute;
-            z-index: 5;
-            right: 12px;
-            bottom: 12px;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            border: 1px solid #ddd;
-            background: #fff;
-            opacity: 0;
-            transform: translateY(5px);
-            transition: .25s
-        }
-
-        .card:hover .quick {
-            opacity: 1;
-            transform: none
-        }
-
-        .inline-campaign {
-            grid-column: 1/-1;
-            min-height: 265px;
-            border-radius: 30px;
-            background: radial-gradient(circle at 18% 20%, rgba(38, 131, 255, .7), transparent 22%),
-                radial-gradient(circle at 80% 10%, rgba(87, 219, 255, .26), transparent 28%),
-                linear-gradient(135deg, #091720 0%, #0a1018 35%, #0d0d0f 100%);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            padding: 30px 34px 30px 38px;
-            overflow: hidden;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, .09);
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04), 0 24px 60px rgba(10, 15, 22, .18);
-            animation: campaignDrift 8s ease-in-out infinite alternate
-        }
-
-        .inline-campaign:before {
-            content: "";
-            position: absolute;
-            width: 420px;
-            height: 420px;
-            border-radius: 50%;
-            right: -130px;
-            top: -180px;
-            background: radial-gradient(circle, rgba(0, 113, 227, .42), transparent 66%);
-            pointer-events: none
-        }
-
-        .inline-campaign:after {
-            content: "";
-            position: absolute;
-            right: 20px;
-            bottom: -34px;
-            width: 300px;
-            height: 150px;
-            border-radius: 16px 16px 30px 30px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, .12), rgba(16, 21, 28, .62));
-            border: 1px solid rgba(255, 255, 255, .13);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, .18);
-            transform: perspective(900px) rotate(-10deg);
-            pointer-events: none
-        }
-
-        .inline-campaign>* {
-            position: relative;
-            z-index: 1
-        }
-
-        .campaign-content {
-            flex: 1;
-            max-width: 580px
-        }
-
-        .inline-campaign h3 {
+        .hero-title {
             font-size: 38px;
-            line-height: .95;
-            letter-spacing: -.06em;
-            margin: 7px 0
-        }
-
-        .inline-campaign p {
-            color: #b5bec8;
-            font-size: 12px;
-            max-width: 500px;
-            line-height: 1.6;
-            margin: 0
-        }
-
-        .campaign-visual {
-            display: none;
-            position: relative;
-            width: min(280px, 33vw);
-            min-width: 380px;
-            height: 300px;
-            display: flex;
-            align-items: end;
-            justify-content: center;
-            z-index: 1
-        }
-
-        .campaign-visual::before {
-            content: "";
-            display: none;
-            position: absolute;
-            inset: 18px 18px 0;
-            border-radius: 22px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .03));
-            border: 1px solid rgba(255, 255, 255, .08);
-            box-shadow: inset 0 0 30px rgba(17, 44, 76, .35)
-        }
-
-        .campaign-visual img {
-            width: 100%;
-            min-width: 270px;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 16px 16px 18px 18px;
-            filter: drop-shadow(0 24px 36px rgba(0, 0, 0, .32));
-            transform: perspective(1000px) rotate(-10deg);
-            animation: laptopFloat 5s ease-in-out infinite
-        }
-
-        .campaign-label {
-            position: absolute;
-            right: 18px;
-            top: 14px;
-            z-index: 3;
-            padding: 8px 11px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, .16);
-            background: rgba(11, 20, 29, .6);
-            color: #e7f2ff;
-            font-size: 9px;
-            line-height: 1;
-            letter-spacing: .16em;
-            text-transform: uppercase;
             font-weight: 800;
-            backdrop-filter: blur(10px)
+            color: var(--dark);
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 14px;
         }
 
-        .offer-price {
-            font-size: 31px;
-            font-weight: 800;
-            white-space: nowrap;
-            position: relative;
-            z-index: 2;
-            background: rgba(255, 255, 255, .06);
-            border: 1px solid rgba(255, 255, 255, .1);
-            border-radius: 999px;
-            padding: 12px 16px;
-            backdrop-filter: blur(12px);
-            animation: offerPulse 3.2s ease-in-out infinite
+        .hero-title .highlight {
+            color: var(--mpesa);
+            background: linear-gradient(120deg, rgba(0, 168, 89, 0.15) 0%, rgba(0, 168, 89, 0.05) 100%);
+            padding: 2px 8px;
+            border-radius: 6px;
         }
 
-        .campaign {
-            padding: 0 0 110px
+        .hero-desc {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            max-width: 580px;
         }
 
-        .campaign-panel {
-            position: relative;
-            min-height: 620px;
-            border-radius: 35px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #0c1422 0%, #0d1d2b 25%, #0b0d12 54%, #0a0a0b 100%);
-            color: #fff;
-            display: grid;
-            grid-template-columns: .82fr 1.18fr;
-            border: 1px solid rgba(255, 255, 255, .06);
-            box-shadow: 0 28px 80px rgba(5, 8, 14, .2)
-        }
-
-        .campaign-panel:before {
-            content: "";
-            position: absolute;
-            inset: -18% auto auto -10%;
-            width: 420px;
-            height: 420px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 145, 255, .38), transparent 60%);
-            pointer-events: none
-        }
-
-        .campaign-panel:after {
-            content: "";
-            position: absolute;
-            right: -80px;
-            bottom: -100px;
-            width: 540px;
-            height: 260px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(143, 210, 255, .25), transparent 62%);
-            pointer-events: none
-        }
-
-        .campaign-copy {
-            position: relative;
-            z-index: 1;
-            padding: 62px;
+        .hero-tags {
             display: flex;
-            justify-content: center;
-            flex-direction: column
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
         }
 
-        .campaign-copy h2 {
-            font-size: clamp(43px, 5.4vw, 75px);
-            line-height: .92;
-            letter-spacing: -.065em;
-            margin: 17px 0
+        .tag-pill {
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .campaign-copy p {
-            max-width: 430px;
-            color: #b9c4ce;
-            line-height: 1.7;
-            font-size: 12px
+        .tag-pp {
+            background: var(--primary-light);
+            color: var(--primary);
+            border: 1px solid rgba(0, 135, 90, 0.2);
         }
 
-        .campaign-image {
-            overflow: hidden;
-            position: relative;
-            display: flex;
+        .tag-cat {
+            background: var(--accent-cat-bg);
+            color: var(--accent-cat);
+            border: 1px solid rgba(0, 82, 204, 0.2);
+        }
+
+        .tag-special {
+            background: var(--accent-special-bg);
+            color: var(--accent-special);
+            border: 1px solid rgba(222, 53, 11, 0.2);
+        }
+
+        /* CSS Icons & Pure CSS Flag */
+        .css-icon {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 30px 28px 30px 14px
+            flex-shrink: 0;
+            vertical-align: middle;
         }
 
-        .campaign-image:before {
-            content: "";
-            position: absolute;
-            inset: 10% 10% 10% 8%;
-            border-radius: 28px;
-            background: linear-gradient(160deg, rgba(255, 255, 255, .12), rgba(14, 24, 37, .54));
-            border: 1px solid rgba(255, 255, 255, .1);
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04), 0 30px 60px rgba(0, 0, 0, .34);
-            transform: perspective(1200px) rotate(-10deg)
-        }
-
-        .campaign-image:after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, #0d0d0e 0%, rgba(13, 19, 25, 0.52) 26%, rgba(13, 19, 25, 0.08) 55%, transparent 100%)
-        }
-
-        .campaign-image img {
+        .ke-flag {
+            display: inline-flex;
+            flex-direction: column;
+            width: 22px;
+            height: 15px;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.22);
+            vertical-align: middle;
             position: relative;
-            z-index: 1;
-            width: min(100%, 760px);
-            height: 100%;
-            object-fit: cover;
-            transition: 1s;
-            filter: drop-shadow(0 22px 24px rgba(0, 0, 0, .38)) saturate(1.2)
+            flex-shrink: 0;
+            background: #ffffff;
         }
 
-        .campaign-panel:hover img {
-            transform: scale(1.04)
-        }
-
-        .campaign-panel:hover,
-        .inline-campaign:hover {
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08), 0 34px 90px rgba(0, 94, 170, .24)
-        }
-
-        .campaign-panel:hover .campaign-tag,
-        .inline-campaign:hover .campaign-label {
-            background: rgba(0, 113, 227, .7);
-            transform: translateY(-2px)
-        }
-
-        .campaign-tag,
-        .campaign-label {
-            transition: .3s cubic-bezier(.2, .8, .2, 1)
-        }
-
-        @keyframes campaignDrift {
-            from {
-                background-position: 0 0, 0 0, 0 0
-            }
-
-            to {
-                background-position: 36px -18px, -24px 20px, 0 0
-            }
-        }
-
-        @keyframes laptopFloat {
-
-            0%,
-            100% {
-                transform: perspective(1000px) rotate(-10deg) translateY(0)
-            }
-
-            50% {
-                transform: perspective(1000px) rotate(-8deg) translateY(-9px)
-            }
-        }
-
-        @keyframes offerPulse {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 rgba(70, 176, 255, 0)
-            }
-
-            50% {
-                box-shadow: 0 0 24px rgba(70, 176, 255, .22)
-            }
-        }
-
-        .campaign-tag {
+        .ke-flag-black { height: 4px; background: #000000; }
+        .ke-flag-white1 { height: 1.5px; background: #ffffff; }
+        .ke-flag-red { height: 4px; background: #bb0000; position: relative; }
+        .ke-flag-white2 { height: 1.5px; background: #ffffff; }
+        .ke-flag-green { height: 4px; background: #006600; }
+        .ke-flag-shield {
             position: absolute;
-            right: 34px;
-            top: 28px;
-            z-index: 2;
-            padding: 9px 12px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, .14);
-            background: rgba(10, 16, 24, .48);
-            backdrop-filter: blur(12px);
-            font-size: 7px;
-            letter-spacing: .17em;
-            text-transform: uppercase;
-            color: #dfefff;
-            font-weight: 800
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 10px;
+            background: #bb0000;
+            border: 1px solid #ffffff;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
         }
 
-        .services {
-            padding: 110px 0;
-            background: var(--soft)
-        }
-
-        .service-grid {
+        /* Price Cards in Hero */
+        .price-showcase {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 14px;
-            margin-top: 44px
         }
 
-        .service {
-            background: #fff;
-            border: 1px solid #e7e7e9;
-            border-radius: 25px;
-            padding: 27px;
-            min-height: 235px;
-            transition: .3s
-        }
-
-        .service:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .07)
-        }
-
-        .service-no {
-            font-size: 9px;
-            color: #aaa;
-            font-weight: 900;
-            letter-spacing: .15em
-        }
-
-        .service-icon {
-            width: 43px;
-            height: 43px;
-            border-radius: 13px;
-            background: #111;
-            color: #fff;
-            display: grid;
-            place-items: center;
-            font-size: 11px;
-            font-weight: 800;
-            margin: 30px 0 23px
-        }
-
-        .service h3 {
-            font-size: 20px;
-            letter-spacing: -.04em;
-            margin: 0 0 8px
-        }
-
-        .service p {
-            font-size: 10px;
-            color: #777;
-            line-height: 1.7;
-            margin: 0;
-            max-width: 330px
-        }
-
-        .games {
-            padding: 110px 0
-        }
-
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
-            margin-top: 43px
-        }
-
-        .game {
-            height: 340px;
-            border-radius: 26px;
+        .price-box {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            padding: 18px 14px;
+            border: 1.5px solid var(--border);
+            text-align: center;
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.2s ease;
+            position: relative;
             overflow: hidden;
-            background: #111;
-            color: #fff;
-            position: relative
         }
 
-        .game img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: .68;
-            transition: .7s
+        .price-box:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
         }
 
-        .game:hover img {
-            transform: scale(1.06)
-        }
+        .price-box.box-pp { border-top: 4px solid var(--mpesa); }
+        .price-box.box-cat { border-top: 4px solid var(--accent-cat); }
+        .price-box.box-special { border-top: 4px solid var(--accent-special); }
 
-        .game:after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, .94), transparent 70%)
-        }
-
-        .game-copy {
-            position: absolute;
-            z-index: 2;
-            left: 21px;
-            right: 21px;
-            bottom: 21px
-        }
-
-        .game-copy small {
-            font-size: 7px;
-            letter-spacing: .14em;
-            font-weight: 800;
-            color: #bbb
-        }
-
-        .game-copy h3 {
-            font-size: 23px;
-            letter-spacing: -.045em;
-            margin: 5px 0
-        }
-
-        .game-copy p {
-            font-size: 9px;
-            color: #aaa;
-            line-height: 1.5;
-            margin: 0 0 12px
-        }
-
-        .why {
-            background: #0d0d0e;
-            color: #fff;
-            padding: 110px 0
-        }
-
-        .why .eyebrow {
-            color: #777
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            margin-top: 58px;
-            border: 1px solid #242426
-        }
-
-        .why-item {
-            min-height: 220px;
-            padding: 28px;
-            border-right: 1px solid #242426
-        }
-
-        .why-item:last-child {
-            border: 0
-        }
-
-        .why-item strong {
-            font-size: 34px;
-            letter-spacing: -.06em
-        }
-
-        .why-item h3 {
-            font-size: 15px;
-            margin: 42px 0 7px
-        }
-
-        .why-item p {
-            font-size: 9px;
-            color: #777;
-            line-height: 1.65;
-            max-width: 220px
-        }
-
-        .contact {
-            padding: 120px 0
-        }
-
-        .contact-panel {
-            background: var(--soft);
-            border-radius: 37px;
-            padding: 67px;
-            display: grid;
-            grid-template-columns: 1fr .75fr;
-            gap: 55px;
-            align-items: center
-        }
-
-        .contact-panel h2 {
-            font-size: clamp(44px, 6vw, 76px);
-            line-height: .92;
-            letter-spacing: -.065em;
-            margin: 16px 0 23px
-        }
-
-        .contact-panel p {
-            color: #777;
+        .price-box .p-label {
             font-size: 12px;
-            line-height: 1.75;
-            max-width: 520px
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
         }
 
-        .contact-links {
+        .price-box .p-amount {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--dark);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .price-box .p-amount span {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .price-box .p-note {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* Main Workspace: Explorer Layout */
+        .app-body {
+            padding: 30px 0 60px;
+        }
+
+        .explorer-layout {
             display: grid;
-            gap: 9px
+            grid-template-columns: 290px 1fr;
+            gap: 24px;
+            align-items: start;
         }
 
-        .contact-link {
-            background: #fff;
-            border: 1px solid #e5e5e7;
-            border-radius: 18px;
-            padding: 17px 19px;
+        /* Sidebar Folder Hierarchy */
+        .sidebar {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-subtle);
+            position: sticky;
+            top: 90px;
+            max-height: calc(100vh - 110px);
+            overflow-y: auto;
+        }
+
+        .sidebar-heading {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 800;
+            color: var(--text-muted);
+            margin-bottom: 14px;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center
         }
 
-        .contact-link small {
-            display: block;
-            color: #999;
-            font-size: 7px;
-            font-weight: 900;
-            letter-spacing: .13em;
-            margin-bottom: 5px
-        }
-
-        .contact-link strong {
-            font-size: 12px
-        }
-
-        .contact-link:hover {
-            transform: translateX(4px)
-        }
-
-        footer {
-            background: #080808;
-            color: #fff;
-            padding: 65px 0 28px
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr .8fr .8fr .8fr;
-            gap: 40px
-        }
-
-        .footer-desc {
-            color: #666;
-            font-size: 10px;
-            line-height: 1.7;
-            max-width: 330px;
-            margin-top: 20px
-        }
-
-        footer h4 {
-            font-size: 9px;
-            color: #777;
-            letter-spacing: .14em;
-            margin: 0 0 18px
-        }
-
-        footer ul {
+        .folder-tree {
             list-style: none;
-            padding: 0;
-            margin: 0
         }
 
-        footer li {
-            margin-bottom: 11px
+        .folder-group {
+            margin-bottom: 12px;
         }
 
-        footer a {
-            font-size: 10px;
-            color: #bbb
-        }
-
-        footer a:hover {
-            color: #fff
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #222;
-            margin-top: 50px;
-            padding-top: 23px;
+        .faculty-header {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            color: #555;
-            font-size: 8px
+            padding: 9px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--dark);
+            background: #f8f9fa;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.15s ease;
         }
 
-        .overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 500;
-            background: rgba(0, 0, 0, .52);
-            backdrop-filter: blur(10px);
+        .faculty-header:hover {
+            background: #ebecf0;
+        }
+
+        .faculty-header.active {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .faculty-header .left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faculty-units {
+            list-style: none;
+            padding-left: 14px;
+            margin-top: 6px;
+            border-left: 2px solid #ebecf0;
+            margin-left: 10px;
+        }
+
+        .unit-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 7px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .unit-item:hover {
+            color: var(--dark);
+            background: #f4f5f7;
+        }
+
+        .unit-item.active {
+            color: var(--mpesa);
+            background: rgba(0, 168, 89, 0.08);
+            font-weight: 700;
+        }
+
+        .badge-count {
+            font-size: 11px;
+            padding: 2px 7px;
+            border-radius: 12px;
+            background: #ebecf0;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .unit-item.active .badge-count {
+            background: var(--mpesa);
+            color: #ffffff;
+        }
+
+        /* Main Explorer Content */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Breadcrumbs & Toolbar */
+        .explorer-bar {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .breadcrumbs {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .breadcrumbs span.current {
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .breadcrumbs svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--text-muted);
+        }
+
+        .view-filters {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-btn {
+            border: 1px solid var(--border);
+            background: #ffffff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: #a5b2c6;
+            color: var(--dark);
+        }
+
+        .filter-btn.active {
+            background: var(--dark);
+            color: #ffffff;
+            border-color: var(--dark);
+        }
+
+        /* Folders Quick Grid */
+        .folders-section {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .section-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .folders-grid {
             display: grid;
-            place-items: center;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 14px;
+        }
+
+        .folder-card {
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            background: #fafbfc;
+            cursor: pointer;
+            transition: all 0.18s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 110px;
+        }
+
+        .folder-card:hover {
+            border-color: var(--mpesa);
+            background: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .folder-card.active {
+            border-color: var(--mpesa);
+            background: var(--primary-light);
+        }
+
+        .folder-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .folder-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: #deebff;
+            color: #0052cc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .folder-card.past-paper .folder-icon { background: #e3fcef; color: #00875a; }
+        .folder-card.cat .folder-icon { background: #deebff; color: #0052cc; }
+        .folder-card.special .folder-icon { background: #ffebe6; color: #de350b; }
+
+        .folder-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .folder-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .folder-meta .price-tag {
+            font-weight: 700;
+            color: var(--mpesa-dark);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Files Section */
+        .files-section {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .files-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 18px;
+        }
+
+        .file-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
             padding: 18px;
-            opacity: 0;
-            visibility: hidden;
-            transition: .3s
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+            position: relative;
         }
 
-        .overlay.show {
-            opacity: 1;
-            visibility: visible
+        .file-card:hover {
+            border-color: #a5b2c6;
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
         }
 
-        .modal {
-            width: min(540px, 100%);
-            max-height: 92vh;
-            overflow: auto;
-            background: #fff;
-            border-radius: 29px;
-            transform: translateY(20px) scale(.98);
-            transition: .35s
+        .file-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
         }
 
-        .overlay.show .modal {
-            transform: none
+        .pdf-icon-badge {
+            width: 42px;
+            height: 48px;
+            background: #ff5630;
+            color: #ffffff;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 800;
+            flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(255, 86, 48, 0.3);
+            text-transform: uppercase;
         }
 
-        .modal-top {
-            height: 175px;
-            background: #f2f2f3;
-            position: relative
+        .pdf-icon-badge svg {
+            width: 20px;
+            height: 20px;
+            margin-bottom: 2px;
         }
 
-        .modal-top img {
+        .file-info {
+            flex: 1;
+        }
+
+        .file-category-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+        }
+
+        .file-card.cat .file-category-badge {
+            background: var(--accent-cat-bg);
+            color: var(--accent-cat);
+        }
+
+        .file-card.special .file-category-badge {
+            background: var(--accent-special-bg);
+            color: var(--accent-special);
+        }
+
+        .file-card.past-paper .file-category-badge {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .file-title {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.35;
+            margin-bottom: 6px;
+        }
+
+        .file-unit-tag {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .file-desc {
+            font-size: 12.5px;
+            color: #5e6c84;
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.45;
+        }
+
+        .file-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px 0;
+            border-top: 1px dashed var(--border);
+            border-bottom: 1px dashed var(--border);
+            margin-bottom: 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .file-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .file-price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .file-price .val {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--dark);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .file-price .lbl {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .file-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-preview {
+            background: #f4f5f7;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            font-size: 12px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .btn-preview:hover {
+            background: #ebecf0;
+            color: var(--dark);
+        }
+
+        .btn-buy-now {
+            background: linear-gradient(135deg, var(--mpesa) 0%, #007a41 100%);
+            color: #ffffff;
+            border: none;
+            padding: 8px 14px;
+            font-size: 12.5px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 6px rgba(0, 168, 89, 0.3);
+            transition: all 0.15s ease;
+        }
+
+        .btn-buy-now:hover {
+            background: var(--mpesa-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0, 168, 89, 0.4);
+        }
+
+        /* Modals & Overlays */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(9, 30, 66, 0.65);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-card {
+            background: #ffffff;
+            border-radius: var(--radius-xl);
+            max-width: 540px;
             width: 100%;
-            height: 100%;
-            object-fit: contain
+            overflow: hidden;
+            box-shadow: var(--shadow-modal);
+            position: relative;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        .close {
-            position: absolute;
-            right: 13px;
-            top: 13px;
-            width: 35px;
-            height: 35px;
-            border: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, .85);
-            font-size: 18px
+        .modal-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fafbfc;
+        }
+
+        .modal-header h3 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            color: var(--text-muted);
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px;
         }
 
         .modal-body {
-            padding: 27px
+            padding: 24px;
+            overflow-y: auto;
         }
 
-        .modal-body .sale {
-            font-size: 8px;
+        .modal-footer {
+            padding: 16px 24px;
+            background: #fafbfc;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        /* M-Pesa Checkout Flow Components */
+        .mpesa-modal-header {
+            background: linear-gradient(135deg, #00875a 0%, #005a3c 100%);
+            color: #ffffff;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+        }
+
+        .mpesa-logo-badge {
+            background: #ffffff;
+            color: var(--mpesa);
             font-weight: 900;
-            color: #d40000;
-            letter-spacing: .13em
+            font-size: 15px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
-        .modal-body h3 {
-            font-size: 30px;
-            letter-spacing: -.055em;
-            line-height: 1;
-            margin: 7px 0 10px
+        .mpesa-order-summary {
+            background: #f4f5f7;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 20px;
         }
 
-        .modal-body p {
-            font-size: 11px;
-            color: #777;
-            line-height: 1.6
+        .summary-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 13.5px;
         }
 
-        .form {
-            display: grid;
-            gap: 9px;
-            margin-top: 19px
+        .summary-row.total {
+            border-top: 1.5px dashed #c1c7d0;
+            padding-top: 10px;
+            margin-top: 10px;
+            margin-bottom: 0;
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--dark);
         }
 
-        .form input,
-        .form textarea,
-        .form select {
-            width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 13px;
-            padding: 13px;
-            outline: 0;
-            font-size: 11px;
-            background: #fff
+        .input-group {
+            margin-bottom: 20px;
         }
 
-        .form textarea {
-            min-height: 78px;
-            resize: vertical
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .phone-input-wrap {
+            display: flex;
+            align-items: center;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: #ffffff;
+            transition: border-color 0.2s ease;
+        }
+
+        .phone-input-wrap:focus-within {
+            border-color: var(--mpesa);
+            box-shadow: 0 0 0 3px rgba(0, 168, 89, 0.15);
+        }
+
+        .phone-prefix {
+            background: #ebecf0;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 14px;
+            padding: 0 14px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-right: 1px solid var(--border);
+        }
+
+        .phone-input-wrap input {
+            flex: 1;
+            height: 48px;
+            border: none;
+            padding: 0 16px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .phone-input-wrap input:focus {
+            outline: none;
+        }
+
+        /* Real STK Push Handset Waiting Card */
+        .real-stk-waiting-card {
+            background: #ffffff;
+            border: 2px solid var(--mpesa);
+            border-radius: var(--radius-lg);
+            padding: 28px 20px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0, 168, 89, 0.1);
+            margin-bottom: 16px;
+        }
+
+        .stk-pulse-ring {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: rgba(0, 168, 89, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            animation: pulseStk 1.8s infinite;
+        }
+
+        @keyframes pulseStk {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 168, 89, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 16px rgba(0, 168, 89, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 168, 89, 0); }
+        }
+
+        .stk-live-status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f4fbf7;
+            border: 1px solid rgba(0, 168, 89, 0.3);
+            color: var(--mpesa-dark);
+            font-size: 12.5px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        .stk-dot-pulse {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--mpesa);
+            animation: blinkDot 1s infinite alternate;
+        }
+
+        @keyframes blinkDot {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        /* Success Card in Modal */
+        .success-receipt-card {
+            background: #ffffff;
+            border: 2px solid var(--mpesa);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            text-align: center;
+        }
+
+        .receipt-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-light);
+            color: var(--mpesa);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .receipt-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--mpesa-dark);
+            background: #f4fbf7;
+            padding: 8px 16px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 10px 0;
+            border: 1px dashed var(--mpesa);
+        }
+
+        /* Drawer Cart */
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -420px;
+            width: 400px;
+            height: 100vh;
+            background: #ffffff;
+            box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+            z-index: 1050;
+            transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-drawer.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cart-items-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            gap: 12px;
+        }
+
+        .cart-item-info h5 {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.3;
+        }
+
+        .cart-item-info span {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .cart-item-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--dark);
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid var(--border);
+            background: #fafbfc;
+        }
+
+        /* Toast Notifications */
+        .toast-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .toast {
-            position: fixed;
-            right: 18px;
-            bottom: 18px;
-            z-index: 600;
-            background: #111;
-            color: #fff;
-            padding: 13px 17px;
-            border-radius: 14px;
-            font-size: 10px;
-            transform: translateY(80px);
-            opacity: 0;
-            transition: .3s
+            background: var(--dark);
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: var(--radius-sm);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+            font-size: 13.5px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideIn 0.25s ease-out;
         }
 
-        .toast.show {
-            transform: none;
-            opacity: 1
+        .toast.success { background: #00875a; }
+        .toast.error { background: #de350b; }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(22px);
-            transition: .7s cubic-bezier(.2, .8, .2, 1)
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .explorer-layout { grid-template-columns: 1fr; }
+            .sidebar { position: static; max-height: none; }
+            .cart-drawer { width: 100vw; right: -100vw; }
         }
 
-        .reveal.visible {
-            opacity: 1;
-            transform: none
-        }
+        @media (max-width: 600px) {
+            .header-inner { flex-wrap: wrap; height: auto; padding: 12px 0; }
+            .nav-search { order: 3; max-width: 100%; width: 100%; margin-top: 8px; }
+            .hero-title { font-size: 24px; line-height: 1.25; }
+            .hero { padding: 24px 0 20px; }
+            .hero-grid { gap: 16px; }
 
-        .card {
-            transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s, border-color .35s
-        }
-
-        .card:hover {
-            border-color: rgba(0, 113, 227, .28)
-        }
-
-        .get:active,
-        .chip:active,
-        .brand-filter:active,
-        .btn:active {
-            transform: scale(.96)
-        }
-
-        .reveal:nth-child(3n) {
-            transition-delay: .08s
-        }
-
-        .reveal:nth-child(4n) {
-            transition-delay: .14s
-        }
-
-        @media(max-width:1120px) {
-            .grid {
-                grid-template-columns: repeat(3, 1fr)
-            }
-
-            .game-grid {
-                grid-template-columns: repeat(2, 1fr)
-            }
-
-            .service-grid {
-                grid-template-columns: repeat(2, 1fr)
-            }
-
-            .why-grid {
-                grid-template-columns: repeat(2, 1fr)
-            }
-
-            .why-item:nth-child(2) {
-                border-right: 0
-            }
-
-            .why-item:nth-child(-n+2) {
-                border-bottom: 1px solid #242426
-            }
-
-            .promo-grid {
-                grid-template-columns: 1fr 1fr
-            }
-
-            .promo:first-child {
-                grid-column: 1/-1
-            }
-        }
-
-        @media(max-width:850px) {
-
-            .nav .nav-cta {
-                display: none
-            }
-
-            .nav-search {
-                display: block;
-                flex: 1;
-                max-width: none
-            }
-
-            .more-button {
-                display: block;
-                flex-shrink: 0;
-                padding: 10px 12px
-            }
-
-            .menu {
-                display: none
-            }
-
-            .nav-inner {
-                gap: 8px
-            }
-
-            .logo-name,
-            .logo-sub {
-                display: none
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 68px;
-                right: 15px;
-                width: 220px;
-                padding: 18px;
-                flex-direction: column;
-                gap: 16px;
-                border: 1px solid #ddd;
-                border-radius: 16px;
-                background: rgba(255, 255, 255, .98);
-                box-shadow: 0 18px 40px rgba(0, 0, 0, .14)
-            }
-
-            .nav-links.open {
-                display: flex
-            }
-
-            .hero-grid {
-                display: block;
-                min-height: 800px;
-                padding: 0;
-                position: relative
-            }
-
-            .hero {
-                min-height: 800px;
+            /* Three compact price cards side-by-side horizontally on mobile */
+            .price-showcase {
+                display: grid !important;
+                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+                gap: 6px;
                 width: 100%;
-                padding: 0;
-
             }
 
-            .mobile-search {
-                display: none
+            .price-box {
+                padding: 10px 4px;
+                border-radius: 8px;
+                border-width: 1px;
+                border-top-width: 3px;
+                min-width: 0;
             }
 
-            .hero-visual {
-                position: absolute;
-                inset: 0;
-                height: auto;
-                z-index: 1
+            .price-box .p-label {
+                font-size: 9.5px;
+                letter-spacing: 0;
+                margin-bottom: 2px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
-            .hero-visual:after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(90deg, rgba(5, 5, 7, .86) 0%, rgba(5, 5, 7, .58) 48%, rgba(5, 5, 7, .2) 100%), linear-gradient(0deg, rgba(5, 5, 7, .5), transparent 42%);
-                pointer-events: none
+            .price-box .p-amount {
+                font-size: 16px;
+                line-height: 1.1;
             }
 
-            .hero-image {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                filter: brightness(.72) drop-shadow(0 35px 30px rgba(0, 0, 0, .16))
+            .price-box .p-amount span {
+                font-size: 9px;
             }
 
-            .hero-info {
-                z-index: 2;
-                color: #111
-            }
-
-            .hero-copy {
-                text-align: center;
-                margin: auto;
-                min-height: 800px;
-                padding: 150px 0 125px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                color: #fff
-            }
-
-            .hero-copy p {
-                margin: auto;
-                color: rgba(255, 255, 255, .78)
-            }
-
-            .hero-actions,
-            .price-row {
-                justify-content: center
-            }
-
-            .hero-visual {
-                height: 410px
-            }
-
-            .hero-image {
-                height: 390px
-            }
-
-            .hero-info {
-                right: 4%;
-                bottom: 3%
-            }
-
-            .campaign-panel {
-                grid-template-columns: 1fr
-            }
-
-            .campaign-image {
-                min-height: 340px
-            }
-
-            .campaign-copy {
-                padding: 48px
-            }
-
-            .contact-panel {
-                grid-template-columns: 1fr
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr
-            }
-
-            .footer-grid>:first-child {
-                grid-column: 1/-1
+            .price-box .p-note {
+                font-size: 8.5px;
+                line-height: 1.15;
+                margin-top: 3px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
         }
 
-        @media(min-width:651px) and (max-width:1120px) {
-            .nav-inner {
-                gap: 14px
+        @media (max-width: 380px) {
+            .price-showcase {
+                gap: 4px;
             }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 68px;
-                right: 15px;
-                width: 240px;
-                padding: 18px;
-                flex-direction: column;
-                gap: 16px;
-                border: 1px solid #ddd;
-                border-radius: 16px;
-                background: rgba(255, 255, 255, .98);
-                box-shadow: 0 18px 40px rgba(0, 0, 0, .14)
+            .price-box {
+                padding: 8px 2px;
             }
-
-            .nav-links.open {
-                display: flex
+            .price-box .p-label {
+                font-size: 8.5px;
             }
-
-            .nav-search {
-                max-width: 300px
+            .price-box .p-amount {
+                font-size: 14.5px;
             }
-
-            .more-button {
-                display: block
-            }
-
-            .nav-cta {
-                display: none
-            }
-        }
-
-        @media(max-width:650px) {
-
-            .container,
-            .hero-grid {
-                width: calc(100% - 30px)
-            }
-
-            .logo-mark {
-                width: 54px;
-                height: 54px
-            }
-
-            .display {
-                font-size: 60px;
-                line-height: 1;
-                letter-spacing: -.04em
-            }
-
-            .section-title {
-                font-size: 42px
-            }
-
-            .grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 10px
-            }
-
-            .product-image {
-                height: 190px;
-                padding: 12px
-            }
-
-            .body {
-                padding: 14px
-            }
-
-            .name {
-                font-size: 17px
-            }
-
-            .desc {
-                min-height: 0
-            }
-
-            .bottom {
-                align-items: flex-start;
-                flex-direction: column
-            }
-
-            .get {
-                width: 100%
-            }
-
-            .promo-grid,
-            .service-grid,
-            .game-grid,
-            .why-grid {
-                grid-template-columns: 1fr
-            }
-
-            .brand-strip,
-            .promo-wrap {
-                display: none
-            }
-
-            .promo:first-child {
-                grid-column: auto
-            }
-
-            .head {
-                display: block
-            }
-
-            .head p {
-                margin-top: 18px
-            }
-
-            .toolbar {
-                margin-bottom: 18px
-            }
-
-            .campaign-copy {
-                padding: 36px 25px
-            }
-
-            .contact-panel {
-                padding: 35px 25px;
-                border-radius: 27px
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr
-            }
-
-            .footer-grid>:first-child {
-                grid-column: 1/-1
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 10px
-            }
-
-            .inline-campaign {
-                display: block;
-                padding: 27px
-            }
-
-            .offer-price {
-                margin-top: 17px
-            }
-
-            .hero-controls {
-                left: 15px
-            }
-
-            .hero-arrows {
-                right: 15px
-            }
-
-            .brands {
-                height: 76px
-            }
-
-            .hero-grid {
-                width: 100%;
-                min-height: 560px
-            }
-
-            .hero {
-                min-height: 560px
-            }
-
-            .hero-visual {
-                inset: 0;
-                height: auto
-            }
-
-            .hero-image {
-                height: 100%;
-                object-fit: cover
-            }
-
-            .hero-copy {
-                min-height: 0;
-                padding: 30px 20px;
-                display: block;
-                text-align: left;
-                margin: 0;
-                position: relative;
-                z-index: 3
-            }
-
-            .hero-copy .eyebrow {
+            .price-box .p-amount span {
                 font-size: 8px;
-                letter-spacing: .12em
             }
-
-            .hero-copy h1 {
-                margin: 8px 0 0;
-                max-width: 190px
-            }
-
-            .hero-copy h1 span {
-                display: none
-            }
-
-            .hero-copy p,
-            .hero-copy .price-row,
-            .hero-copy .hero-actions,
-            .hero-info {
-                display: none
-            }
-        }
-
-        @media(prefers-reduced-motion:reduce) {
-
-            *,
-            *:before,
-            *:after {
-                scroll-behavior: auto !important;
-                animation: none !important;
-                transition: none !important
+            .price-box .p-note {
+                font-size: 7.5px;
             }
         }
     </style>
 </head>
-
 <body>
-    <div class="announcement">
-        <div class="marquee">LAPTOP CENTRE CAMPAIGN WEEK &nbsp; • &nbsp; NEW-GENERATION LAPTOPS &nbsp; • &nbsp; STUDENT
-            VALUE
-            &nbsp; • &nbsp; TOUCH + 360° CONVERTIBLES &nbsp; • &nbsp; BUSINESS CLASS &nbsp; • &nbsp; GAMING PERFORMANCE
-            &nbsp; • &nbsp; LAPTOP CENTRE CAMPAIGN WEEK &nbsp; • &nbsp; NEW-GENERATION LAPTOPS &nbsp; • &nbsp;</div>
-    </div>
 
-    <header class="nav">
-        <div class="container nav-inner">
-            <a href="#" class="logo" aria-label="LAPTOP CENTRE"><span class="logo-mark"><img src="images/logo.png"
-                        alt="LAPTOP CENTRE"></span></a>
-            <nav class="nav-links">
-                <a href="#laptops">Laptops</a><a href="#solutions">Solutions</a><a href="#services">Services</a><a
-                    href="#games">Gaming</a><a href="#contact">Contact</a>
-            </nav>
-            <label class="nav-search" aria-label="Search laptops">
-                <div class="search-shell">
-                    <input class="search" id="search" type="search" placeholder="Search laptops, brands or features..."
-                        autocomplete="off">
-                    <button class="search-button" type="button" aria-label="Search">⌕</button>
-                    <div class="suggestions" role="listbox"></div>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="brand-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        <line x1="9" y1="7" x2="15" y2="7"></line>
+                        <line x1="9" y1="11" x2="15" y2="11"></line>
+                    </svg>
                 </div>
-            </label>
-            <button class="more-button" id="moreButton" type="button" aria-expanded="false">MORE</button>
-            <a class="nav-cta"
-                href="https://wa.me/254707865597?text=Hello%20LAPTOP%20CENTRE%2C%20I%27d%20like%20to%20get%20a%20laptop."
-                target="_blank">GET A QUOTE</a>
-            <button class="menu" id="menu" aria-label="Open menu">☰</button>
+                <div>Course<span class="accent">Correct</span></div>
+            </a>
+
+            <div class="nav-search">
+                <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Search by course code (e.g. BCS 201), title, or faculty...">
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn btn-ghost" onclick="openPurchasesModal()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    My Downloads
+                </button>
+                <a href="/vender.html" class="btn btn-ghost" title="Staff / Admin Portal">
+                    Vendor Portal
+                </a>
+                <button class="btn btn-cart" onclick="toggleCart()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Cart</span>
+                    <span class="cart-count" id="cartBadge">0</span>
+                </button>
+            </div>
         </div>
     </header>
 
+    <!-- Hero Section with Official Pricing Breakdown -->
     <section class="hero">
-        <div class="hero-slider">
-            <article class="slide active">
-                <div class="hero-grid">
-                    <div class="hero-copy">
-                        <div class="eyebrow">STUDENT VALUE COLLECTION</div>
-                        <h1 class="display">ThinkPad X390 Yoga.<br><span class="blue">Touch. Fold. Learn.</span>
-                        </h1>
-                        <p>Premium 2-in-1 flexibility for notes, coursework and everyday work, with a touchscreen and
-                            360-degree hinge at a student-friendly price.</p>
-                        <div class="price-row"><strong>KSh 34,500</strong><del>KSh 46,000</del></div>
-                        <div class="hero-actions"><button class="btn btn-dark"
-                                onclick="openInquiry('Lenovo ThinkPad X390 Yoga')">GET THIS DEVICE</button><a
-                                class="btn btn-light" href="#laptops">EXPLORE COLLECTION</a></div>
-                    </div>
-                    <div class="hero-visual">
-                        <img class="hero-image" src="images/Lenovo-ThinkPad-Yoga-X390.png"
-                            alt="Lenovo ThinkPad X390 Yoga" fetchpriority="high">
+        <div class="container hero-grid">
+            <div>
+                <h1 class="hero-title">
+                    Exam Revision Made <span class="highlight">Effortless</span> with Instant M-Pesa Access
+                </h1>
+                
+             
+            </div>
 
-                    </div>
+            <!-- Price Cards Box -->
+            <div class="price-showcase">
+                <div class="price-box box-pp" onclick="filterByCategory('past-paper')">
+                    <div class="p-label">Past Papers</div>
+                    <div class="p-amount">200 <span>KES</span></div>
+                    <div class="p-note">Full End-Sem + Solutions</div>
                 </div>
-            </article>
-
-            <article class="slide">
-                <div class="hero-grid">
-                    <div class="hero-copy">
-                        <div class="eyebrow">PREMIUM VALUE</div>
-                        <h1 class="display">ThinkPad X1 Yoga.<br><span class="blue">More room to move.</span></h1>
-                        <p>16GB RAM, 512GB SSD storage and touchscreen flexibility make this a strong value choice for
-                            students, remote work and everyday productivity.</p>
-                        <div class="price-row"><strong>KSh 39,000</strong><del>KSh 52,000</del></div>
-                        <div class="hero-actions"><button class="btn btn-dark"
-                                onclick="openInquiry('Lenovo ThinkPad X1 Yoga')">GET THIS DEVICE</button><a
-                                class="btn btn-light" href="#laptops">VIEW VALUE PICKS</a></div>
-                    </div>
-                    <div class="hero-visual">
-                        <img class="hero-image" src="images/ThinkPad X1 Yoga.png" alt="Lenovo ThinkPad X1 Yoga"
-                            loading="lazy">
-
-                    </div>
+                <div class="price-box box-cat" onclick="filterByCategory('cat')">
+                    <div class="p-label">CATS</div>
+                    <div class="p-amount">25 <span>KES</span></div>
+                    <div class="p-note">Continuous Tests</div>
                 </div>
-            </article>
-
-            <article class="slide">
-                <div class="hero-grid">
-                    <div class="hero-copy">
-                        <div class="eyebrow">HP STUDENT CAMPAIGN</div>
-                        <h1 class="display">EliteBook 830 G6.<br><span class="blue">Small. Serious.</span></h1>
-                        <p>Compact FHD business design with fast everyday performance, ideal for students and
-                            professionals who need a polished laptop without the premium price.</p>
-                        <div class="price-row"><strong>KSh 36,900</strong><del>KSh 49,000</del></div>
-                        <div class="hero-actions"><button class="btn btn-dark"
-                                onclick="openInquiry('HP EliteBook 830 G6 x360')">GET THIS DEVICE</button><a
-                                class="btn btn-light" href="#laptops">SEE HP VALUE</a></div>
-                    </div>
-                    <div class="hero-visual">
-                        <img class="hero-image" src="images/Elitebook-G6.png" alt="HP EliteBook 830 G6 x360"
-                            loading="lazy">
-
-                    </div>
+                <div class="price-box box-special" onclick="filterByCategory('special')">
+                    <div class="p-label">SPECIAL</div>
+                    <div class="p-amount">250 <span>KES</span></div>
+                    <div class="p-note">Supp & Special Exams</div>
                 </div>
-            </article>
-
-            <article class="slide">
-                <div class="hero-grid">
-                    <div class="hero-copy">
-                        <div class="eyebrow">EVERYDAY STUDY SERIES</div>
-                        <h1 class="display">Yoga x360.<br><span class="blue">A smarter standard.</span></h1>
-                        <p>Touchscreen flexibility for notes, presentations and schoolwork, with the right balance of
-                            portability and price.</p>
-                        <div class="price-row"><strong>KSh 32,000</strong><del>KSh 40,000</del></div>
-                        <div class="hero-actions"><button class="btn btn-dark"
-                                onclick="openInquiry('Lenovo Yoga x360')">GET THIS DEVICE</button><a
-                                class="btn btn-light" href="#laptops">SHOP STUDENT PICKS</a></div>
-                    </div>
-                    <div class="hero-visual">
-                        <img class="hero-image" src="images/Yoga x360.png" alt="Lenovo Yoga x360 laptop" loading="lazy">
-                        <div class="hero-info"><small>Standard 2-in-1</small><strong>Yoga x360</strong><span>Core i5 ·
-                                8GB · 256GB · Touch display</span></div>
-                    </div>
-                </div>
-            </article>
-
-            <div class="hero-controls"><button class="dot active" data-slide="0"></button><button class="dot"
-                    data-slide="1"></button><button class="dot" data-slide="2"></button><button class="dot"
-                    data-slide="3"></button></div>
-            <div class="hero-arrows"><button class="arrow" id="prev">←</button><button class="arrow"
-                    id="next">→</button></div>
-        </div>
-    </section>
-
-    <section class="mobile-search">
-        <div class="container">
-            <label for="mobileSearch" class="eyebrow">Find your laptop</label>
-            <div class="search-shell">
-                <input class="search" id="mobileSearch" type="search"
-                    placeholder="Search laptops, brands or features..." autocomplete="off">
-                <button class="search-button" type="button" aria-label="Search">⌕</button>
-                <div class="suggestions" role="listbox"></div>
             </div>
         </div>
     </section>
 
-    <section class="brand-strip">
-        <div class="container brands">
-            <button class="brand-filter active" data-brand="all">ALL</button><button class="brand-filter"
-                data-brand="Lenovo">LENOVO</button><button class="brand-filter" data-brand="Dell">DELL</button><button
-                class="brand-filter" data-brand="HP">HP</button><button class="brand-filter"
-                data-brand="Apple">APPLE</button><button class="brand-filter" data-brand="ASUS">ASUS</button><button
-                class="brand-filter" data-brand="Acer">ACER</button><button class="brand-filter"
-                data-brand="Microsoft">MICROSOFT</button><button class="brand-filter" data-brand="MSI">MSI</button>
+    <!-- Main Workspace: Folder Tree & Document Explorer -->
+    <main class="app-body">
+        <div class="container explorer-layout">
+
+            <!-- Sidebar: Folders Tree -->
+            <aside class="sidebar">
+                <div class="sidebar-heading">
+                    <span>Course Folders</span>
+                    <span id="totalDocsCount" class="badge-count">0 items</span>
+                </div>
+                <ul class="folder-tree" id="foldersTreeContainer">
+                    <!-- Populated dynamically via JS -->
+                </ul>
+            </aside>
+
+            <!-- Main Content: Folders & PDF Files -->
+            <section class="content-area">
+
+                <!-- Explorer Toolbar & Breadcrumbs -->
+                <div class="explorer-bar">
+                    <div class="breadcrumbs" id="breadcrumbsNav">
+                        <span style="cursor:pointer;" onclick="resetFilter()">CourseCorrect</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        <span class="current" id="currentFolderBreadcrumb">All Resources</span>
+                    </div>
+
+                    <div class="view-filters">
+                        <button class="filter-btn active" data-cat="all" onclick="filterByCategory('all')">All Resources</button>
+                        <button class="filter-btn" data-cat="past-paper" onclick="filterByCategory('past-paper')">Past Papers (200)</button>
+                        <button class="filter-btn" data-cat="cat" onclick="filterByCategory('cat')">CATS (25)</button>
+                        <button class="filter-btn" data-cat="special" onclick="filterByCategory('special')">Special Exams (250)</button>
+                    </div>
+                </div>
+
+                <!-- PDF Documents File Cards List -->
+                <div class="files-section">
+                    <div class="section-title">
+                        <span id="filesSectionHeading">Available PDF Documents</span>
+                        <span id="displayedFilesCount" style="font-size:12px; color:var(--text-muted); font-weight:600;">0 files</span>
+                    </div>
+                    <div class="files-grid" id="filesGridContainer">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- University Faculties & Schools Folders Grid (at the bottom below Available PDF Documents) -->
+                <div class="folders-section" id="subFoldersWrapper">
+                    <div class="section-title">
+                        <span id="foldersSectionHeading">University Faculties &amp; Schools</span>
+                        <span style="font-size:12px; color:var(--text-muted); font-weight:500;">Click a folder to filter files</span>
+                    </div>
+                    <div class="folders-grid" id="subFoldersGrid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+            </section>
         </div>
-    </section>
+    </main>
 
-    <section class="promo-wrap container reveal">
-        <div class="promo-grid">
-            <article class="promo">
-                <img loading="lazy" src="images/laptops.png" alt="Dell Latitude student laptop">
-                <div class="promo-copy">
-                    <h3>Reliable machines.<br>Student-sized prices.</h3>
-                    <p>Dell Latitude, Lenovo Yoga and HP EliteBook options from KSh 15,000 to KSh 40,000, with stock
-                        and configuration confirmed before purchase.</p>
-                </div>
-            </article>
-            <article class="promo" background="black"><img loading="lazy" src="images/students laptop.png"
-                    alt="Lenovo Yoga student laptop">
-                <div class="promo-copy">
-                    <h3 style="color:white">Touch.<br>Fold. Learn.</h3>
-                    <p>Yoga x360, Yoga 380, Yoga 370 and compact 11e models for flexible student work.</p>
-                </div>
-            </article>
-            <article class="promo light"><img loading="lazy" src="images/other laptops.png"
-                    alt="HP EliteBook student laptop">
-                <div class="promo-copy"><span class="promo-tag">HP ELITEBOOK VALUE</span>
-                    <h3>Business build.<br>Budget price.</h3>
-                    <p>Convertible and touch-ready machines for flexible workflows.</p>
-                </div>
-            </article>
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3 style="font-weight:800; font-size:17px;">Your Selected Materials</h3>
+            <button class="modal-close" onclick="toggleCart()">&times;</button>
         </div>
-    </section>
+        <div class="cart-items-list" id="cartItemsList">
+            <!-- Cart items dynamically rendered -->
+        </div>
+        <div class="cart-footer">
+            <div class="summary-row" style="font-size:15px; font-weight:700; margin-bottom:14px;">
+                <span>Total Amount:</span>
+                <span id="cartTotalDisplay" style="font-family:'JetBrains Mono'; color:var(--mpesa); font-size:18px;">KES 0</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%; height:48px; font-size:15px;" onclick="checkoutCart()">
+                Checkout with M-Pesa STK Push
+            </button>
+        </div>
+    </div>
 
-    <section class="products" id="laptops">
-        <div class="container">
-            <div class="head reveal">
-                <div>
-                    <div class="eyebrow">THE LAPTOP CENTRE COLLECTION</div>
-                    <h2 class="section-title">Laptops <span class="muted">worth owning.</span></h2>
+    <!-- M-Pesa STK Push Payment Modal -->
+    <div class="modal-overlay" id="mpesaModal">
+        <div class="modal-card">
+            <div class="mpesa-modal-header">
+                <button class="modal-close" style="position:absolute; right:16px; top:16px; color:#fff;" onclick="closeMpesaModal()">&times;</button>
+                <div class="mpesa-logo-badge">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    LIPA NA M-PESA
                 </div>
-                <p>Expanded with newer-generation systems, affordable workhorses, touch/360° convertibles and
-                    performance machines. Prices are Kenya market guide prices observed from current listings and can
-                    change with configuration, stock, warranty and VAT.</p>
+                <h3 style="font-size:20px; font-weight:800;">M-Pesa STK Push Checkout</h3>
+                <p style="font-size:13px; opacity:0.9; margin-top:4px;">Safe, Instant & Direct to Safaricom</p>
             </div>
-            <div class="toolbar">
-                <div class="count"><span id="count">0</span> MACHINES SHOWN</div>
-            </div>
-            <div class="chips" id="featureChips"><button class="chip active" data-feature="all">ALL</button><button
-                    class="chip" data-feature="touch">TOUCH</button><button class="chip"
-                    data-feature="360">360°</button><button class="chip" data-feature="new">NEWER
-                    GENERATION</button><button class="chip" data-feature="student">STUDENT VALUE</button><button
-                    class="chip" data-feature="gaming">GAMING</button></div>
 
-            <div class="grid" id="grid">
-                <div class="inline-campaign reveal">
-                    <div class="campaign-content">
-                        <div class="eyebrow" style="color:#9eb4c9">MID-COLLECTION OFFER</div>
-                        <h3>Save more on selected upgrades.</h3>
-                        <p>Ask for RAM/SSD upgrades, Windows or Linux setup and current campaign stock before ordering.
+            <div class="modal-body" id="mpesaModalBody">
+                <!-- STEP 1: Phone Input -->
+                <div id="checkoutStepInput">
+                    <div class="mpesa-order-summary">
+                        <div id="checkoutItemsBreakdown"></div>
+                        <div class="summary-row total">
+                            <span>Total Payable:</span>
+                            <span id="checkoutTotalAmount" style="color:var(--mpesa);">KES 0</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="mpesaPhoneInput">Enter Safaricom Phone Number for STK Push</label>
+                        <div class="phone-input-wrap">
+                            <div class="phone-prefix">
+                                <span class="ke-flag" title="Kenya (+254)">
+                                    <span class="ke-flag-black"></span>
+                                    <span class="ke-flag-white1"></span>
+                                    <span class="ke-flag-red"><span class="ke-flag-shield"></span></span>
+                                    <span class="ke-flag-white2"></span>
+                                    <span class="ke-flag-green"></span>
+                                </span>
+                                <span>+254</span>
+                            </div>
+                            <input type="tel" id="mpesaPhoneInput" placeholder="712345678" maxlength="10" value="0712345678">
+                        </div>
+                        <span style="font-size:11.5px; color:var(--text-muted); margin-top:5px; display:block;">
+                            You will receive a prompt on this phone to enter your M-Pesa PIN.
+                        </span>
+                    </div>
+
+                    <button class="btn btn-primary" style="width:100%; height:48px; font-size:15px; font-weight:700;" onclick="triggerStkPush()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                        Send M-Pesa STK Push
+                    </button>
+                </div>
+
+                <!-- STEP 2: Live STK Push Dispatched to Phone -->
+                <div id="checkoutStepWaiting" style="display:none; text-align:center;">
+                    <div class="real-stk-waiting-card">
+                        <div class="stk-pulse-ring">
+                            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--mpesa)" stroke-width="2.2">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <h4 style="font-size:17px; font-weight:800; color:var(--dark); margin-bottom:6px;">
+                            Check Your Phone Screen Now
+                        </h4>
+                        <p style="font-size:13.5px; color:var(--text-muted); line-height:1.5; margin-bottom:16px;" id="waitingPhoneText">
+                            An M-Pesa STK Push has been sent to your handset. Please unlock your phone and enter your 4-digit M-Pesa PIN.
                         </p>
+                        <div class="stk-live-status-pill">
+                            <span class="stk-dot-pulse"></span>
+                            <span id="stkLiveStatusMsg">Awaiting Safaricom M-Pesa confirmation...</span>
+                        </div>
+                        <div id="stkGatewayNotice" style="margin-top:14px; font-size:12px; color:#5e6c84;"></div>
                     </div>
-                    <div class="campaign-visual">
-                        <img src="images/images-removebg-preview (3).png" alt="Dell Latitude laptops" width="400px">
+
+                    <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:14px;">
+                        <button class="btn btn-ghost" style="height:36px; font-size:12.5px;" onclick="closeMpesaModal()">Cancel</button>
+                        <button class="btn btn-secondary" style="height:36px; font-size:12.5px;" onclick="manualCheckStatus()">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle; margin-right:4px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            I've Entered PIN / Check Status
+                        </button>
+                        <button class="btn btn-ghost" style="height:36px; font-size:12.5px;" onclick="triggerStkPush()">Resend STK</button>
                     </div>
-                    <div class="offer-price">UP TO 30% OFF</div>
                 </div>
 
-
-                <div class="inline-campaign reveal">
-                    <div class="campaign-content">
-                        <div class="eyebrow" style="color:#9eb4c9">TOUCH + 360° CAMPAIGN</div>
-                        <h3>One screen. Four modes.</h3>
-                        <p>Choose convertible hardware for notes, presentations, drawing, media and tablet-style use.
+                <!-- STEP 3: Payment Success & Direct Download -->
+                <div id="checkoutStepSuccess" style="display:none;">
+                    <div class="success-receipt-card">
+                        <div class="receipt-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3 style="font-size:20px; font-weight:800; color:var(--dark);">Payment Confirmed!</h3>
+                        <p style="font-size:13px; color:var(--text-muted);">
+                            M-Pesa transaction processed successfully. Your documents are unlocked.
                         </p>
+                        <div class="receipt-code" id="receiptNumberDisplay">EE-SH89128</div>
+                        <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:20px;" id="receiptTimestamp"></div>
+
+                        <div id="purchasedDownloadsList" style="display:flex; flex-direction:column; gap:10px;">
+                            <!-- Download buttons injected here -->
+                        </div>
                     </div>
-                    <div class="campaign-visual" aria-hidden="true">
-                        <span class="campaign-label">360°</span>
-                        <img src="images/students laptop.png" alt="Lenovo Yoga laptop">
-                    </div>
-                    <div class="offer-price">TOUCH + 360°</div>
                 </div>
 
-
-                <div class="inline-campaign reveal">
-                    <div class="campaign-content">
-                        <div class="eyebrow" style="color:#9eb4c9">HP + LENOVO VALUE CAMPAIGN</div>
-                        <h3>Business class, student price.</h3>
-                        <p>Tell us your budget and workflow and we will recommend a Yoga, EliteBook or Latitude
-                            configuration that fits your day-to-day work.
+                <!-- STEP 4: Payment Failure / Cancelled -->
+                <div id="checkoutStepFailure" style="display:none;">
+                    <div class="failure-receipt-card" style="text-align:center; padding:18px 10px;">
+                        <div class="failure-icon" style="width:58px; height:58px; border-radius:50%; background:#ffebe6; color:#de350b; display:inline-flex; align-items:center; justify-content:center; margin-bottom:14px;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="15" y1="9" x2="9" y2="15"></line>
+                                <line x1="9" y1="9" x2="15" y2="15"></line>
+                            </svg>
+                        </div>
+                        <h3 style="font-size:20px; font-weight:800; color:var(--dark); margin-bottom:6px;">Payment Not Completed</h3>
+                        <p style="font-size:13.5px; color:var(--text-muted); line-height:1.5; margin-bottom:14px;" id="failureReasonText">
+                            The M-Pesa transaction was cancelled or declined on your handset.
                         </p>
+                        <div style="background:#fff8e6; border:1px solid #ffd580; border-radius:8px; padding:12px; font-size:12.5px; color:#5c3b00; margin-bottom:20px; text-align:left;">
+                            Please ensure your phone is unlocked, has sufficient M-Pesa balance, and that you enter your correct PIN when prompted.
+                        </div>
+                        <div style="display:flex; justify-content:center; gap:12px;">
+                            <button class="btn btn-ghost" style="height:44px; padding:0 20px;" onclick="closeMpesaModal()">Close</button>
+                            <button class="btn btn-primary" style="height:44px; padding:0 24px; font-weight:700;" onclick="retryMpesaPayment()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle; margin-right:6px;"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                                Try Again
+                            </button>
+                        </div>
                     </div>
-                    <div class="campaign-visual" aria-hidden="true">
-                        <span class="campaign-label">VALUE</span>
-                        <img src="images/ThinkPad X390 Yoga (2).png" alt="HP EliteBook laptop">
-                    </div>
-                    <div class="offer-price">FROM KSh 15K</div>
                 </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <section class="campaign container reveal" id="solutions">
-        <div class="campaign-panel">
-            <div class="campaign-copy">
-                <div class="eyebrow">LAPTOP CENTRE PERFORMANCE COLLECTION</div>
-                <h2>Your next<br>machine is<br><span class="blue">here.</span></h2>
-                <p>Whether you are studying, writing, working remotely or running a small business, LAPTOP CENTRE
-                    matches
-                    you with a practical Yoga, EliteBook or Latitude from KSh 15,000 to KSh 40,000.</p>
-                <div style="margin-top:24px"><button class="btn btn-dark"
-                        onclick="openInquiry('LAPTOP CENTRE Laptop Recommendation')">GET A RECOMMENDATION</button></div>
-            </div>
-            <div class="campaign-image">
-                <span class="campaign-tag">KSh 15K–40K PICKS</span>
-                <img src="images/other laptops.png" alt="Dell Latitude budget laptop">
-            </div>
-        </div>
-    </section>
-
-    <section class="services" id="services">
-        <div class="container">
-            <div class="head reveal">
-                <div>
-                    <div class="eyebrow">TECHNOLOGY SERVICES</div>
-                    <h2 class="section-title">More than <span class="muted">hardware.</span></h2>
-                </div>
-                <p>Setup, installation, upgrades and technical support to get your machine ready for real work.</p>
-            </div>
-            <div class="service-grid">
-                <article class="service reveal"><span class="service-no">01 / SOFTWARE</span>
-                    <div class="service-icon">01</div>
-                    <h3>Software Installation</h3>
-                    <p>Productivity, development, creative and utility software setup.</p>
-                </article>
-                <article class="service reveal"><span class="service-no">02 / WINDOWS</span>
-                    <div class="service-icon">02</div>
-                    <h3>Windows Installation</h3>
-                    <p>Clean installation, drivers, updates and essential configuration.</p>
-                </article>
-                <article class="service reveal"><span class="service-no">03 / LINUX</span>
-                    <div class="service-icon">03</div>
-                    <h3>Linux Setup</h3>
-                    <p>Ubuntu and other Linux environments for development and study.</p>
-                </article>
-                <article class="service reveal"><span class="service-no">04 / MAC</span>
-                    <div class="service-icon">04</div>
-                    <h3>macOS Support</h3>
-                    <p>Apple setup, configuration and troubleshooting for compatible systems.</p>
-                </article>
-                <article class="service reveal"><span class="service-no">05 / HARDWARE</span>
-                    <div class="service-icon">05</div>
-                    <h3>RAM & SSD Upgrades</h3>
-                    <p>Compatible storage, memory, chargers and hardware replacement solutions.</p>
-                </article>
-                <article class="service reveal"><span class="service-no">06 / SUPPORT</span>
-                    <div class="service-icon">06</div>
-                    <h3>Technical Correction</h3>
-                    <p>Diagnose, correct and optimise software and system issues.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="games" id="games">
-        <div class="container">
-            <div class="head reveal">
-                <div>
-                    <div class="eyebrow">ENTERTAINMENT</div>
-                    <h2 class="section-title">Game <span class="muted">ready.</span></h2>
-                </div>
-                <p>Gaming hardware and setup support for demanding titles, high-FPS play and simulation.</p>
-            </div>
-            <div class="game-grid">
-                <article class="game reveal"><img loading="lazy" src="images/msi bravo.png" alt="GTA V">
-                    <div class="game-copy"><small>ROCKSTAR</small>
-                        <h3>Grand Theft Auto V</h3>
-                        <p>Open-world gaming setups matched to your budget.</p><button class="get"
-                            onclick="openInquiry('GTA V Gaming Setup')">GET SETUP</button>
-                    </div>
-                </article>
-                <article class="game reveal">
-                    <img loading="lazy" src="images/g3.png" alt="Call of Duty">
-                    <div class="game-copy"><small>CALL OF DUTY</small>
-                        <h3>Call of Duty</h3>
-                        <p>Competitive systems for high-refresh gaming.</p><button class="get"
-                            onclick="openInquiry('Call of Duty Gaming Setup')">GET SETUP</button>
-                    </div>
-                </article>
-                <article class="game reveal">
-                    <img loading="lazy" src="images/mac book air.png" alt="Call of Duty">
-
-                    <div class="game-copy"><small>FIGHTING</small>
-                        <h3>Mortal Kombat</h3>
-                        <p>PC gaming setups for fighting titles.</p><button class="get"
-                            onclick="openInquiry('Mortal Kombat Setup')">GET SETUP</button>
-                    </div>
-                </article>
-                <article class="game reveal">
-                    <img loading="lazy" src="images/other laptops.png" alt="Call of Duty">
-                    <div class="game-copy"><small>SIMULATION</small>
-                        <h3>Racing / F1</h3>
-                        <p>Performance machines for racing and simulation.</p><button class="get"
-                            onclick="openInquiry('Racing Gaming Setup')">GET SETUP</button>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="why">
-        <div class="container">
-            <div class="eyebrow">THE LAPTOP CENTRE STANDARD</div>
-            <h2 class="section-title" style="margin-top:17px">Technology,<br><span style="color:#555">without the
-                    noise.</span></h2>
-            <div class="why-grid">
-                <article class="why-item reveal"><strong>01</strong>
-                    <h3>Curated devices</h3>
-                    <p>We prioritise machines that make sense for study, business, coding and gaming.</p>
-                </article>
-                <article class="why-item reveal"><strong>02</strong>
-                    <h3>Transparent specs</h3>
-                    <p>Processor, RAM, storage, display and special features are shown before you ask.</p>
-                </article>
-                <article class="why-item reveal"><strong>03</strong>
-                    <h3>Setup support</h3>
-                    <p>Selected devices can be prepared and configured for your workflow.</p>
-                </article>
-                <article class="why-item reveal"><strong>04</strong>
-                    <h3>Human support</h3>
-                    <p>Talk directly to LAPTOP CENTRE for current stock, configuration and pricing.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-panel reveal">
-                <div>
-                    <div class="eyebrow">READY WHEN YOU ARE</div>
-                    <h2>Let's get you<br><span class="blue">the right tech.</span></h2>
-                    <p>Send your budget, use case and preferred features. LAPTOP CENTRE can recommend a suitable laptop,
-                        desktop, accessory, setup or gaming configuration.</p>
-                </div>
-                <div class="contact-links"><a class="contact-link"
-                        href="tel:0707865597"><span><small>CALL</small><strong>0707 865
-                                597</strong></span><span>→</span></a><a class="contact-link"
-                        href="https://wa.me/254707865597" target="_blank"><span><small>WHATSAPP</small><strong>Chat with
-                                LAPTOP CENTRE</strong></span><span>→</span></a><a class="contact-link"
-                        href="mailto:emojistudio254@gmail.com"><span><small>EMAIL</small><strong>emojistudio254@gmail.com</strong></span><span>→</span></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div><a href="#" class="logo" aria-label="LAPTOP CENTRE"><span class="logo-mark"><img
-                                src="images/logo.png" alt="LAPTOP CENTRE"></span></a>
-                    <p class="footer-desc">Premium and practical technology for the next generation — laptops, upgrades,
-                        setup and support.</p>
-                </div>
-                <div>
-                    <h4>Explore</h4>
-                    <ul>
-                        <li><a href="#laptops">Laptops</a></li>
-                        <li><a href="#solutions">Solutions</a></li>
-                        <li><a href="#games">Gaming</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#services">Windows</a></li>
-                        <li><a href="#services">Linux</a></li>
-                        <li><a href="#services">Hardware</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="tel:0707865597">0707 865 597</a></li>
-                        <li><a href="mailto:emojistudio254@gmail.com">Email LAPTOP CENTRE</a></li>
-                        <li><a href="https://wa.me/254707865597">WhatsApp</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom"><span>© 2026 LAPTOP CENTRE. Technology. Refined.</span><span>Kenya · Built for
-                    the next
-                    generation.</span></div>
-        </div>
-    </footer>
-
-    <div class="overlay" id="overlay">
-        <div class="modal">
-            <div class="modal-top"><img id="modalImg" loading="lazy" src="images/other laptops.png"
-                    alt="LAPTOP CENTRE"><button class="close" onclick="closeInquiry()" aria-label="Close">×</button>
-            </div>
-            <div class="modal-body">
-                <div class="sale">LAPTOP CENTRE GET REQUEST</div>
-                <h3 id="modalTitle">Get your machine.</h3>
-                <p>Send your details and LAPTOP CENTRE will respond with current stock, exact configuration and the
-                    applicable
-                    campaign price.</p>
-                <div class="hero-actions" style="margin-top:19px"><a class="btn btn-dark" id="whatsappRequest"
-                        href="https://wa.me/254707865597" target="_blank" rel="noopener">WHATSAPP NOW</a><a
-                        class="btn btn-light" href="tel:0707865597">CALL 0707 865 597</a></div>
-                <form class="form" id="form"><input id="name" required placeholder="Your name"><input id="contact"
-                        required placeholder="Phone / WhatsApp"><select id="type">
-                        <option>Laptop</option>
-                        <option>Desktop</option>
-                        <option>Accessory</option>
-                        <option>Software / Installation</option>
-                        <option>Gaming</option>
-                        <option>Other</option>
-                    </select><textarea id="message"
-                        placeholder="Tell us your budget, preferred specs or use case..."></textarea><button
-                        class="btn btn-dark" type="submit">SEND REQUEST ON WHATSAPP</button></form>
             </div>
         </div>
     </div>
-    <div class="toast" id="toast">Opening LAPTOP CENTRE WhatsApp...</div>
+
+    <!-- Document Preview Modal -->
+    <div class="modal-overlay" id="previewModal">
+        <div class="modal-card" style="max-width: 680px;">
+            <div class="modal-header">
+                <div>
+                    <span id="previewCategoryBadge" class="file-category-badge" style="background:#e3fcef; color:#00875a;">Past Paper</span>
+                    <h3 id="previewTitle" style="font-size:17px; margin-top:4px;">Document Preview</h3>
+                </div>
+                <button class="modal-close" onclick="closePreviewModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="display:flex; justify-content:space-between; align-items:center; background:#f4f5f7; padding:12px 16px; border-radius:8px; margin-bottom:18px;">
+                    <div>
+                        <div style="font-size:11px; text-transform:uppercase; color:var(--text-muted); font-weight:700;">Price</div>
+                        <div id="previewPrice" style="font-size:18px; font-weight:800; font-family:'JetBrains Mono'; color:var(--dark);">KES 200</div>
+                    </div>
+                    <div>
+                        <div style="font-size:11px; text-transform:uppercase; color:var(--text-muted); font-weight:700;">Format</div>
+                        <div id="previewFormat" style="font-size:13.5px; font-weight:600;">Verified PDF (6 Pages)</div>
+                    </div>
+                    <div>
+                        <div style="font-size:11px; text-transform:uppercase; color:var(--text-muted); font-weight:700;">Solutions</div>
+                        <div id="previewSolutions" style="font-size:13.5px; font-weight:700; color:var(--mpesa);">Included &#10003;</div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:18px;">
+                    <h4 style="font-size:13px; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-muted); margin-bottom:8px;">Description & Syllabus Coverage</h4>
+                    <p id="previewDescription" style="font-size:13.5px; color:var(--text-main); line-height:1.5;"></p>
+                </div>
+
+                <div>
+                    <h4 style="font-size:13px; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-muted); margin-bottom:8px;">Sample Questions from this Resource</h4>
+                    <div id="previewQuestionsList" style="background:#fafbfc; border:1px solid var(--border); border-radius:8px; padding:14px; font-size:13px; font-family:inherit; line-height:1.6;">
+                        <!-- Questions injected here -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closePreviewModal()">Close</button>
+                <button class="btn btn-primary" id="previewBuyBtn" onclick="buyFromPreview()">
+                    Buy with M-Pesa (KES 200)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- My Purchases Lookup Modal -->
+    <div class="modal-overlay" id="purchasesModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>My Purchased Materials</h3>
+                <button class="modal-close" onclick="closePurchasesModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:16px;">
+                    Enter your Safaricom phone number or M-Pesa receipt code to access and re-download all your previous exam resources.
+                </p>
+                <div class="input-group">
+                    <label for="lookupPhoneInput">Safaricom Phone Number or Receipt Code</label>
+                    <input type="text" id="lookupPhoneInput" placeholder="e.g. 0712345678 or EEN8PQ99PN" style="width:100%; height:44px; padding:0 14px; border:1.5px solid var(--border); border-radius:8px; font-size:14px;">
+                </div>
+                <button class="btn btn-primary" style="width:100%; height:44px;" onclick="lookupPurchases()">
+                    Find My Materials
+                </button>
+
+                <div id="lookupResultsContainer" style="margin-top:20px;">
+                    <!-- Results injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
 
     <script>
-        const slides = [...document.querySelectorAll('.slide')], dots = [...document.querySelectorAll('.dot')];
-        let current = 0, timer;
-        function showSlide(i) { current = (i + slides.length) % slides.length; slides.forEach((s, n) => s.classList.toggle('active', n === current)); dots.forEach((d, n) => d.classList.toggle('active', n === current)) }
-        function restart() { clearInterval(timer); timer = setInterval(() => showSlide(current + 1), 6500) }
-        document.getElementById('next').onclick = () => { showSlide(current + 1); restart() };
-        document.getElementById('prev').onclick = () => { showSlide(current - 1); restart() };
-        dots.forEach(d => d.onclick = () => { showSlide(+d.dataset.slide); restart() }); restart();
-        document.querySelector('.hero').addEventListener('mouseenter', () => clearInterval(timer));
-        document.querySelector('.hero').addEventListener('mouseleave', restart);
+        // Global State
+        let allMaterials = [];
+        let foldersTree = [];
+        let currentFaculty = 'all';
+        let currentUnit = 'all';
+        let currentCategory = 'all';
+        let cart = [];
+        let currentActiveOrder = null;
+        let activePreviewDoc = null;
 
-        let cards = [], catalogProducts = [], brandButtons = [...document.querySelectorAll('.brand-filter')], searchInputs = [...document.querySelectorAll('.search')], search = searchInputs[0], count = document.getElementById('count');
-        const minimumBudget = 15000, maximumBudget = 40000;
-        let activeBrand = 'all', activeFeature = 'all';
-        function escapeHtml(value) {
-            return String(value ?? '').replace(/[&<>'"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadMaterials();
+            setupLiveUpdates();
+            setupSearch();
+        });
+
+        // Load Materials & Folders Catalog
+        async function loadMaterials() {
+            try {
+                const res = await fetch('/api/materials');
+                const data = await res.json();
+                allMaterials = data.materials || [];
+                foldersTree = data.foldersTree || [];
+                document.getElementById('totalDocsCount').innerText = `${allMaterials.length} items`;
+                renderSidebarFolders();
+                renderSubFoldersGrid();
+                renderFilesGrid();
+            } catch (err) {
+                console.error('Failed to load materials:', err);
+                showToast('Failed to load exam catalog. Check server.', 'error');
+            }
         }
-        function normalize(value) { return String(value ?? '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim() }
-        function editDistance(left, right) {
-            const row = Array.from({ length: right.length + 1 }, (_, index) => index);
-            for (let leftIndex = 1; leftIndex <= left.length; leftIndex++) {
-                let diagonal = row[0]; row[0] = leftIndex;
-                for (let rightIndex = 1; rightIndex <= right.length; rightIndex++) {
-                    const above = row[rightIndex];
-                    row[rightIndex] = left[leftIndex - 1] === right[rightIndex - 1] ? diagonal : 1 + Math.min(diagonal, above, row[rightIndex - 1]);
-                    diagonal = above;
+
+        // Render Sidebar Folder Hierarchy
+        function renderSidebarFolders() {
+            const container = document.getElementById('foldersTreeContainer');
+            container.innerHTML = '';
+
+            // 'All Folders' item
+            const allLi = document.createElement('li');
+            allLi.className = 'folder-group';
+            allLi.innerHTML = `
+                <div class="faculty-header ${currentFaculty === 'all' ? 'active' : ''}" onclick="selectFaculty('all')">
+                    <div class="left">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <span>All Faculties & Courses</span>
+                    </div>
+                    <span class="badge-count">${allMaterials.length}</span>
+                </div>
+            `;
+            container.appendChild(allLi);
+
+            // Populate each faculty and its respective units
+            foldersTree.forEach(faculty => {
+                const li = document.createElement('li');
+                li.className = 'folder-group';
+
+                const isFacultyActive = currentFaculty === faculty.id;
+                let unitsHtml = '';
+                faculty.units.forEach(unit => {
+                    const isUnitActive = currentUnit === unit.code;
+                    unitsHtml += `
+                        <li class="unit-item ${isUnitActive ? 'active' : ''}" onclick="selectUnit('${faculty.id}', '${unit.code}')">
+                            <span>${unit.code} - ${unit.name}</span>
+                            <span class="badge-count">${unit.totalCount}</span>
+                        </li>
+                    `;
+                });
+
+                li.innerHTML = `
+                    <div class="faculty-header ${isFacultyActive ? 'active' : ''}" onclick="selectFaculty('${faculty.id}')">
+                        <div class="left">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                            <span>${faculty.name}</span>
+                        </div>
+                        <span class="badge-count">${faculty.units.reduce((s, u) => s + u.totalCount, 0)}</span>
+                    </div>
+                    <ul class="faculty-units" style="${isFacultyActive ? 'display:block;' : 'display:none;'}">
+                        ${unitsHtml}
+                    </ul>
+                `;
+                container.appendChild(li);
+            });
+        }
+
+        // Render Folder Cards in the Main Grid
+        function renderSubFoldersGrid() {
+            const container = document.getElementById('subFoldersGrid');
+            const heading = document.getElementById('foldersSectionHeading');
+            container.innerHTML = '';
+
+            if (currentFaculty === 'all') {
+                heading.innerText = 'University Faculties & Schools';
+                foldersTree.forEach(f => {
+                    const count = f.units.reduce((s, u) => s + u.totalCount, 0);
+                    const card = document.createElement('div');
+                    card.className = 'folder-card';
+                    card.onclick = () => selectFaculty(f.id);
+                    card.innerHTML = `
+                        <div class="folder-top">
+                            <div class="folder-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </div>
+                            <span class="badge-count">${f.units.length} Units</span>
+                        </div>
+                        <div class="folder-name">${f.name}</div>
+                        <div class="folder-meta">
+                            <span>${count} verified documents</span>
+                            <span class="price-tag">From KES 25</span>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } else {
+                const fac = foldersTree.find(f => f.id === currentFaculty);
+                heading.innerText = `${fac ? fac.name : 'Faculty'} Folders`;
+
+                // Render Unit folders
+                if (fac && fac.units) {
+                    fac.units.forEach(u => {
+                        const card = document.createElement('div');
+                        card.className = `folder-card ${currentUnit === u.code ? 'active' : ''}`;
+                        card.onclick = () => selectUnit(fac.id, u.code);
+                        card.innerHTML = `
+                            <div class="folder-top">
+                                <div class="folder-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </div>
+                                <span class="badge-count">${u.totalCount} Papers</span>
+                            </div>
+                            <div class="folder-name">${u.code}: ${u.name}</div>
+                            <div class="folder-meta">
+                                <span>PP: ${u.pastPapersCount} | CAT: ${u.catsCount} | Supp: ${u.specialCount}</span>
+                            </div>
+                        `;
+                        container.appendChild(card);
+                    });
                 }
             }
-            return row[right.length];
         }
-        function productSearchText(product) { return normalize([product.name, product.brand, product.description, product.generation, ...(product.features || []), ...(product.specs || [])].join(' ')) }
-        function scoreProduct(product, query) {
-            if (!query) return 1;
-            const text = productSearchText(product), name = normalize(product.name), tokens = normalize(query).split(' ').filter(Boolean);
-            let score = text.includes(normalize(query)) ? 70 : 0;
-            if (name.startsWith(normalize(query))) score += 35;
-            tokens.forEach(token => {
-                if (text.includes(token)) score += 20;
-                const closest = text.split(' ').reduce((best, word) => Math.min(best, editDistance(token, word)), token.length + 4);
-                score += Math.max(0, 18 - closest * 3);
-            });
-            return score;
-        }
-        function rankedProducts(query) { return catalogProducts.map(product => ({ product, score: scoreProduct(product, query) })).sort((left, right) => right.score - left.score) }
-        function updateSuggestions(input) {
-            const panel = input.closest('.search-shell').querySelector('.suggestions'), query = input.value.trim();
-            const matches = rankedProducts(query).slice(0, 5);
-            panel.innerHTML = matches.map(({ product }) => `<button class="suggestion" type="button" role="option" data-name="${escapeHtml(product.name)}"><span>${escapeHtml(product.name)}</span><small>${escapeHtml(product.brand)}</small></button>`).join('');
-            panel.classList.toggle('show', matches.length > 0 && document.activeElement === input);
-            panel.querySelectorAll('.suggestion').forEach(button => button.addEventListener('mousedown', event => {
-                event.preventDefault();
-                input.value = button.dataset.name;
-                searchInputs.forEach(otherInput => { otherInput.value = input.value });
-                filter();
-                panel.classList.remove('show');
-            }));
-        }
-        function productCard(product) {
-            const features = product.features || [];
-            const badgeClass = /offer|sale|pick/i.test(product.badge || '') ? 'badge sale' : 'badge';
-            const featureBadges = features.filter(feature => ['touch', '360'].includes(feature.toLowerCase())).map(feature => `<span class="feature">${escapeHtml(feature.toUpperCase())}</span>`).join('');
-            const oldPrice = product.oldPrice ? `<del>KSh ${Number(product.oldPrice).toLocaleString('en-KE')}</del>` : '';
-            return `<article class="card reveal" data-brand="${escapeHtml(product.brand)}" data-name="${escapeHtml(product.name)}" data-features="${escapeHtml(features.join(' '))}">
-                <div class="product-image"><span class="${badgeClass}">${escapeHtml(product.badge || 'VALUE')}</span>${featureBadges ? `<div class="badges">${featureBadges}</div>` : ''}<img loading="lazy" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)} laptop"></div>
-                <div class="body"><div class="brand">${escapeHtml(product.brand).toUpperCase()}</div><h3 class="name">${escapeHtml(product.name)}</h3><p class="desc">${escapeHtml(product.description)}</p>
-                    <div class="specs">${(product.specs || []).map(spec => `<span class="spec">${escapeHtml(spec)}</span>`).join('')}</div>
-                    <div class="bottom"><div class="money"><strong>KSh ${Number(product.price).toLocaleString('en-KE')}</strong>${oldPrice}</div><button class="get" onclick="openInquiry('${escapeHtml(product.name)}')">GET</button></div>
-                </div>
-            </article>`;
-        }
-        async function loadProducts() {
-            const response = await fetch('products.json', { cache: 'no-store' });
-            if (!response.ok) throw new Error('Could not load products.json');
-            catalogProducts = (await response.json()).filter(product => product.price >= minimumBudget && product.price <= maximumBudget);
-            const products = catalogProducts;
-            const grid = document.getElementById('grid');
-            const campaigns = [...grid.querySelectorAll('.inline-campaign')];
-            const groupSize = Math.ceil(products.length / (campaigns.length + 1));
-            products.forEach((product, index) => {
-                const card = document.createRange().createContextualFragment(productCard(product));
-                const campaign = campaigns[Math.min(Math.floor(index / groupSize), campaigns.length)];
-                if (campaign) grid.insertBefore(card, campaign); else grid.append(card);
-            });
-            cards = [...grid.querySelectorAll('.card')];
-            cards.forEach(card => observer.observe(card));
-            filter();
-        }
-        function filter() {
-            const q = normalize(search.value), ranked = rankedProducts(q), exactMatches = q ? ranked.filter(result => result.score >= 70).map(result => result.product.name) : [];
-            const fallbackNames = q && exactMatches.length === 0 ? new Set(ranked.slice(0, 4).map(result => result.product.name)) : null;
-            document.body.classList.toggle('search-mode', Boolean(q));
-            let visible = 0;
-            cards.forEach(c => {
-                const brand = c.dataset.brand, name = normalize(c.dataset.name), features = normalize(c.dataset.features || '');
-                const listedPrice = Number((c.querySelector('.money strong')?.textContent || '').replace(/[^0-9]/g, ''));
-                const okBrand = activeBrand === 'all' || brand === activeBrand;
-                const okFeature = activeFeature === 'all' || features.includes(activeFeature);
-                const okSearch = !q || exactMatches.includes(c.dataset.name) || fallbackNames?.has(c.dataset.name);
-                const inBudget = listedPrice >= minimumBudget && listedPrice <= maximumBudget;
-                const ok = inBudget && okBrand && okFeature && okSearch; c.style.display = ok ? '' : 'none'; if (ok) visible++;
-            });
-            count.textContent = visible;
-        }
-        brandButtons.forEach(b => b.onclick = () => { brandButtons.forEach(x => x.classList.remove('active')); b.classList.add('active'); activeBrand = b.dataset.brand; filter() });
-        document.querySelectorAll('.chip').forEach(b => b.onclick = () => { document.querySelectorAll('.chip').forEach(x => x.classList.remove('active')); b.classList.add('active'); activeFeature = b.dataset.feature; filter() });
-        searchInputs.forEach(input => input.addEventListener('input', () => {
-            searchInputs.forEach(otherInput => { if (otherInput !== input) otherInput.value = input.value });
-            updateSuggestions(input); filter();
-        }));
-        searchInputs.forEach(input => {
-            input.addEventListener('focus', () => updateSuggestions(input));
-            input.addEventListener('keydown', event => { if (event.key === 'Enter') { event.preventDefault(); filter(); input.closest('.search-shell').querySelector('.suggestions').classList.remove('show'); document.getElementById('laptops').scrollIntoView({ behavior: 'smooth' }) } });
-            input.addEventListener('blur', () => setTimeout(() => input.closest('.search-shell').querySelector('.suggestions').classList.remove('show'), 120));
-        });
-        document.querySelectorAll('.search-button').forEach(button => button.addEventListener('click', () => {
-            const input = button.closest('.search-shell').querySelector('.search');
-            input.focus(); filter(); document.getElementById('laptops').scrollIntoView({ behavior: 'smooth' });
-        }));
 
-        const overlay = document.getElementById('overlay'), modalTitle = document.getElementById('modalTitle'), modalImg = document.getElementById('modalImg'), whatsappRequest = document.getElementById('whatsappRequest'); let selected = 'LAPTOP CENTRE Technology';
-        function whatsappUrl(product) { return 'https://wa.me/254707865597?text=' + encodeURIComponent(`Hello LAPTOP CENTRE, I would like to request: ${product}. Please share current availability, exact configuration and price.`) }
-        function openInquiry(product) { selected = product; modalTitle.textContent = 'Get ' + product + '.'; whatsappRequest.href = whatsappUrl(product); overlay.classList.add('show'); document.body.classList.add('lock') }
-        function closeInquiry() { overlay.classList.remove('show'); document.body.classList.remove('lock') }
-        overlay.addEventListener('click', e => { if (e.target === overlay) closeInquiry() });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeInquiry() });
-        document.getElementById('form').addEventListener('submit', e => {
-            e.preventDefault();
-            const text = `Hello LAPTOP CENTRE,\n\nI'd like to GET:\n\nProduct / Service: ${selected}\nCategory: ${document.getElementById('type').value}\nName: ${document.getElementById('name').value.trim()}\nContact: ${document.getElementById('contact').value.trim()}\nMessage: ${document.getElementById('message').value.trim() || 'Please send me current availability, exact configuration and price.'}`;
-            window.open('https://wa.me/254707865597?text=' + encodeURIComponent(text), '_blank');
-            closeInquiry(); showToast('Opening LAPTOP CENTRE WhatsApp...'); e.target.reset();
-        });
-        let toastTimer;
-        function showToast(m) { const t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 3200) }
+        // Render PDF Document Files Cards
+        function renderFilesGrid() {
+            const container = document.getElementById('filesGridContainer');
+            const countLabel = document.getElementById('displayedFilesCount');
+            container.innerHTML = '';
 
-        const observer = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }), { threshold: .1 });
-        document.querySelectorAll('.reveal').forEach(x => observer.observe(x));
-        loadProducts().catch(error => { console.error(error); count.textContent = '0'; });
+            let filtered = allMaterials;
 
-        const menu = document.getElementById('menu'), navLinks = document.querySelector('.nav-links'), moreButton = document.getElementById('moreButton');
-        moreButton.onclick = () => { const open = navLinks.classList.toggle('open'); moreButton.setAttribute('aria-expanded', open); };
-        menu.onclick = () => { const open = navLinks.style.display === 'flex'; navLinks.style.display = open ? '' : 'flex'; if (!open) { Object.assign(navLinks.style, { position: 'absolute', top: '76px', left: '0', right: '0', padding: '22px 30px', background: 'rgba(255,255,255,.97)', backdropFilter: 'blur(20px)', flexDirection: 'column', gap: '20px', borderBottom: '1px solid #ddd' }) } };
-        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { if (innerWidth <= 850) navLinks.style.display = '' }));
+            if (currentFaculty !== 'all') {
+                filtered = filtered.filter(m => m.facultyId === currentFaculty);
+            }
+            if (currentUnit !== 'all') {
+                filtered = filtered.filter(m => m.unitCode === currentUnit);
+            }
+            if (currentCategory !== 'all') {
+                filtered = filtered.filter(m => m.category === currentCategory);
+            }
+
+            const query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
+            if (query) {
+                filtered = filtered.filter(m =>
+                    m.title.toLowerCase().includes(query) ||
+                    m.unitCode.toLowerCase().includes(query) ||
+                    m.unitName.toLowerCase().includes(query) ||
+                    m.description.toLowerCase().includes(query) ||
+                    m.type.toLowerCase().includes(query)
+                );
+            }
+
+            countLabel.innerText = `${filtered.length} documents`;
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1; padding:40px; text-align:center; background:#fafbfc; border-radius:12px; border:1px dashed var(--border);">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5" style="margin-bottom:12px;">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        <h4 style="font-size:16px; color:var(--dark); margin-bottom:6px;">No exam materials found</h4>
+                        <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">Try adjusting your search keywords or filter category.</p>
+                        <button class="btn btn-ghost" onclick="resetFilter()">Reset All Filters</button>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(doc => {
+                const card = document.createElement('div');
+                card.className = `file-card ${doc.category}`;
+
+                const typeBadgeClass = doc.category === 'past-paper' ? 'tag-pp' : (doc.category === 'cat' ? 'tag-cat' : 'tag-special');
+                const priceFormatted = `KES ${doc.price}`;
+
+                card.innerHTML = `
+                    <div>
+                        <div class="file-header">
+                            <div class="pdf-icon-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                </svg>
+                                <span>PDF</span>
+                            </div>
+                            <div class="file-info">
+                                <span class="file-category-badge">${doc.type}</span>
+                                <h4 class="file-title">${doc.title}</h4>
+                                <div class="file-unit-tag">${doc.unitCode} &bull; ${doc.unitName}</div>
+                            </div>
+                        </div>
+
+                        <p class="file-desc">${doc.description}</p>
+
+                        <div class="file-specs">
+                            <span class="spec-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>
+                                Year ${doc.year} (${doc.semester})
+                            </span>
+                            <span class="spec-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path></svg>
+                                ${doc.pages} Pages
+                            </span>
+                            <span class="spec-item" style="color:var(--mpesa); font-weight:700;">
+                                &#10003; Solutions Included
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="file-footer">
+                        <div class="file-price">
+                            <span class="lbl">Official Price</span>
+                            <span class="val">${priceFormatted}</span>
+                        </div>
+                        <div class="file-actions">
+                            <button class="btn-preview" onclick="openPreview('${doc.id}')" title="Quick Preview">
+                                Preview
+                            </button>
+                            <button class="btn-preview" onclick="addToCart('${doc.id}')" title="Add to Multi-Item Cart">
+                                + Cart
+                            </button>
+                            <button class="btn-buy-now" onclick="buyDirect('${doc.id}')">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                Buy M-Pesa
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Folder & Filter Navigation Handlers
+        function selectFaculty(facId) {
+            currentFaculty = facId;
+            currentUnit = 'all';
+            updateBreadcrumbs();
+            renderSidebarFolders();
+            renderSubFoldersGrid();
+            renderFilesGrid();
+        }
+
+        function selectUnit(facId, unitCode) {
+            currentFaculty = facId;
+            currentUnit = unitCode;
+            updateBreadcrumbs();
+            renderSidebarFolders();
+            renderSubFoldersGrid();
+            renderFilesGrid();
+        }
+
+        function filterByCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.view-filters .filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-cat') === cat);
+            });
+            updateBreadcrumbs();
+            renderFilesGrid();
+        }
+
+        function resetFilter() {
+            currentFaculty = 'all';
+            currentUnit = 'all';
+            currentCategory = 'all';
+            document.getElementById('searchInput').value = '';
+            document.querySelectorAll('.view-filters .filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-cat') === 'all');
+            });
+            updateBreadcrumbs();
+            renderSidebarFolders();
+            renderSubFoldersGrid();
+            renderFilesGrid();
+        }
+
+        function updateBreadcrumbs() {
+            const bc = document.getElementById('currentFolderBreadcrumb');
+            let text = 'All Resources';
+            if (currentFaculty !== 'all') {
+                const fac = foldersTree.find(f => f.id === currentFaculty);
+                text = fac ? fac.name : 'Faculty';
+                if (currentUnit !== 'all') {
+                    text += ` > ${currentUnit}`;
+                }
+            }
+            if (currentCategory !== 'all') {
+                const catNames = { 'past-paper': 'Past Papers (KES 200)', 'cat': 'CATS (KES 25)', 'special': 'Special Exams (KES 250)' };
+                text += ` [${catNames[currentCategory] || currentCategory}]`;
+            }
+            bc.innerText = text;
+        }
+
+        function setupSearch() {
+            const input = document.getElementById('searchInput');
+            input.addEventListener('input', () => {
+                renderFilesGrid();
+            });
+        }
+
+        // Preview Modal
+        function openPreview(docId) {
+            const doc = allMaterials.find(m => m.id === docId);
+            if (!doc) return;
+            activePreviewDoc = doc;
+
+            document.getElementById('previewTitle').innerText = doc.title;
+            document.getElementById('previewCategoryBadge').innerText = doc.type;
+            document.getElementById('previewPrice').innerText = `KES ${doc.price}`;
+            document.getElementById('previewFormat').innerText = `Verified PDF (${doc.pages} Pages, ${doc.fileSize})`;
+            document.getElementById('previewDescription').innerText = doc.description;
+
+            const qList = document.getElementById('previewQuestionsList');
+            qList.innerHTML = '';
+            if (doc.previewQuestions && doc.previewQuestions.length > 0) {
+                doc.previewQuestions.forEach(q => {
+                    const p = document.createElement('p');
+                    p.style.marginBottom = '8px';
+                    p.innerText = q;
+                    qList.appendChild(p);
+                });
+            } else {
+                qList.innerHTML = '<p>1. Compulsory questions with marking guide included.</p>';
+            }
+
+            document.getElementById('previewBuyBtn').innerText = `Buy with M-Pesa (KES ${doc.price})`;
+            document.getElementById('previewModal').classList.add('active');
+        }
+
+        function closePreviewModal() {
+            document.getElementById('previewModal').classList.remove('active');
+            activePreviewDoc = null;
+        }
+
+        function buyFromPreview() {
+            if (activePreviewDoc) {
+                const doc = activePreviewDoc;
+                closePreviewModal();
+                buyDirect(doc.id);
+            }
+        }
+
+        // Cart Drawer Handlers
+        function addToCart(docId) {
+            const doc = allMaterials.find(m => m.id === docId);
+            if (!doc) return;
+
+            if (cart.some(item => item.id === docId)) {
+                showToast(`"${doc.title.slice(0, 24)}..." is already in your cart!`, 'info');
+                toggleCart(true);
+                return;
+            }
+
+            cart.push(doc);
+            updateCartUI();
+            showToast(`Added to cart (KES ${doc.price})`, 'success');
+        }
+
+        function removeFromCart(docId) {
+            cart = cart.filter(item => item.id !== docId);
+            updateCartUI();
+        }
+
+        function toggleCart(forceOpen = null) {
+            const drawer = document.getElementById('cartDrawer');
+            if (forceOpen === true) drawer.classList.add('open');
+            else if (forceOpen === false) drawer.classList.remove('open');
+            else drawer.classList.toggle('open');
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cartBadge');
+            badge.innerText = cart.length;
+
+            const list = document.getElementById('cartItemsList');
+            list.innerHTML = '';
+
+            let total = 0;
+            if (cart.length === 0) {
+                list.innerHTML = `
+                    <div style="text-align:center; padding:40px 10px; color:var(--text-muted);">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:10px;">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <p style="font-size:14px; font-weight:600;">Your cart is empty</p>
+                        <p style="font-size:12px; margin-top:4px;">Add past papers, CATs or special exams to checkout in one single M-Pesa push.</p>
+                    </div>
+                `;
+            } else {
+                cart.forEach(item => {
+                    total += item.price;
+                    const row = document.createElement('div');
+                    row.className = 'cart-item-row';
+                    row.innerHTML = `
+                        <div class="cart-item-info">
+                            <h5>${item.title}</h5>
+                            <span>${item.unitCode} &bull; ${item.type}</span>
+                        </div>
+                        <div style="text-align:right;">
+                            <div class="cart-item-price">KES ${item.price}</div>
+                            <button style="border:none; background:transparent; color:#de350b; font-size:11.5px; cursor:pointer; font-weight:600;" onclick="removeFromCart('${item.id}')">
+                                Remove
+                            </button>
+                        </div>
+                    `;
+                    list.appendChild(row);
+                });
+            }
+
+            document.getElementById('cartTotalDisplay').innerText = `KES ${total}`;
+        }
+
+        function checkoutCart() {
+            if (cart.length === 0) {
+                showToast('Your cart is empty. Please select materials first.', 'error');
+                return;
+            }
+            toggleCart(false);
+            openMpesaCheckout(cart);
+        }
+
+        // Direct Single Item Buy
+        function buyDirect(docId) {
+            const doc = allMaterials.find(m => m.id === docId);
+            if (!doc) return;
+            openMpesaCheckout([doc]);
+        }
+
+        // Open M-Pesa STK Push Modal
+        function openMpesaCheckout(items) {
+            const modal = document.getElementById('mpesaModal');
+            document.getElementById('checkoutStepInput').style.display = 'block';
+            document.getElementById('checkoutStepWaiting').style.display = 'none';
+            document.getElementById('checkoutStepSuccess').style.display = 'none';
+
+            let total = 0;
+            const breakdown = document.getElementById('checkoutItemsBreakdown');
+            breakdown.innerHTML = '';
+
+            items.forEach(it => {
+                total += it.price;
+                const row = document.createElement('div');
+                row.className = 'summary-row';
+                row.innerHTML = `
+                    <span>${it.title} (${it.type})</span>
+                    <span style="font-family:'JetBrains Mono'; font-weight:700;">KES ${it.price}</span>
+                `;
+                breakdown.appendChild(row);
+            });
+
+            document.getElementById('checkoutTotalAmount').innerText = `KES ${total}`;
+            modal.dataset.checkoutItemIds = JSON.stringify(items.map(i => i.id));
+            modal.dataset.totalAmount = total;
+            modal.classList.add('active');
+        }
+
+        function closeMpesaModal() {
+            document.getElementById('mpesaModal').classList.remove('active');
+        }
+
+        // Trigger M-Pesa STK Push via Backend API
+        async function triggerStkPush() {
+            const phone = document.getElementById('mpesaPhoneInput').value.trim();
+            if (!phone) {
+                showToast('Please enter your Safaricom phone number', 'error');
+                return;
+            }
+
+            const modal = document.getElementById('mpesaModal');
+            const itemIds = JSON.parse(modal.dataset.checkoutItemIds || '[]');
+            const total = Number(modal.dataset.totalAmount) || 0;
+
+            try {
+                showToast('Initiating M-Pesa STK Push...', 'info');
+                const res = await fetch('/api/mpesa/stkpush', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        phoneNumber: phone,
+                        documentIds: itemIds
+                    })
+                });
+
+                const data = await res.json();
+                if (!res.ok) {
+                    showToast(data.error || 'Failed to initiate STK Push.', 'error');
+                    return;
+                }
+
+                currentActiveOrder = data;
+
+                // Move to Step 2: Waiting
+                document.getElementById('checkoutStepInput').style.display = 'none';
+                document.getElementById('checkoutStepWaiting').style.display = 'block';
+
+                const providerLabel = data.provider ? data.provider.toUpperCase() : 'PAYHERO';
+                document.getElementById('waitingPhoneText').innerHTML = `
+                    An M-Pesa STK Push of <b>KES ${data.amount}</b> has been sent to <b>+${data.phoneNumber}</b>.<br>
+                    <span style="font-size:12.5px; color:var(--text-muted); margin-top:4px; display:inline-block;">${data.message}</span>
+                `;
+
+                if (data.isRealApiSuccess) {
+                    document.getElementById('stkLiveStatusMsg').innerText = `Real STK Push active on phone via ${providerLabel}...`;
+                    document.getElementById('stkGatewayNotice').innerHTML = `
+                        Funds will be received directly at personal M-Pesa line: <b>+${data.receivingPhone}</b>.
+                    `;
+                    showToast(`Real STK Push sent to phone via ${providerLabel}!`, 'success');
+                } else {
+                    document.getElementById('stkLiveStatusMsg').innerText = `Awaiting payment authorization...`;
+                    document.getElementById('stkGatewayNotice').innerHTML = `
+                        <div style="background:#fff8e6; border:1px solid #ffd580; padding:10px; border-radius:8px; color:#5c3b00; margin-top:8px;">
+                            ${data.message}<br>
+                            <a href="/vender.html" target="_blank" style="color:#0052cc; font-weight:700; text-decoration:underline; display:inline-block; margin-top:4px;">Open Vendor Console to enter API Keys &rarr;</a>
+                        </div>
+                    `;
+                }
+
+                // Poll order status
+                pollOrderStatus(data.orderId);
+            } catch (err) {
+                console.error(err);
+                showToast('Network error while connecting to M-Pesa pipeline.', 'error');
+            }
+        }
+
+        // Confirm Simulated PIN Entry on screen
+        async function confirmSimulatedPayment() {
+            if (!currentActiveOrder) return;
+            const pin = document.getElementById('simulatedPinInput').value.trim();
+            if (!pin || pin.length < 4) {
+                showToast('Please enter a 4-digit PIN', 'error');
+                return;
+            }
+
+            try {
+                showToast('Processing M-Pesa PIN...', 'info');
+                const res = await fetch('/api/mpesa/simulate-pin', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        orderId: currentActiveOrder.orderId,
+                        pin,
+                        action: 'CONFIRM'
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showPaymentSuccess(data.order);
+                }
+            } catch (err) {
+                console.error(err);
+                showToast('Failed to complete simulation.', 'error');
+            }
+        }
+
+        // Cancel Simulated Payment
+        async function cancelSimulatedPayment() {
+            if (!currentActiveOrder) return;
+            try {
+                await fetch('/api/mpesa/simulate-pin', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        orderId: currentActiveOrder.orderId,
+                        action: 'CANCEL'
+                    })
+                });
+                showToast('Payment request was cancelled on phone.', 'info');
+                closeMpesaModal();
+            } catch (err) {
+                closeMpesaModal();
+            }
+        }
+
+        // Manual immediate check if user has already entered PIN
+        async function manualCheckStatus() {
+            if (!currentActiveOrder || !currentActiveOrder.orderId) return;
+            showToast('Checking payment status with PayHero / M-Pesa...', 'info');
+            try {
+                const res = await fetch(`/api/mpesa/status/${currentActiveOrder.orderId}`);
+                if (!res.ok) {
+                    showToast('Payment not yet detected. Please ensure you entered your PIN.', 'info');
+                    return;
+                }
+                const order = await res.json();
+                if (order.status === 'COMPLETED') {
+                    showPaymentSuccess(order);
+                    showToast('Payment verified successfully!', 'success');
+                } else if (order.status === 'FAILED' || order.status === 'CANCELLED') {
+                    showToast(`Payment was ${order.status.toLowerCase()}.`, 'error');
+                } else {
+                    showToast('Payment still pending. Please check your phone for the PIN prompt.', 'info');
+                }
+            } catch (e) {
+                showToast('Unable to reach server. Retrying...', 'error');
+            }
+        }
+
+        // Polling Order Status (Works seamlessly with PayHero, Daraja Callbacks or Simulator)
+        function pollOrderStatus(orderId) {
+            let attempts = 0;
+            const interval = setInterval(async () => {
+                attempts++;
+                if (attempts > 60) {
+                    clearInterval(interval);
+                    return;
+                }
+                try {
+                    const res = await fetch(`/api/mpesa/status/${orderId}`);
+                    if (!res.ok) return;
+                    const order = await res.json();
+                    if (order.status === 'COMPLETED') {
+                        clearInterval(interval);
+                        showPaymentSuccess(order);
+                    } else if (order.status === 'FAILED' || order.status === 'CANCELLED') {
+                        clearInterval(interval);
+                        showToast(`Payment ${order.status.toLowerCase()}: ${order.resultDesc || 'Transaction did not complete.'}`, 'error');
+                    }
+                } catch {}
+            }, 2000);
+        }
+
+        // Show Payment Success Step & Unlocked Download Buttons
+        function showPaymentSuccess(order) {
+            document.getElementById('checkoutStepWaiting').style.display = 'none';
+            document.getElementById('checkoutStepSuccess').style.display = 'block';
+
+            document.getElementById('receiptNumberDisplay').innerText = order.mpesaReceiptNumber || 'EE-CONFIRMED';
+            document.getElementById('receiptTimestamp').innerText = `Paid on ${new Date(order.completedAt || Date.now()).toLocaleString()}`;
+
+            const downloadsList = document.getElementById('purchasedDownloadsList');
+            downloadsList.innerHTML = '';
+
+            order.documents.forEach(doc => {
+                const dlUrl = `/api/documents/download/${doc.id}?token=${order.downloadToken}&orderId=${order.orderId}`;
+                const btn = document.createElement('a');
+                btn.className = 'btn btn-primary';
+                btn.href = dlUrl;
+                btn.target = '_blank';
+                btn.download = `${doc.unitCode}_${doc.title}.pdf`;
+                btn.style.height = '46px';
+                btn.style.fontSize = '14px';
+                btn.innerHTML = `
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download ${doc.unitCode} (${doc.type}) PDF
+                `;
+                downloadsList.appendChild(btn);
+            });
+
+            // Clear cart if matching
+            cart = [];
+            updateCartUI();
+            showToast('Payment verified! Download your materials now.', 'success');
+        }
+
+        // My Purchases Lookup Modal
+        function openPurchasesModal() {
+            document.getElementById('purchasesModal').classList.add('active');
+        }
+
+        function closePurchasesModal() {
+            document.getElementById('purchasesModal').classList.remove('active');
+        }
+
+        async function lookupPurchases() {
+            const input = document.getElementById('lookupPhoneInput').value.trim();
+            if (!input) {
+                showToast('Please enter your phone number or receipt code', 'error');
+                return;
+            }
+
+            const isReceipt = input.toUpperCase().startsWith('EE') && input.length >= 8;
+            const param = isReceipt ? `receipt=${encodeURIComponent(input)}` : `phone=${encodeURIComponent(input)}`;
+
+            try {
+                showToast('Searching purchased materials...', 'info');
+                const res = await fetch(`/api/student/purchases?${param}`);
+                const data = await res.json();
+                const container = document.getElementById('lookupResultsContainer');
+                container.innerHTML = '';
+
+                if (!res.ok || data.purchases.length === 0) {
+                    container.innerHTML = `
+                        <div style="text-align:center; padding:20px; color:var(--text-muted); font-size:13.5px;">
+                            No purchased documents found for this query. Ensure the phone number matches the one used during checkout.
+                        </div>
+                    `;
+                    return;
+                }
+
+                data.purchases.forEach(p => {
+                    const row = document.createElement('div');
+                    row.style.cssText = 'background:#f4f5f7; border:1px solid var(--border); border-radius:8px; padding:12px; margin-bottom:10px; display:flex; align-items:center; justify-content:space-between;';
+                    row.innerHTML = `
+                        <div>
+                            <div style="font-size:13.5px; font-weight:700; color:var(--dark);">${p.title}</div>
+                            <div style="font-size:11.5px; color:var(--text-muted);">Receipt: <b>${p.receipt}</b> &bull; ${new Date(p.paidAt).toLocaleDateString()}</div>
+                        </div>
+                        <a href="${p.downloadUrl}" target="_blank" class="btn btn-primary" style="height:34px; font-size:12px; padding:0 12px;">
+                            Download PDF
+                        </a>
+                    `;
+                    container.appendChild(row);
+                });
+            } catch (err) {
+                console.error(err);
+                showToast('Error looking up purchases.', 'error');
+            }
+        }
+
+        // SSE Real-time Updates
+        function setupLiveUpdates() {
+            try {
+                const evtSource = new EventSource('/api/stream');
+                evtSource.addEventListener('order-updated', e => {
+                    const order = JSON.parse(e.data);
+                    if (currentActiveOrder && currentActiveOrder.orderId === order.orderId && order.status === 'COMPLETED') {
+                        showPaymentSuccess(order);
+                    }
+                });
+                evtSource.addEventListener('material-added', () => {
+                    loadMaterials();
+                });
+            } catch (err) {
+                console.warn('SSE not supported or failed to connect:', err);
+            }
+        }
+
+        // Toast Helper
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerText = message;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
     </script>
 </body>
-
 </html>

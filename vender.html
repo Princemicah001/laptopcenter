@@ -1,369 +1,933 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LTECH Vendor Console</title>
+    <title>ExamEasy | Vendor & Admin Management Console</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink: #101012;
-            --muted: #727278;
-            --line: #e4e4e7;
-            --soft: #f5f5f7;
-            --blue: #0071e3
+            --primary: #00875a;
+            --primary-hover: #006644;
+            --mpesa: #00a859;
+            --dark: #091e42;
+            --muted: #5e6c84;
+            --line: #dfe1e6;
+            --soft: #f4f5f7;
+            --card: #ffffff;
+            --radius-md: 12px;
+            --radius-lg: 16px;
         }
 
         * {
-            box-sizing: border-box
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--soft);
-            color: var(--ink);
-            font-family: Inter, ui-sans-serif, system-ui, sans-serif
-        }
-
-        button,
-        input,
-        textarea {
-            font: inherit
-        }
-
-        button {
-            cursor: pointer
+            color: var(--dark);
+            line-height: 1.5;
         }
 
         .wrap {
-            width: min(1320px, calc(100% - 32px));
-            margin: auto
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
-        .top {
-            background: #fff;
+        .header {
+            background: #ffffff;
             border-bottom: 1px solid var(--line);
-            padding: 20px 0
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .top-inner {
+        .header-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px
         }
 
-        .logo {
-            font-size: 22px;
-            font-weight: 900;
-            letter-spacing: -.06em
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--dark);
+            text-decoration: none;
         }
 
-        .top a {
+        .brand span.accent {
+            color: var(--mpesa);
+        }
+
+        .badge-vendor {
+            background: #ebecf0;
             color: var(--muted);
-            font-size: 12px;
-            text-decoration: none
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
         }
 
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 13.5px;
+            font-weight: 600;
+            transition: color 0.15s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .stat-card {
+            background: #ffffff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(9,30,66,0.06);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .stat-value {
+            font-size: 26px;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--dark);
+        }
+
+        /* Layout Grid */
         .layout {
             display: grid;
-            grid-template-columns: 360px 1fr;
-            gap: 18px;
-            padding: 28px 0
-        }
-
-        .panel,
-        .product {
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: 18px
+            grid-template-columns: 380px 1fr;
+            gap: 24px;
+            align-items: start;
+            margin-bottom: 60px;
         }
 
         .panel {
-            padding: 20px;
-            position: sticky;
-            top: 18px;
-            height: max-content
+            background: #ffffff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(9,30,66,0.06);
         }
 
-        .panel h1 {
-            font-size: 28px;
-            line-height: 1;
-            margin: 0 0 8px;
-            letter-spacing: -.06em
-        }
-
-        .panel p,
-        .hint {
-            font-size: 12px;
-            color: var(--muted);
-            line-height: 1.6
-        }
-
-        .form {
-            display: grid;
-            gap: 10px;
-            margin-top: 20px
-        }
-
-        .form label {
-            font-size: 10px;
+        .panel-title {
+            font-size: 16px;
             font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: .1em;
-            color: #777
-        }
-
-        .form input,
-        .form textarea {
-            width: 100%;
-            border: 1px solid #d8d8dc;
-            border-radius: 10px;
-            padding: 11px;
-            outline: 0;
-            font-size: 12px
-        }
-
-        .form textarea {
-            min-height: 70px;
-            resize: vertical
-        }
-
-        .row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px
-        }
-
-        .actions {
+            color: var(--dark);
+            margin-bottom: 18px;
             display: flex;
-            gap: 8px;
-            margin-top: 6px
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Form elements */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+
+        .form-control {
+            width: 100%;
+            height: 40px;
+            padding: 0 12px;
+            border: 1.5px solid var(--line);
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-family: inherit;
+            color: var(--dark);
+            background: #fafbfc;
+            transition: all 0.2s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--mpesa);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(0, 168, 89, 0.12);
+        }
+
+        textarea.form-control {
+            height: auto;
+            padding: 10px 12px;
+            resize: vertical;
         }
 
         .btn {
-            border: 0;
-            border-radius: 999px;
-            padding: 12px 16px;
-            font-size: 11px;
-            font-weight: 800
-        }
-
-        .primary {
-            background: #111;
-            color: #fff
-        }
-
-        .secondary {
-            background: #fff;
-            border: 1px solid var(--line)
-        }
-
-        .status {
-            min-height: 18px;
-            font-size: 11px;
-            color: var(--blue);
-            margin-top: 10px
-        }
-
-        .products-head {
-            display: flex;
-            align-items: end;
-            justify-content: space-between;
-            margin-bottom: 12px
-        }
-
-        .products-head h2 {
-            margin: 0;
-            font-size: 24px;
-            letter-spacing: -.05em
-        }
-
-        .products-head span {
-            font-size: 11px;
-            color: var(--muted)
-        }
-
-        .product-list {
-            display: grid;
-            gap: 10px
-        }
-
-        .product {
-            display: grid;
-            grid-template-columns: 88px 1fr auto;
+            display: inline-flex;
             align-items: center;
-            gap: 15px;
-            padding: 12px
+            justify-content: center;
+            gap: 8px;
+            height: 42px;
+            padding: 0 18px;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.15s ease;
         }
 
-        .product img {
-            width: 88px;
-            height: 72px;
-            object-fit: contain;
-            background: var(--soft);
-            border-radius: 10px
+        .btn-primary {
+            background: var(--mpesa);
+            color: #ffffff;
         }
 
-        .product h3 {
-            font-size: 15px;
-            margin: 0 0 4px
+        .btn-primary:hover {
+            background: var(--primary-hover);
         }
 
-        .product p {
-            font-size: 11px;
-            color: var(--muted);
-            margin: 0
+        .btn-secondary {
+            background: #ebecf0;
+            color: var(--dark);
         }
 
-        .product-price {
+        .btn-secondary:hover {
+            background: #dfe1e6;
+        }
+
+        /* Price auto-pill */
+        .price-badge-notice {
+            background: #e3fcef;
+            border: 1px solid rgba(0, 135, 90, 0.2);
+            color: var(--primary);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 20px;
+            gap: 16px;
+        }
+
+        .tab-btn {
+            padding: 10px 14px;
+            border: none;
+            background: transparent;
             font-size: 14px;
-            font-weight: 800;
-            text-align: right
-        }
-
-        .product-price small {
-            display: block;
-            color: #999;
-            font-size: 10px;
-            font-weight: 500;
-            margin-top: 4px
-        }
-
-        .product button {
-            margin-top: 8px;
-            border: 1px solid var(--line);
-            background: #fff;
-            border-radius: 999px;
-            padding: 7px 10px;
-            font-size: 10px;
-            font-weight: 800
-        }
-
-        .empty {
-            background: #fff;
-            border: 1px dashed #ccc;
-            border-radius: 18px;
-            padding: 30px;
+            font-weight: 700;
             color: var(--muted);
-            text-align: center;
-            font-size: 12px
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.15s ease;
         }
 
-        @media(max-width:850px) {
-            .layout {
-                grid-template-columns: 1fr
-            }
+        .tab-btn.active {
+            color: var(--mpesa);
+            border-bottom-color: var(--mpesa);
+        }
 
-            .panel {
-                position: static
-            }
+        /* Table */
+        .table-wrap {
+            overflow-x: auto;
+        }
 
-            .product {
-                grid-template-columns: 65px 1fr
-            }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: left;
+        }
 
-            .product img {
-                width: 65px;
-                height: 60px
-            }
+        th {
+            background: #fafbfc;
+            padding: 12px 14px;
+            font-weight: 700;
+            color: var(--muted);
+            border-bottom: 1.5px solid var(--line);
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.05em;
+        }
 
-            .product-price {
-                grid-column: 2;
-                text-align: left
-            }
+        td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--line);
+            color: var(--dark);
+        }
 
-            .top-inner {
-                align-items: flex-start;
-                flex-direction: column
-            }
+        tr:hover td {
+            background: #fafbfc;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .status-badge.completed { background: #e3fcef; color: #00875a; }
+        .status-badge.pending { background: #fff0b3; color: #172b4d; }
+        .status-badge.failed { background: #ffebe6; color: #de350b; }
+
+        @media (max-width: 992px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .layout { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-
 <body>
-    <header class="top">
-        <div class="wrap top-inner">
-            <div class="logo">LTECH / VENDOR</div><a href="/">View storefront</a>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="wrap header-inner">
+            <div style="display:flex; align-items:center; gap:12px;">
+                <a href="/" class="brand">
+                    Exam<span class="accent">Easy</span>
+                </a>
+                <span class="badge-vendor">Vendor Console</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" target="_blank">&larr; Student Marketplace</a>
+                <a href="#ordersSection" onclick="switchTab('orders')">M-Pesa Orders</a>
+                <a href="#settingsSection" onclick="switchTab('settings')">Daraja API Settings</a>
+            </div>
         </div>
     </header>
-    <main class="wrap layout">
-        <section class="panel">
-            <h1>Manage products.</h1>
-            <p>Add affordable ThinkPad T-series models, change prices, replace images, or update specifications. Static
-                catalog changes are downloaded as <strong>products.json</strong> for publishing.</p>
-            <form class="form" id="productForm">
-                <input type="hidden" id="productId">
-                <label for="brand">Brand</label><input id="brand" required placeholder="Lenovo">
-                <label for="name">Model name</label><input id="name" required placeholder="ThinkPad T480">
-                <div class="row">
-                    <div><label for="generation">Generation</label><input id="generation" required
-                            placeholder="8th Gen"></div>
-                    <div><label for="price">Price (KSh)</label><input id="price" required type="number" min="0"
-                            step="100" placeholder="35000"></div>
-                </div>
-                <div class="row">
-                    <div><label for="oldPrice">Old price</label><input id="oldPrice" type="number" min="0" step="100"
-                            placeholder="40000"></div>
-                    <div><label for="badge">Badge</label><input id="badge" placeholder="VALUE PICK"></div>
-                </div>
-                <label for="image">Image URL</label><input id="image" required type="url" placeholder="https://...">
-                <label for="description">Description</label><textarea id="description" required
-                    placeholder="Short product description"></textarea>
-                <label for="specs">Specifications</label><input id="specs" required
-                    placeholder="Core i5 8th Gen, 8GB, 256GB SSD, 14 inch">
-                <label for="features">Features / filters</label><input id="features"
-                    placeholder="student, business, budget">
-                <div class="actions"><button class="btn primary" type="submit">Download catalog</button><button
-                        class="btn secondary" type="button" id="clear">Clear</button></div>
-                <div class="status" id="status" role="status"></div>
-            </form>
-        </section>
-        <section>
-            <div class="products-head">
-                <h2>Catalog</h2><span id="productCount"></span>
+
+    <div class="wrap">
+        <!-- Stats Overview Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Revenue (KES)</div>
+                <div class="stat-value" id="statRevenue" style="color:var(--mpesa);">KES 0</div>
             </div>
-            <div class="product-list" id="productList"></div>
-        </section>
-    </main>
+            <div class="stat-card">
+                <div class="stat-label">Paid M-Pesa Orders</div>
+                <div class="stat-value" id="statPaidOrders">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Exam Catalog Items</div>
+                <div class="stat-value" id="statTotalCatalog">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Pipeline Mode</div>
+                <div class="stat-value" id="statPipelineMode" style="font-size:20px;">Ready</div>
+            </div>
+        </div>
+
+        <!-- Main Two-Column Layout -->
+        <div class="layout">
+            <!-- Left Column: Add Material Form -->
+            <div class="panel">
+                <div class="panel-title">
+                    <span>Add New Exam Resource</span>
+                    <span style="font-size:12px; color:var(--muted); font-weight:600;">Standard Prices</span>
+                </div>
+
+                <form id="addMaterialForm" onsubmit="handleCreateMaterial(event)">
+                    <div class="form-group">
+                        <label for="docFaculty">School / Faculty</label>
+                        <select id="docFaculty" class="form-control" required onchange="handleFacultyChange()">
+                            <option value="computing">School of Computing & Informatics</option>
+                            <option value="business">School of Business & Economics</option>
+                            <option value="engineering">School of Engineering & Architecture</option>
+                            <option value="health">School of Health & Biomedical Sciences</option>
+                            <option value="law">School of Law & Governance</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="docType">Examination Material Type</label>
+                        <select id="docType" class="form-control" required onchange="updatePriceNotice()">
+                            <option value="Past Paper">Past Paper (Main End-Semester Exam) - KES 200</option>
+                            <option value="CAT">CAT (Continuous Assessment Test) - KES 25</option>
+                            <option value="Special Exam">Special & Supplementary Exam - KES 250</option>
+                        </select>
+                        <div class="price-badge-notice">
+                            <span>Locked Official Price:</span>
+                            <span id="priceNoticeText" style="font-family:'JetBrains Mono'; font-weight:800; font-size:14px;">KES 200</span>
+                        </div>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+                        <div class="form-group">
+                            <label for="docUnitCode">Unit Code</label>
+                            <input type="text" id="docUnitCode" class="form-control" placeholder="e.g. BCS 201" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="docYear">Year & Session</label>
+                            <input type="number" id="docYear" class="form-control" value="2024" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="docUnitName">Unit / Course Title</label>
+                        <input type="text" id="docUnitName" class="form-control" placeholder="e.g. Data Structures and Algorithms" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="docTitle">Document Heading Title</label>
+                        <input type="text" id="docTitle" class="form-control" placeholder="e.g. BCS 201: Main Exam April 2024" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="docPages">Pages & Solutions</label>
+                        <div style="display:flex; align-items:center; gap:14px;">
+                            <input type="number" id="docPages" class="form-control" value="6" style="width:90px;" min="1">
+                            <label style="display:flex; align-items:center; gap:6px; font-size:12.5px; cursor:pointer; margin-bottom:0;">
+                                <input type="checkbox" id="docHasSolutions" checked>
+                                Marking Scheme Included
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="docDescription">Description & Topics Covered</label>
+                        <textarea id="docDescription" class="form-control" rows="2" placeholder="Summary of questions and topics covered..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="docSampleQ">Sample Exam Questions (One per line)</label>
+                        <textarea id="docSampleQ" class="form-control" rows="3" placeholder="1. (a) Define key concept [6 Marks]&#10;2. (b) Solve algorithmic equation [8 Marks]"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width:100%;">
+                        Publish & Generate Verified PDF
+                    </button>
+                </form>
+            </div>
+
+            <!-- Right Column: Tabs (Orders, Catalog, Settings) -->
+            <div class="panel">
+                <div class="tabs">
+                    <button class="tab-btn active" id="tabBtnOrders" onclick="switchTab('orders')">
+                        M-Pesa Orders & Payments
+                    </button>
+                    <button class="tab-btn" id="tabBtnCatalog" onclick="switchTab('catalog')">
+                        Exam Catalog
+                    </button>
+                    <button class="tab-btn" id="tabBtnSettings" onclick="switchTab('settings')">
+                        Safaricom Daraja Settings
+                    </button>
+                </div>
+
+                <!-- Tab 1: Orders -->
+                <div id="tabContentOrders">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h4 style="font-size:15px; font-weight:700;">Recent Customer Transactions</h4>
+                        <button class="btn btn-secondary" style="height:32px; font-size:12px; padding:0 10px;" onclick="loadOrders()">
+                            Refresh Log
+                        </button>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Receipt</th>
+                                    <th>Phone</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Catalog -->
+                <div id="tabContentCatalog" style="display:none;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h4 style="font-size:15px; font-weight:700;">Catalogued Exam Resources</h4>
+                        <span id="catalogCountBadge" style="font-size:12px; color:var(--muted); font-weight:600;">0 papers</span>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Unit</th>
+                                    <th>Type</th>
+                                    <th>Title</th>
+                                    <th>Price</th>
+                                    <th>Solutions</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="catalogTableBody">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab 3: M-Pesa Settings -->
+                <div id="tabContentSettings" style="display:none;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h4 style="font-size:15px; font-weight:700;">Real M-Pesa Payment Gateway Settings</h4>
+                        <span class="badge-vendor" style="background:#e3fcef; color:#00875a;">Direct to Personal Phone</span>
+                    </div>
+
+                    <div style="background:#f4f5f7; border:1px solid var(--line); border-radius:8px; padding:14px; margin-bottom:18px; font-size:13px; line-height:1.5;">
+                        <b>Direct Personal Phone Payment (No Business Shortcode Required):</b><br>
+                        Services like <b>PayHero Kenya</b> or <b>TinyPesa</b> trigger real Safaricom M-Pesa STK Pushes on student phones and deposit funds directly into your personal phone number without needing a registered business Paybill or Till!
+                    </div>
+
+                    <form id="mpesaSettingsForm" onsubmit="handleSaveConfig(event)">
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
+                            <div class="form-group">
+                                <label for="mpesaProvider">Active Payment Provider</label>
+                                <select id="mpesaProvider" class="form-control" onchange="toggleProviderFields()">
+                                    <option value="payhero">PayHero Kenya (Direct to Personal Phone - Recommended)</option>
+                                    <option value="tinypesa">TinyPesa (Direct to Personal Phone)</option>
+                                    <option value="intasend">IntaSend (Developer Gateway)</option>
+                                    <option value="daraja">Safaricom Daraja (Paybill / Till Number)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="receivingPhone">Your Personal M-Pesa Number (Receiving Funds)</label>
+                                <input type="text" id="receivingPhone" class="form-control" placeholder="e.g. 0707865597" value="0707865597" required>
+                            </div>
+                        </div>
+
+                        <!-- PayHero Fields -->
+                        <div id="payheroFields" style="background:#fafbfc; border:1px solid var(--line); border-radius:8px; padding:16px; margin-bottom:16px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                                <h5 style="font-size:13px; font-weight:800; color:var(--dark); margin:0;">PayHero Kenya Credentials (payhero.co.ke)</h5>
+                                <span id="payheroStatusBadge" class="badge-vendor" style="background:#e3fcef; color:#00875a;">Account: 11180</span>
+                            </div>
+                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
+                                <div class="form-group">
+                                    <label for="payheroKey">PayHero API Username / Key</label>
+                                    <input type="text" id="payheroKey" class="form-control" placeholder="e.g. QxiyuzgXc5n7zPPkRGrp">
+                                </div>
+                                <div class="form-group">
+                                    <label for="payheroSecret">PayHero API Password / Secret</label>
+                                    <input type="password" id="payheroSecret" class="form-control" placeholder="••••••••">
+                                </div>
+                            </div>
+                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
+                                <div class="form-group">
+                                    <label for="payheroChannel">Active Channel ID</label>
+                                    <input type="text" id="payheroChannel" class="form-control" placeholder="e.g. 11662">
+                                </div>
+                                <div class="form-group">
+                                    <label for="payheroChannelSelect">Registered Channels (from PayHero API)</label>
+                                    <select id="payheroChannelSelect" class="form-control" onchange="document.getElementById('payheroChannel').value = this.value">
+                                        <option value="11662">11662 - Bank Paybill 714777 (NCBA LOOP)</option>
+                                        <option value="11025">11025 - Till 6683699 (Buy Goods)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div style="margin-top:10px; display:flex; align-items:center; justify-content:space-between;">
+                                <button type="button" class="btn btn-secondary" style="height:34px; font-size:12px;" onclick="testPayHeroConnection()">
+                                    Test PayHero API &amp; Fetch Channels
+                                </button>
+                                <span id="payheroConnectionResult" style="font-size:12px; color:var(--muted);"></span>
+                            </div>
+                        </div>
+
+                        <!-- TinyPesa Fields -->
+                        <div id="tinypesaFields" style="display:none; background:#fafbfc; border:1px solid var(--line); border-radius:8px; padding:16px; margin-bottom:16px;">
+                            <h5 style="font-size:13px; font-weight:800; color:var(--dark); margin-bottom:12px;">TinyPesa Credentials (tinypesa.com)</h5>
+                            <div class="form-group">
+                                <label for="tinypesaKey">TinyPesa API Key</label>
+                                <input type="password" id="tinypesaKey" class="form-control" placeholder="TinyPesa API Key">
+                            </div>
+                        </div>
+
+                        <!-- IntaSend Fields -->
+                        <div id="intasendFields" style="display:none; background:#fafbfc; border:1px solid var(--line); border-radius:8px; padding:16px; margin-bottom:16px;">
+                            <h5 style="font-size:13px; font-weight:800; color:var(--dark); margin-bottom:12px;">IntaSend Credentials (intasend.com)</h5>
+                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
+                                <div class="form-group">
+                                    <label for="intasendPublic">Public Key</label>
+                                    <input type="text" id="intasendPublic" class="form-control" placeholder="ISPubKey_...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="intasendSecret">Secret Key</label>
+                                    <input type="password" id="intasendSecret" class="form-control" placeholder="••••••••">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Daraja Fields -->
+                        <div id="darajaFields" style="display:none; background:#fafbfc; border:1px solid var(--line); border-radius:8px; padding:16px; margin-bottom:16px;">
+                            <h5 style="font-size:13px; font-weight:800; color:var(--dark); margin-bottom:12px;">Safaricom Daraja (Business Paybill/Till)</h5>
+                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
+                                <div class="form-group">
+                                    <label for="darajaShortcode">Shortcode (Paybill/Till)</label>
+                                    <input type="text" id="darajaShortcode" class="form-control" placeholder="174379">
+                                </div>
+                                <div class="form-group">
+                                    <label for="darajaPasskey">Lipa Na M-Pesa Passkey</label>
+                                    <input type="password" id="darajaPasskey" class="form-control" placeholder="Passkey">
+                                </div>
+                            </div>
+                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
+                                <div class="form-group">
+                                    <label for="darajaKey">Consumer Key</label>
+                                    <input type="text" id="darajaKey" class="form-control" placeholder="Consumer Key">
+                                </div>
+                                <div class="form-group">
+                                    <label for="darajaSecret">Consumer Secret</label>
+                                    <input type="password" id="darajaSecret" class="form-control" placeholder="••••••••">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="margin-top:10px;">
+                            Save Payment Configuration
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        const form = document.getElementById('productForm'), list = document.getElementById('productList'), status = document.getElementById('status'), count = document.getElementById('productCount');
-        let products = [];
-        const catalogChannel = 'ltech-catalog';
-        const syncCatalog = 'BroadcastChannel' in window ? new BroadcastChannel(catalogChannel) : null;
-        const fields = ['productId', 'brand', 'name', 'generation', 'price', 'oldPrice', 'badge', 'image', 'description', 'specs', 'features'];
-        const input = id => document.getElementById(id);
-        function showStatus(message, error = false) { status.textContent = message; status.style.color = error ? '#c40000' : '#0071e3' }
-        function resetForm() { form.reset(); input('productId').value = ''; showStatus('') }
-        function render() { count.textContent = `${products.length} products`; list.innerHTML = products.map(product => `<article class="product"><img src="${product.image}" alt="${product.brand} ${product.name}"><div><h3>${product.brand} ${product.name}</h3><p>${product.generation} · ${(product.specs || []).join(' · ')}</p><button type="button" onclick="editProduct('${product.id}')">Edit</button><button type="button" onclick="removeProduct('${product.id}')">Delete</button></div><div class="product-price">KSh ${Number(product.price).toLocaleString('en-KE')}<small>${product.features.join(' · ')}</small></div></article>`).join('') || '<div class="empty">No products yet. Add the first one.</div>' }
-        function fill(product) { fields.forEach(field => { if (field === 'specs' || field === 'features') input(field).value = (product[field] || []).join(', '); else input(field).value = product[field] || '' }); window.scrollTo({ top: 0, behavior: 'smooth' }) }
-        function notifyCatalogChange() {
-            const timestamp = Date.now().toString();
-            localStorage.setItem('ltech-catalog-updated', timestamp);
-            if (syncCatalog) syncCatalog.postMessage({ type: 'catalog-updated', timestamp });
+        let materialsList = [];
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            updatePriceNotice();
+            await loadOrders();
+            await loadCatalog();
+            await loadConfig();
+            setupLiveUpdates();
+        });
+
+        function updatePriceNotice() {
+            const type = document.getElementById('docType').value;
+            const text = document.getElementById('priceNoticeText');
+            if (type.includes('CAT')) text.innerText = 'KES 25';
+            else if (type.includes('Special')) text.innerText = 'KES 250';
+            else text.innerText = 'KES 200';
         }
-        window.editProduct = id => { const product = products.find(item => item.id === id); if (product) fill(product) };
-        window.removeProduct = id => { if (confirm('Delete this product?')) { products = products.filter(product => product.id !== id); save() } };
-        function save() {
-            localStorage.setItem('ltech-products', JSON.stringify(products));
-            const file = new Blob([`${JSON.stringify(products, null, 2)}\n`], { type: 'application/json' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(file);
-            link.download = 'products.json';
-            link.click();
-            URL.revokeObjectURL(link.href);
-            notifyCatalogChange();
-            render();
-            showStatus('Catalog downloaded as products.json. Replace the published file to deploy it.');
+
+        function handleFacultyChange() {
+            // Can adapt code suggestions
         }
-        form.addEventListener('submit', async event => { event.preventDefault(); const product = { id: input('productId').value || `${input('brand').value}-${input('name').value}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''), brand: input('brand').value.trim(), name: input('name').value.trim(), generation: input('generation').value.trim(), description: input('description').value.trim(), features: input('features').value.split(',').map(value => value.trim().toLowerCase()).filter(Boolean), specs: input('specs').value.split(',').map(value => value.trim()).filter(Boolean), price: Number(input('price').value), image: input('image').value.trim(), badge: input('badge').value.trim() || 'LTECH PICK' }; const oldPrice = Number(input('oldPrice').value); if (oldPrice) product.oldPrice = oldPrice; const index = products.findIndex(item => item.id === product.id); if (index < 0) products.push(product); else products[index] = product; try { await save(); resetForm() } catch (error) { showStatus(error.message, true) } });
-        document.getElementById('clear').onclick = resetForm;
-        const savedProducts = localStorage.getItem('ltech-products');
-        if (savedProducts) {
-            try { products = JSON.parse(savedProducts); render() } catch { localStorage.removeItem('ltech-products') }
+
+        async function loadOrders() {
+            try {
+                const res = await fetch('/api/orders');
+                const data = await res.json();
+                document.getElementById('statRevenue').innerText = `KES ${data.totalRevenue.toLocaleString()}`;
+                document.getElementById('statPaidOrders').innerText = data.totalSuccess;
+
+                const tbody = document.getElementById('ordersTableBody');
+                tbody.innerHTML = '';
+
+                if (data.orders.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; color:var(--muted);">No transactions recorded yet.</td></tr>';
+                    return;
+                }
+
+                data.orders.forEach(o => {
+                    const tr = document.createElement('tr');
+                    const statusClass = (o.status || '').toLowerCase();
+                    tr.innerHTML = `
+                        <td><b>${o.orderId}</b></td>
+                        <td style="font-family:'JetBrains Mono'; font-weight:700;">${o.mpesaReceiptNumber || '—'}</td>
+                        <td>+${o.phoneNumber}</td>
+                        <td style="font-family:'JetBrains Mono'; font-weight:700;">KES ${o.amount}</td>
+                        <td><span class="status-badge ${statusClass}">${o.status}</span></td>
+                        <td style="font-size:11.5px; color:var(--muted);">${new Date(o.createdAt).toLocaleString()}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (err) {
+                console.error(err);
+            }
         }
-        if (!products.length) fetch('products.json').then(response => response.json()).then(data => { products = data; render() }).catch(() => showStatus('Could not load products.json.', true));
+
+        async function loadCatalog() {
+            try {
+                const res = await fetch('/api/materials');
+                const data = await res.json();
+                materialsList = data.materials || [];
+                document.getElementById('statTotalCatalog').innerText = materialsList.length;
+                document.getElementById('catalogCountBadge').innerText = `${materialsList.length} papers`;
+
+                const tbody = document.getElementById('catalogTableBody');
+                tbody.innerHTML = '';
+
+                materialsList.forEach(m => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td><b>${m.unitCode}</b></td>
+                        <td><span style="font-size:11.5px; font-weight:700;">${m.type}</span></td>
+                        <td>${m.title}</td>
+                        <td style="font-family:'JetBrains Mono'; font-weight:700;">KES ${m.price}</td>
+                        <td>${m.hasSolutions ? '&#10003; Yes' : 'No'}</td>
+                        <td>
+                            <a href="/api/documents/download/${m.id}?preview=1" target="_blank" style="color:var(--mpesa); font-weight:700; text-decoration:none; font-size:12px;">
+                                View PDF
+                            </a>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        function toggleProviderFields() {
+            const provider = document.getElementById('mpesaProvider').value;
+            document.getElementById('payheroFields').style.display = provider === 'payhero' ? 'block' : 'none';
+            document.getElementById('tinypesaFields').style.display = provider === 'tinypesa' ? 'block' : 'none';
+            document.getElementById('intasendFields').style.display = provider === 'intasend' ? 'block' : 'none';
+            document.getElementById('darajaFields').style.display = provider === 'daraja' ? 'block' : 'none';
+        }
+
+        async function loadConfig() {
+            try {
+                const res = await fetch('/api/config');
+                const data = await res.json();
+                const payment = data.payment || {};
+                const active = data.activeProvider || payment.provider || 'payhero';
+
+                document.getElementById('mpesaProvider').value = active;
+                document.getElementById('receivingPhone').value = data.receivingPhone || '0707865597';
+
+                // PayHero
+                document.getElementById('payheroKey').value = payment.payhero?.apiKey || '';
+                document.getElementById('payheroSecret').value = payment.payhero?.apiSecret || '';
+                const channelVal = payment.payhero?.channelId || '11662';
+                document.getElementById('payheroChannel').value = channelVal;
+                if (document.getElementById('payheroChannelSelect')) {
+                    document.getElementById('payheroChannelSelect').value = channelVal;
+                }
+                if (payment.payhero?.accountId) {
+                    const badge = document.getElementById('payheroStatusBadge');
+                    if (badge) badge.innerText = `Account: #${payment.payhero.accountId}`;
+                }
+
+                // TinyPesa
+                document.getElementById('tinypesaKey').value = payment.tinypesa?.apiKey || '';
+
+                // IntaSend
+                document.getElementById('intasendPublic').value = payment.intasend?.publicKey || '';
+                document.getElementById('intasendSecret').value = payment.intasend?.secretKey || '';
+
+                // Daraja
+                document.getElementById('darajaShortcode').value = payment.daraja?.shortcode || '174379';
+
+                toggleProviderFields();
+
+                const modeLabels = {
+                    payhero: 'PayHero (Personal Phone)',
+                    tinypesa: 'TinyPesa (Personal Phone)',
+                    intasend: 'IntaSend Gateway',
+                    daraja: 'Daraja Shortcode'
+                };
+                document.getElementById('statPipelineMode').innerText = modeLabels[active] || 'Active';
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        async function testPayHeroConnection() {
+            const resElem = document.getElementById('payheroConnectionResult');
+            resElem.innerHTML = '<span style="color:#0052cc;">Testing PayHero credentials...</span>';
+            try {
+                const res = await fetch('/api/payhero/channels');
+                const data = await res.json();
+                if (res.ok && data.channels && data.channels.length > 0) {
+                    resElem.innerHTML = `<span style="color:#00875a; font-weight:700;">Live: Connected to Account #${data.accountId} (${data.channels.length} channels found)</span>`;
+                    const sel = document.getElementById('payheroChannelSelect');
+                    if (sel) {
+                        sel.innerHTML = '';
+                        data.channels.forEach(ch => {
+                            const opt = document.createElement('option');
+                            opt.value = ch.id;
+                            const label = ch.channel_type === 'bank' ? `Channel ${ch.id}: Paybill ${ch.short_code} (${ch.description || 'Bank'})` : `Channel ${ch.id}: Till ${ch.short_code} (${ch.channel_type})`;
+                            opt.innerText = label;
+                            if (String(ch.id) === String(document.getElementById('payheroChannel').value)) {
+                                opt.selected = true;
+                            }
+                            sel.appendChild(opt);
+                        });
+                    }
+                } else {
+                    resElem.innerHTML = `<span style="color:#de350b;">Unable to fetch channels. Check credentials.</span>`;
+                }
+            } catch (e) {
+                resElem.innerHTML = `<span style="color:#de350b;">Connection error: ${e.message}</span>`;
+            }
+        }
+
+        async function handleSaveConfig(e) {
+            e.preventDefault();
+            const provider = document.getElementById('mpesaProvider').value;
+            const receivingPhone = document.getElementById('receivingPhone').value.trim();
+
+            const payload = {
+                provider,
+                receivingPhone,
+                payhero: {
+                    apiKey: document.getElementById('payheroKey').value.trim(),
+                    apiSecret: document.getElementById('payheroSecret').value.trim(),
+                    channelId: document.getElementById('payheroChannel').value.trim()
+                },
+                tinypesa: {
+                    apiKey: document.getElementById('tinypesaKey').value.trim()
+                },
+                intasend: {
+                    publicKey: document.getElementById('intasendPublic').value.trim(),
+                    secretKey: document.getElementById('intasendSecret').value.trim()
+                },
+                daraja: {
+                    shortcode: document.getElementById('darajaShortcode').value.trim(),
+                    passkey: document.getElementById('darajaPasskey').value.trim(),
+                    consumerKey: document.getElementById('darajaKey').value.trim(),
+                    consumerSecret: document.getElementById('darajaSecret').value.trim()
+                }
+            };
+
+            try {
+                const res = await fetch('/api/config', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                if (data.success) {
+                    alert('M-Pesa payment configuration saved successfully!');
+                    loadConfig();
+                }
+            } catch (err) {
+                alert('Failed to save settings.');
+            }
+        }
+
+        async function handleCreateMaterial(e) {
+            e.preventDefault();
+            const facultySelect = document.getElementById('docFaculty');
+            const facultyName = facultySelect.options[facultySelect.selectedIndex].text;
+            const facultyId = facultySelect.value;
+            const type = document.getElementById('docType').value;
+            const unitCode = document.getElementById('docUnitCode').value.trim();
+            const unitName = document.getElementById('docUnitName').value.trim();
+            const title = document.getElementById('docTitle').value.trim();
+            const year = Number(document.getElementById('docYear').value) || 2024;
+            const pages = Number(document.getElementById('docPages').value) || 5;
+            const hasSolutions = document.getElementById('docHasSolutions').checked;
+            const description = document.getElementById('docDescription').value.trim();
+            const sampleQRaw = document.getElementById('docSampleQ').value.trim();
+            const previewQuestions = sampleQRaw ? sampleQRaw.split('\n').filter(Boolean) : [];
+
+            const payload = {
+                faculty: facultyName,
+                facultyId,
+                unitCode,
+                unitName,
+                title,
+                type,
+                year,
+                pages,
+                hasSolutions,
+                description,
+                previewQuestions
+            };
+
+            try {
+                const res = await fetch('/api/materials', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    alert(`Published "${title}"! PDF document generated on disk.`);
+                    document.getElementById('addMaterialForm').reset();
+                    updatePriceNotice();
+                    loadCatalog();
+                } else {
+                    alert(data.error || 'Failed to create material.');
+                }
+            } catch (err) {
+                alert('Network error while creating material.');
+            }
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('tabContentOrders').style.display = 'none';
+            document.getElementById('tabContentCatalog').style.display = 'none';
+            document.getElementById('tabContentSettings').style.display = 'none';
+
+            if (tab === 'orders') {
+                document.getElementById('tabBtnOrders').classList.add('active');
+                document.getElementById('tabContentOrders').style.display = 'block';
+                loadOrders();
+            } else if (tab === 'catalog') {
+                document.getElementById('tabBtnCatalog').classList.add('active');
+                document.getElementById('tabContentCatalog').style.display = 'block';
+                loadCatalog();
+            } else if (tab === 'settings') {
+                document.getElementById('tabBtnSettings').classList.add('active');
+                document.getElementById('tabContentSettings').style.display = 'block';
+                loadConfig();
+            }
+        }
+
+        function setupLiveUpdates() {
+            try {
+                const evt = new EventSource('/api/stream');
+                evt.addEventListener('order-created', () => loadOrders());
+                evt.addEventListener('order-updated', () => loadOrders());
+                evt.addEventListener('material-added', () => loadCatalog());
+            } catch {}
+        }
     </script>
 </body>
-
 </html>

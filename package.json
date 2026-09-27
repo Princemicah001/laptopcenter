@@ -1,0 +1,20 @@
+{
+  "name": "exameasy",
+  "version": "1.0.0",
+  "description": "ExamEasy - Kenya's Premier Exam Resource Hub with Instant M-Pesa STK Push",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node generate_catalog.js"
+  },
+  "keywords": [
+    "exameasy",
+    "past-papers",
+    "cats",
+    "mpesa",
+    "stk-push",
+    "daraja"
+  ],
+  "author": "ExamEasy Team",
+  "license": "ISC"
+}
