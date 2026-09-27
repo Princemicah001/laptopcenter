@@ -30,7 +30,7 @@ function loadEnv() {
 loadEnv();
 
 const port = Number(process.env.PORT) || 3000;
-const root = __dirname;
+const root = process.env.VERCEL ? process.cwd() : __dirname;
 const dataDir = path.join(root, 'data');
 const materialsPath = path.join(dataDir, 'materials.json');
 const ordersPath = path.join(dataDir, 'orders.json');
@@ -63,19 +63,42 @@ function broadcast(event, data) {
     }
 }
 
+const memoryCache = new Map();
+
 async function readJson(filePath, fallback) {
+    if (memoryCache.has(filePath)) {
+        return memoryCache.get(filePath);
+    }
     try {
-        const content = await fs.readFile(filePath, 'utf8');
-        return JSON.parse(content);
+        let target = filePath;
+        if (!fsSync.existsSync(target)) {
+            const rel = path.relative(root, filePath);
+            const alt = path.resolve(process.cwd(), rel);
+            if (fsSync.existsSync(alt)) target = alt;
+        }
+        const content = await fs.readFile(target, 'utf8');
+        const parsed = JSON.parse(content);
+        memoryCache.set(filePath, parsed);
+        return parsed;
     } catch {
         return fallback;
     }
 }
 
 async function writeJson(filePath, data) {
-    const tempPath = `${filePath}.${Date.now()}.tmp`;
-    await fs.writeFile(tempPath, JSON.stringify(data, null, 2), 'utf8');
-    await fs.rename(tempPath, filePath);
+    memoryCache.set(filePath, data);
+    try {
+        const tempPath = `${filePath}.${Date.now()}.tmp`;
+        await fs.writeFile(tempPath, JSON.stringify(data, null, 2), 'utf8');
+        await fs.rename(tempPath, filePath);
+    } catch (err) {
+        // Fallback for read-only serverless Lambda environments (Vercel)
+        try {
+            const baseName = path.basename(filePath);
+            const tmpFile = path.join('/tmp', baseName);
+            await fs.writeFile(tmpFile, JSON.stringify(data, null, 2), 'utf8');
+        } catch {}
+    }
 }
 
 function send(response, status, body, contentType = 'application/json; charset=utf-8') {
@@ -413,10 +436,17 @@ async function triggerDarajaStkPush({ shortcode, passkey, consumerKey, consumerS
 // -------------------------------------------------------------
 // HTTP SERVER & API ROUTES
 // -------------------------------------------------------------
-const server = http.createServer(async (request, response) => {
+async function handleRequest(request, response) {
     try {
         const requestUrl = new URL(request.url, `http://${request.headers.host || 'localhost'}`);
-        const pathname = requestUrl.pathname;
+        let pathname = requestUrl.pathname;
+        // On Vercel, if route was rewritten to /api/index.js, restore actual path
+        if (pathname === '/api/index.js' || pathname === '/api' || pathname === '/api/') {
+            const matched = request.headers['x-matched-path'] || request.headers['x-invoke-path'] || request.headers['x-forwarded-uri'];
+            if (matched && matched.startsWith('/api/')) {
+                pathname = matched.split('?')[0];
+            }
+        }
         const method = request.method;
 
         if (method === 'OPTIONS') {
@@ -447,7 +477,7 @@ const server = http.createServer(async (request, response) => {
                 const receivingPhone = payment.receivingPhone || process.env.RECEIVING_PHONE || config.receivingPhone || '0707865597';
 
                 return send(response, 200, {
-                    appName: config.appName || 'ExamEasy',
+                    appName: config.appName || 'Course',
                     receivingPhone,
                     currency: 'KES',
                     prices: config.prices || { 'past-paper': 200, 'cat': 25, 'special': 250 },
@@ -617,7 +647,7 @@ const server = http.createServer(async (request, response) => {
                 if (!fsSync.existsSync(dir)) fsSync.mkdirSync(dir, { recursive: true });
 
                 if (!fsSync.existsSync(fullFilePath)) {
-                    const streamText = `BT\n/F1 14 Tf\n50 780 Td\n(ExamEasy - ${newDoc.title.replace(/[\(\)]/g, '')}) Tj\n0 -25 Td\n/F1 11 Tf\n(Unit: ${newDoc.unitCode} - ${newDoc.unitName || ''}) Tj\n0 -20 Td\n(Official Student Copy | KES ${price}) Tj\nET`;
+                    const streamText = `BT\n/F1 14 Tf\n50 780 Td\n(Course - ${newDoc.title.replace(/[\(\)]/g, '')}) Tj\n0 -25 Td\n/F1 11 Tf\n(Unit: ${newDoc.unitCode} - ${newDoc.unitName || ''}) Tj\n0 -20 Td\n(Official Student Copy | KES ${price}) Tj\nET`;
                     const streamLen = Buffer.byteLength(streamText, 'utf8');
                     const pdfBuffer = Buffer.from(`%PDF-1.4\n1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>\nendobj\n4 0 obj\n<< /Length ${streamLen} >>\nstream\n${streamText}\nendstream\nendobj\n5 0 obj\n<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>\nendobj\nxref\n0 6\n0000000000 65535 f \n0000000009 00000 n \n0000000058 00000 n \n0000000115 00000 n \n0000000252 00000 n \n0000000300 00000 n \ntrailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n370\n%%EOF`);
                     await fs.writeFile(fullFilePath, pdfBuffer);
@@ -716,7 +746,7 @@ const server = http.createServer(async (request, response) => {
                             amount: totalAmount,
                             reference: orderId,
                             callbackUrl,
-                            customerName: 'ExamEasy Student'
+                            customerName: 'Course Student'
                         });
                         console.log('[PayHero Response]:', apiResult.data);
                         if (apiResult.ok && (apiResult.data.success || apiResult.data.status === 'QUEUED' || apiResult.status === 201)) {
@@ -901,14 +931,28 @@ const server = http.createServer(async (request, response) => {
                         order.mpesaReceiptNumber = payStatus.mpesa_receipt || generateReceiptNumber();
                         order.downloadToken = generateDownloadToken();
                         order.completedAt = new Date().toISOString();
+                        order.resultDesc = 'Payment received and confirmed.';
                         await writeJson(ordersPath, orders);
                         broadcast('order-updated', order);
                     } else if (payStatus && (payStatus.status === 'FAILED' || payStatus.status === 'CANCELLED')) {
                         order.status = 'FAILED';
+                        order.resultDesc = payStatus.description || 'Payment was cancelled or declined on phone.';
                         order.completedAt = new Date().toISOString();
                         await writeJson(ordersPath, orders);
                         broadcast('order-updated', order);
                     }
+                }
+            }
+
+            // If still pending and order age exceeds 80 seconds, mark as FAILED (timeout)
+            if (order.status === 'PENDING') {
+                const ageMs = Date.now() - new Date(order.createdAt).getTime();
+                if (ageMs > 80000) {
+                    order.status = 'FAILED';
+                    order.resultDesc = 'M-Pesa request timed out on handset (no PIN entered in time).';
+                    order.completedAt = new Date().toISOString();
+                    await writeJson(ordersPath, orders);
+                    broadcast('order-updated', order);
                 }
             }
 
@@ -977,8 +1021,10 @@ const server = http.createServer(async (request, response) => {
                         order.mpesaReceiptNumber = receipt;
                         order.downloadToken = generateDownloadToken();
                         order.completedAt = new Date().toISOString();
+                        order.resultDesc = body.message || 'Payment received and confirmed.';
                     } else if (status === 'FAILED' || status === 'CANCELLED' || body.success === false) {
                         order.status = 'FAILED';
+                        order.resultDesc = body.message || body.error_message || 'Payment failed or was cancelled on phone.';
                         order.completedAt = new Date().toISOString();
                     }
                     await writeJson(ordersPath, orders);
@@ -1114,7 +1160,7 @@ const server = http.createServer(async (request, response) => {
             }
 
             const fileData = await fs.readFile(filePath);
-            const downloadFileName = item ? item.fileName : `ExamEasy_${docId}.pdf`;
+            const downloadFileName = item ? item.fileName : `Course_${docId}.pdf`;
 
             response.writeHead(200, {
                 'Content-Type': 'application/pdf',
@@ -1148,13 +1194,19 @@ const server = http.createServer(async (request, response) => {
         console.error('Server error:', error);
         send(response, 500, { error: 'Internal Server Error', message: error.message });
     }
-});
+}
 
-server.listen(port, () => {
-    console.log(`========================================================`);
-    console.log(`ExamEasy Student Portal: http://localhost:${port}`);
-    console.log(`Vendor & Admin Console : http://localhost:${port}/vender.html`);
-    console.log(`API Base               : http://localhost:${port}/api/materials`);
-    console.log(`M-Pesa Engine          : Third-Party Direct-to-Phone (PayHero, TinyPesa, IntaSend)`);
-    console.log(`========================================================`);
-});
+const server = http.createServer(handleRequest);
+
+if (require.main === module) {
+    server.listen(port, () => {
+        console.log(`========================================================`);
+        console.log(`Course Student Portal : http://localhost:${port}`);
+        console.log(`Vendor & Admin Console : http://localhost:${port}/vender.html`);
+        console.log(`API Base               : http://localhost:${port}/api/materials`);
+        console.log(`M-Pesa Engine          : Third-Party Direct-to-Phone (PayHero, TinyPesa, IntaSend)`);
+        console.log(`========================================================`);
+    });
+}
+
+module.exports = handleRequest;

@@ -1375,7 +1375,7 @@
                         <line x1="9" y1="11" x2="15" y2="11"></line>
                     </svg>
                 </div>
-                <div>Course<span class="accent">Correct</span></div>
+                <div>Course</div>
             </a>
 
             <div class="nav-search">
@@ -1464,7 +1464,7 @@
                 <!-- Explorer Toolbar & Breadcrumbs -->
                 <div class="explorer-bar">
                     <div class="breadcrumbs" id="breadcrumbsNav">
-                        <span style="cursor:pointer;" onclick="resetFilter()">CourseCorrect</span>
+                        <span style="cursor:pointer;" onclick="resetFilter()">Course</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
                         <span class="current" id="currentFolderBreadcrumb">All Resources</span>
                     </div>
@@ -1756,20 +1756,85 @@
             setupSearch();
         });
 
-        // Load Materials & Folders Catalog
+        // Build folder tree structure from raw materials list
+        function buildFoldersTree(items) {
+            const faculties = {};
+            for (const item of items) {
+                const fName = item.faculty;
+                const fId = item.facultyId || fName.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                if (!faculties[fId]) {
+                    faculties[fId] = { id: fId, name: fName, units: {} };
+                }
+                if (!faculties[fId].units[item.unitCode]) {
+                    faculties[fId].units[item.unitCode] = {
+                        code: item.unitCode,
+                        name: item.unitName,
+                        pastPapersCount: 0,
+                        catsCount: 0,
+                        specialCount: 0,
+                        totalCount: 0
+                    };
+                }
+                const u = faculties[fId].units[item.unitCode];
+                u.totalCount++;
+                if (item.category === 'past-paper') u.pastPapersCount++;
+                else if (item.category === 'cat') u.catsCount++;
+                else if (item.category === 'special') u.specialCount++;
+            }
+            return Object.values(faculties).map(f => ({
+                ...f,
+                units: Object.values(f.units)
+            }));
+        }
+
+        // Load Materials & Folders Catalog (with resilient Vercel static fallback)
         async function loadMaterials() {
             try {
-                const res = await fetch('/api/materials');
-                const data = await res.json();
-                allMaterials = data.materials || [];
-                foldersTree = data.foldersTree || [];
-                document.getElementById('totalDocsCount').innerText = `${allMaterials.length} items`;
-                renderSidebarFolders();
-                renderSubFoldersGrid();
-                renderFilesGrid();
+                let data = null;
+                // Attempt 1: Fetch from /api/materials (Server / Vercel Serverless Function)
+                try {
+                    const res = await fetch('/api/materials');
+                    if (res.ok) {
+                        const parsed = await res.json();
+                        if (parsed && Array.isArray(parsed.materials) && parsed.materials.length > 0) {
+                            data = parsed;
+                        }
+                    }
+                } catch (apiErr) {
+                    console.warn('/api/materials not reachable, falling back to static /data/materials.json:', apiErr.message);
+                }
+
+                // Attempt 2 (Fallback): If /api/materials failed or returned empty (e.g. static Vercel hosting)
+                if (!data) {
+                    try {
+                        const staticRes = await fetch('/data/materials.json');
+                        if (staticRes.ok) {
+                            const rawItems = await staticRes.json();
+                            if (Array.isArray(rawItems) && rawItems.length > 0) {
+                                data = {
+                                    materials: rawItems,
+                                    foldersTree: buildFoldersTree(rawItems)
+                                };
+                            }
+                        }
+                    } catch (staticErr) {
+                        console.error('Failed to load static /data/materials.json fallback:', staticErr);
+                    }
+                }
+
+                if (data && data.materials && data.materials.length > 0) {
+                    allMaterials = data.materials;
+                    foldersTree = (data.foldersTree && data.foldersTree.length > 0) ? data.foldersTree : buildFoldersTree(allMaterials);
+                    document.getElementById('totalDocsCount').innerText = `${allMaterials.length} items`;
+                    renderSidebarFolders();
+                    renderSubFoldersGrid();
+                    renderFilesGrid();
+                } else {
+                    throw new Error('No examination documents found.');
+                }
             } catch (err) {
                 console.error('Failed to load materials:', err);
-                showToast('Failed to load exam catalog. Check server.', 'error');
+                showToast('Failed to load exam catalog. Check internet or server.', 'error');
             }
         }
 
@@ -2198,12 +2263,19 @@
             openMpesaCheckout([doc]);
         }
 
+        let activePollingInterval = null;
+
         // Open M-Pesa STK Push Modal
         function openMpesaCheckout(items) {
+            if (activePollingInterval) {
+                clearInterval(activePollingInterval);
+                activePollingInterval = null;
+            }
             const modal = document.getElementById('mpesaModal');
             document.getElementById('checkoutStepInput').style.display = 'block';
             document.getElementById('checkoutStepWaiting').style.display = 'none';
             document.getElementById('checkoutStepSuccess').style.display = 'none';
+            document.getElementById('checkoutStepFailure').style.display = 'none';
 
             let total = 0;
             const breakdown = document.getElementById('checkoutItemsBreakdown');
@@ -2227,6 +2299,10 @@
         }
 
         function closeMpesaModal() {
+            if (activePollingInterval) {
+                clearInterval(activePollingInterval);
+                activePollingInterval = null;
+            }
             document.getElementById('mpesaModal').classList.remove('active');
         }
 
@@ -2329,7 +2405,7 @@
         async function cancelSimulatedPayment() {
             if (!currentActiveOrder) return;
             try {
-                await fetch('/api/mpesa/simulate-pin', {
+                const res = await fetch('/api/mpesa/simulate-pin', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -2337,10 +2413,14 @@
                         action: 'CANCEL'
                     })
                 });
-                showToast('Payment request was cancelled on phone.', 'info');
-                closeMpesaModal();
+                const data = await res.json();
+                if (data.order) {
+                    showPaymentFailure(data.order);
+                } else {
+                    showPaymentFailure({ status: 'CANCELLED', resultDesc: 'Payment request was cancelled on phone.' });
+                }
             } catch (err) {
-                closeMpesaModal();
+                showPaymentFailure({ status: 'CANCELLED', resultDesc: 'Payment request was cancelled.' });
             }
         }
 
@@ -2359,7 +2439,7 @@
                     showPaymentSuccess(order);
                     showToast('Payment verified successfully!', 'success');
                 } else if (order.status === 'FAILED' || order.status === 'CANCELLED') {
-                    showToast(`Payment was ${order.status.toLowerCase()}.`, 'error');
+                    showPaymentFailure(order);
                 } else {
                     showToast('Payment still pending. Please check your phone for the PIN prompt.', 'info');
                 }
@@ -2370,11 +2450,20 @@
 
         // Polling Order Status (Works seamlessly with PayHero, Daraja Callbacks or Simulator)
         function pollOrderStatus(orderId) {
+            if (activePollingInterval) {
+                clearInterval(activePollingInterval);
+                activePollingInterval = null;
+            }
             let attempts = 0;
-            const interval = setInterval(async () => {
+            activePollingInterval = setInterval(async () => {
                 attempts++;
-                if (attempts > 60) {
-                    clearInterval(interval);
+                if (attempts > 50) {
+                    clearInterval(activePollingInterval);
+                    activePollingInterval = null;
+                    showPaymentFailure({
+                        status: 'FAILED',
+                        resultDesc: 'Payment request timed out. Please verify your phone or try again.'
+                    });
                     return;
                 }
                 try {
@@ -2382,11 +2471,13 @@
                     if (!res.ok) return;
                     const order = await res.json();
                     if (order.status === 'COMPLETED') {
-                        clearInterval(interval);
+                        clearInterval(activePollingInterval);
+                        activePollingInterval = null;
                         showPaymentSuccess(order);
                     } else if (order.status === 'FAILED' || order.status === 'CANCELLED') {
-                        clearInterval(interval);
-                        showToast(`Payment ${order.status.toLowerCase()}: ${order.resultDesc || 'Transaction did not complete.'}`, 'error');
+                        clearInterval(activePollingInterval);
+                        activePollingInterval = null;
+                        showPaymentFailure(order);
                     }
                 } catch {}
             }, 2000);
@@ -2394,7 +2485,13 @@
 
         // Show Payment Success Step & Unlocked Download Buttons
         function showPaymentSuccess(order) {
+            if (activePollingInterval) {
+                clearInterval(activePollingInterval);
+                activePollingInterval = null;
+            }
+            document.getElementById('checkoutStepInput').style.display = 'none';
             document.getElementById('checkoutStepWaiting').style.display = 'none';
+            document.getElementById('checkoutStepFailure').style.display = 'none';
             document.getElementById('checkoutStepSuccess').style.display = 'block';
 
             document.getElementById('receiptNumberDisplay').innerText = order.mpesaReceiptNumber || 'EE-CONFIRMED';
@@ -2427,6 +2524,36 @@
             cart = [];
             updateCartUI();
             showToast('Payment verified! Download your materials now.', 'success');
+        }
+
+        // Show Payment Failure Step & Guidance
+        function showPaymentFailure(order) {
+            if (activePollingInterval) {
+                clearInterval(activePollingInterval);
+                activePollingInterval = null;
+            }
+            document.getElementById('checkoutStepInput').style.display = 'none';
+            document.getElementById('checkoutStepWaiting').style.display = 'none';
+            document.getElementById('checkoutStepSuccess').style.display = 'none';
+            document.getElementById('checkoutStepFailure').style.display = 'block';
+
+            const reasonEl = document.getElementById('failureReasonText');
+            if (reasonEl) {
+                reasonEl.innerText = order.resultDesc || order.error || 'The M-Pesa transaction was cancelled, expired, or declined on your handset.';
+            }
+            showToast(`Payment ${order.status ? order.status.toLowerCase() : 'failed'}: ${order.resultDesc || 'Transaction did not complete.'}`, 'error');
+        }
+
+        // Return to Input step to retry payment
+        function retryMpesaPayment() {
+            if (activePollingInterval) {
+                clearInterval(activePollingInterval);
+                activePollingInterval = null;
+            }
+            document.getElementById('checkoutStepFailure').style.display = 'none';
+            document.getElementById('checkoutStepWaiting').style.display = 'none';
+            document.getElementById('checkoutStepSuccess').style.display = 'none';
+            document.getElementById('checkoutStepInput').style.display = 'block';
         }
 
         // My Purchases Lookup Modal
@@ -2490,8 +2617,12 @@
                 const evtSource = new EventSource('/api/stream');
                 evtSource.addEventListener('order-updated', e => {
                     const order = JSON.parse(e.data);
-                    if (currentActiveOrder && currentActiveOrder.orderId === order.orderId && order.status === 'COMPLETED') {
-                        showPaymentSuccess(order);
+                    if (currentActiveOrder && currentActiveOrder.orderId === order.orderId) {
+                        if (order.status === 'COMPLETED') {
+                            showPaymentSuccess(order);
+                        } else if (order.status === 'FAILED' || order.status === 'CANCELLED') {
+                            showPaymentFailure(order);
+                        }
                     }
                 });
                 evtSource.addEventListener('material-added', () => {

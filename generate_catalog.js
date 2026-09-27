@@ -3,7 +3,7 @@ const path = require('path');
 
 function createPdfBuffer({ title, unitCode, unitName, faculty, type, price, year, semester, pages, hasSolutions, previewQuestions }) {
     const lines = [
-        `ExamEasy KENYA - STUDENT RESOURCE PORTAL`,
+        `Course KENYA - STUDENT RESOURCE PORTAL`,
         `CONFIDENTIAL & VERIFIED ACADEMIC RESOURCE`,
         `============================================================`,
         `FACULTY: ${faculty.toUpperCase()}`,
@@ -12,7 +12,7 @@ function createPdfBuffer({ title, unitCode, unitName, faculty, type, price, year
         `ACADEMIC YEAR: ${year} | ${semester.toUpperCase()}`,
         `PRICE: KES ${price}.00 (PAID & VERIFIED)`,
         `SOLUTIONS: ${hasSolutions ? 'COMPREHENSIVE MARKING SCHEME INCLUDED' : 'QUESTION PAPER ONLY'}`,
-        `TOTAL PAGES: ${pages} PAGES | WATERMARK: EXAMEASY GENUINE COPY`,
+        `TOTAL PAGES: ${pages} PAGES | WATERMARK: COURSE GENUINE COPY`,
         `============================================================`,
         ``,
         `INSTRUCTIONS TO CANDIDATES:`,
@@ -56,8 +56,8 @@ function createPdfBuffer({ title, unitCode, unitName, faculty, type, price, year
         lines.push(`============================================================`);
     }
     lines.push(``);
-    lines.push(`Powered by ExamEasy Kenya - Instant M-Pesa Exam Delivery`);
-    lines.push(`Contact Support: +254 700 000 000 | support@exameasy.co.ke`);
+    lines.push(`Powered by Course Kenya - Instant M-Pesa Exam Delivery`);
+    lines.push(`Contact Support: +254 700 000 000 | support@course.co.ke`);
 
     // PDF stream text generator
     let streamText = `BT\n/F1 10 Tf\n50 780 Td\n`;

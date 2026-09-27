@@ -1,6 +1,6 @@
-# ExamEasy — University Exam Resource Marketplace
+# Course — University Exam Resource Marketplace
 
-ExamEasy is Kenya's premier student exam resource portal, designed to give students instant access to revision materials, complete past examination papers, continuous assessment tests (CATs), and special/supplementary examinations with worked solutions and marking schemes.
+Course is Kenya's premier student exam resource portal, designed to give students instant access to revision materials, complete past examination papers, continuous assessment tests (CATs), and special/supplementary examinations with worked solutions and marking schemes.
 
 ---
 
@@ -18,7 +18,7 @@ In line with the brand guidelines, all academic resources are strictly priced as
 Exam documents are catalogued and presented as interactive folders with their respective PDF files:
 
 ```
-ExamEasy/
+Course/
 ├── School of Computing & Informatics/
 │   ├── BCS 201: Data Structures and Algorithms/
 │   │   ├── [Folder] Past Papers (KES 200) -> BCS_201_Data_Structures_2024_Main_Exam.pdf
@@ -45,7 +45,7 @@ Every document item is backed by a genuine, verified PDF document in the `docume
 
 ## Lipa Na M-Pesa Payment Pipeline & STK Push
 
-ExamEasy features a complete, direct M-Pesa STK Push payment pipeline:
+Course features a complete, direct M-Pesa STK Push payment pipeline:
 
 1. **One-Click STK Push / Multi-Item Cart Checkout**:
    - Single item instant purchase or shopping cart bundle.
@@ -68,7 +68,7 @@ ExamEasy features a complete, direct M-Pesa STK Push payment pipeline:
 
 ---
 
-## Running ExamEasy
+## Running Course
 
 Start the server:
 ```bash

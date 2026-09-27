@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ExamEasy | Vendor & Admin Management Console</title>
+    <title>Course | Vendor & Admin Management Console</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -327,7 +327,7 @@
         <div class="wrap header-inner">
             <div style="display:flex; align-items:center; gap:12px;">
                 <a href="/" class="brand">
-                    Exam<span class="accent">Easy</span>
+                    Course
                 </a>
                 <span class="badge-vendor">Vendor Console</span>
             </div>
@@ -690,9 +690,23 @@
 
         async function loadCatalog() {
             try {
-                const res = await fetch('/api/materials');
-                const data = await res.json();
-                materialsList = data.materials || [];
+                let data = null;
+                try {
+                    const res = await fetch('/api/materials');
+                    if (res.ok) data = await res.json();
+                } catch {}
+
+                if (!data || !data.materials) {
+                    try {
+                        const staticRes = await fetch('/data/materials.json');
+                        if (staticRes.ok) {
+                            const raw = await staticRes.json();
+                            data = { materials: raw };
+                        }
+                    } catch {}
+                }
+
+                materialsList = (data && data.materials) ? data.materials : [];
                 document.getElementById('statTotalCatalog').innerText = materialsList.length;
                 document.getElementById('catalogCountBadge').innerText = `${materialsList.length} papers`;
 
@@ -730,8 +744,20 @@
 
         async function loadConfig() {
             try {
-                const res = await fetch('/api/config');
-                const data = await res.json();
+                let data = null;
+                try {
+                    const res = await fetch('/api/config');
+                    if (res.ok) data = await res.json();
+                } catch {}
+
+                if (!data) {
+                    try {
+                        const staticRes = await fetch('/data/config.json');
+                        if (staticRes.ok) data = await staticRes.json();
+                    } catch {}
+                }
+
+                data = data || {};
                 const payment = data.payment || {};
                 const active = data.activeProvider || payment.provider || 'payhero';
 
