@@ -1,20 +1,13 @@
 {
-  "name": "course",
+  "name": "laptop-centre",
   "version": "1.0.0",
-  "description": "Course - Kenya's Premier Exam Resource Hub with Instant M-Pesa STK Push",
-  "main": "server.js",
+  "private": true,
+  "description": "Static Laptop Centre storefront",
   "scripts": {
     "start": "node server.js",
-    "seed": "node generate_catalog.js"
+    "preview": "node server.js"
   },
-  "keywords": [
-    "course",
-    "past-papers",
-    "cats",
-    "mpesa",
-    "stk-push",
-    "daraja"
-  ],
-  "author": "Course Team",
-  "license": "ISC"
+  "engines": {
+    "node": ">=18"
+  }
 }
